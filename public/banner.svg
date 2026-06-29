@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="Lentago Labs — Production that shows up when the need does.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e2b28"></stop>
+      <stop offset="1" stop-color="#1c4a44"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="320" fill="url(#bg)"></rect>
+
+  <g fill="none" stroke="#c2643c" stroke-opacity="0.13" stroke-width="1.6">
+    <path d="M-20 250 C 220 200 380 300 640 250 S 1080 180 1300 250"></path>
+    <path d="M-20 210 C 220 160 380 260 640 210 S 1080 140 1300 210"></path>
+    <path d="M-20 170 C 220 120 380 220 640 170 S 1080 100 1300 170"></path>
+    <path d="M-20 130 C 220 80 380 180 640 130 S 1080 60 1300 130"></path>
+    <path d="M-20 90 C 220 40 380 140 640 90 S 1080 20 1300 90"></path>
+  </g>
+
+  <rect x="0" y="316" width="1280" height="4" fill="#c2643c"></rect>
+
+  <g transform="translate(1090 90)" opacity="0.1">
+    <circle cx="80" cy="80" r="78" fill="none" stroke="#c2643c" stroke-width="11"></circle>
+    <path d="M80 -8v176M-8 80h176" stroke="#f3f0e8" stroke-width="7"></path>
+    <circle cx="80" cy="80" r="15" fill="#c2643c"></circle>
+  </g>
+
+  <text x="80" y="118" font-family="ui-monospace, Menlo, monospace" font-size="17" fill="#9fb0aa" letter-spacing="5">PRACTICE · EST. 1997 · INFRASTRUCTURE OPS</text>
+
+  <text x="78" y="190" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="76" fill="#f3f0e8" letter-spacing="-3">Lentago<tspan fill="#c2643c">Labs</tspan></text>
+
+  <text x="80" y="244" font-family="'Space Grotesk', system-ui, sans-serif" font-size="26" fill="#cdd6d0" letter-spacing="-0.5">Production that shows up when the need does.</text>
+
+  <text x="80" y="284" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#9fb0aa">~/lentago/runbook.md  ·  build it · break it · operate it</text>
+</svg>

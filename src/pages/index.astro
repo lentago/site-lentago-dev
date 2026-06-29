@@ -1,0 +1,29 @@
+---
+// Lentago Labs landing page — a faithful port of the Lentago Labs Design System
+// handoff (the "Tidewater" rebrand of the former Pitzi Labs site). The sections
+// are React components (src/components/) rendered SERVER-SIDE ONLY: there is NO
+// client:* directive anywhere below, so no React ships to the browser — the
+// build emits static HTML + the design-system CSS in public/. The design
+// system's interactive consult form is rendered here as a static styled mock.
+import Layout from '../layouts/Layout.astro';
+import { NavBar } from '../components/Nav.jsx';
+import { HeroDark } from '../components/Hero.jsx';
+import { StatusStrip } from '../components/StatusStrip.jsx';
+import { ServicesGrid } from '../components/Services.jsx';
+import { CaseStudy } from '../components/CaseStudy.jsx';
+import { Principles } from '../components/Principles.jsx';
+import { Experience } from '../components/Experience.jsx';
+import { Contact, Footer } from '../components/Contact.jsx';
+---
+
+<Layout>
+  <NavBar active="Practice" />
+  <HeroDark />
+  <StatusStrip />
+  <ServicesGrid />
+  <CaseStudy />
+  <Principles />
+  <Experience />
+  <Contact />
+  <Footer />
+</Layout>

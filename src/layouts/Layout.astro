@@ -1,0 +1,69 @@
+---
+// Base HTML shell for the Lentago Labs site.
+// Links the canonical design tokens (public/design-system/styles.css, which
+// @imports the self-hosted fonts + token files) and the small set of global
+// styles the design relies on. Page content (the ported sections) comes
+// through the default slot.
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Lentago Labs — Production that shows up when the need does.',
+  description = 'Lentago Labs — infrastructure operations consulting. Twenty-five years of production: platform engineering, cost & posture audits, incident & on-call, CI/CD & supply chain. Build it, break it, operate it.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/design-system/styles.css" />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--color-bg);
+      }
+      body {
+        overflow-x: hidden;
+      }
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+      }
+      ::selection {
+        background: var(--color-accent);
+        color: #fffefb;
+      }
+
+      /* Nav link hover re-expressed as CSS — the design prototype used
+         onMouseEnter/onMouseLeave, which don't run on this static (no
+         hydration) site. The active item stays copper via .ll-navlink--active. */
+      .ll-navlink {
+        color: var(--fg2);
+        transition: color 120ms var(--ease-standard);
+      }
+      .ll-navlink:hover {
+        color: var(--color-accent);
+      }
+      .ll-navlink--active {
+        color: var(--color-accent);
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

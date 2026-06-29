@@ -1,0 +1,96 @@
+# .github/workflows/deploy.yml
+#
+# Build & Deploy: Lentago Labs landing -> ECR -> ECS Fargate (foundry platform)
+#
+# Builds the Astro static site, packages it into the nginx container, pushes to
+# ECR, and rolls the ECS service. Authenticates via the foundry platform's
+# GitHub OIDC role (no long-lived AWS credentials). The ECR repo, ECS cluster/
+# service, and the OIDC trust for this repo are provisioned by
+# foundry-platform-demo (modules/site).
+#
+# >>> MANUAL-ONLY until provisioned. The ECR repo `foundry-dev-lentago`, the ECS
+# service `foundry-dev-lentago`, and the OIDC trust for THIS repo
+# (PitziLabs/lentagolabs-dev) do not exist yet — they must be added to
+# foundry-platform-demo first, mirroring the pitzilabs-dev modules/site entry.
+# The trigger is `workflow_dispatch` only so a fresh push to main doesn't fail a
+# deploy that can't authenticate. Once the infra exists, restore:
+#     on:
+#       push:
+#         branches: [main]
+#       workflow_dispatch: {}
+
+name: Build & Deploy
+
+on:
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPO: foundry-dev-lentago
+  ECS_CLUSTER: foundry-dev-cluster
+  ECS_SERVICE: foundry-dev-lentago
+  AWS_ROLE_ARN: arn:aws:iam::365184644049:role/foundry-dev-github-actions
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to ECR
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push container image
+        env:
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build \
+            -t $REGISTRY/$ECR_REPO:latest \
+            -t $REGISTRY/$ECR_REPO:$IMAGE_TAG \
+            .
+          docker push $REGISTRY/$ECR_REPO:latest
+          docker push $REGISTRY/$ECR_REPO:$IMAGE_TAG
+
+      - name: Force new ECS deployment
+        run: |
+          aws ecs update-service \
+            --cluster $ECS_CLUSTER \
+            --service $ECS_SERVICE \
+            --force-new-deployment \
+            --region $AWS_REGION \
+            --no-cli-pager
+
+      - name: Wait for deployment to stabilize
+        run: |
+          aws ecs wait services-stable \
+            --cluster $ECS_CLUSTER \
+            --services $ECS_SERVICE \
+            --region $AWS_REGION

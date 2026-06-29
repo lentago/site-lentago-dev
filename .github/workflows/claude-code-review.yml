@@ -1,0 +1,62 @@
+# ============================================================================
+# Claude Code — Automated PR Review
+# ============================================================================
+# Thin wrapper around PitziLabs/shared-workflows/claude-review.yml. Pinned to
+# Haiku via the shared workflow's default.
+# ============================================================================
+
+name: Claude Code Review
+
+# >>> DISABLED 2026-06-25: automated Claude PR review turned off fleet-wide.
+# Trigger is manual `workflow_dispatch` only, so it never auto-runs on PRs. The
+# repo-specific review_prompt below is preserved. To re-enable, restore the
+# `on: pull_request` trigger (see pitzilabs-dev git history for the shape).
+on:
+  workflow_dispatch:
+
+jobs:
+  claude-review:
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    uses: PitziLabs/shared-workflows/.github/workflows/claude-review.yml@main
+    secrets: inherit
+    with:
+      review_prompt: |
+        This repository is the **Lentago Labs landing site** — an Astro static
+        site (server-rendered React, no client hydration) served by nginx on
+        the foundry-platform-demo AWS stack via GitHub OIDC → ECR/ECS/ALB. The
+        live site is `src/`; the upstream design system is the "Lentago Labs
+        Design System" project in Claude Design (not in this repo). Lentago Labs
+        is the "Tidewater" rebrand of the former Pitzi Labs. Review changes
+        along these dimensions:
+
+        - **Brand fidelity** — output must follow `/BRAND.md` and the served
+          tokens in `public/design-system/` (`styles.css` → `tokens/*.css`).
+          Brand = the **benchmark-disk** mark, teal #1c4a44 / #0e2b28 + copper
+          #c2643c + limestone #f3f0e8, Space Grotesk + JetBrains Mono, one
+          copper accent per region. Dark surfaces carry contour lines + a
+          benchmark-disk watermark; light surfaces are flat paper. Flag drift in
+          palette, type, the mark, or section order. Copy is load-bearing —
+          don't paraphrase the hero headline, "Queue's open.", or the
+          principles. Field-station/terminal mocks use the ▲ triangulation
+          marker + `lentago`, never `$` or `>`.
+        - **Static-site correctness** — components render at build with no
+          `client:*` directive; no React should ship to the browser (the built
+          `dist/index.html` must have no `<script>` tag). Interactions in the
+          prototype (hover handlers, the consult form) must be CSS / a static
+          mock, not shipped JS.
+        - **Build & container** — `npm run build` must produce `dist/`; the
+          Dockerfile copies `dist/` into nginx serving on :8080 with a
+          `/health` endpoint (the ALB target group health check).
+        - **Deploy wiring** — `.github/workflows/deploy.yml` targets ECR
+          `foundry-dev-lentago` / ECS service `foundry-dev-lentago` on cluster
+          `foundry-dev-cluster`, via the foundry OIDC role, and is
+          `workflow_dispatch`-only until that infra is provisioned. No
+          long-lived AWS credentials anywhere.
+        - **Accessibility & semantics** — real landmarks (header/nav/main/
+          footer), alt text, sufficient contrast, focus-visible styles intact.
+        - **Hygiene** — no secrets, no stray prototype scaffolding leaking into
+          the served site, `public/design-system/` paths resolve.

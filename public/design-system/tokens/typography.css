@@ -1,0 +1,39 @@
+/* =========================================================================
+   LENTAGO LABS — Typography tokens
+   Two families only. Space Grotesk carries display + body; JetBrains Mono
+   carries labels, meta, runbook/field-note flavour, and the brand mark.
+   Display is heavy and tight (-0.035em). Mono labels are UPPERCASE + tracked.
+   ========================================================================= */
+
+:root {
+  /* ---------- Families ---------- */
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-body:    "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --font-display-weight:   700;
+  --font-display-tracking: -0.035em;
+
+  /* ---------- Type scale (rem; root = 16px) ---------- */
+  --fs-xs:    0.75rem;     /* 12 — tags, mono captions */
+  --fs-sm:    0.85rem;     /* 13.6 — meta, nav */
+  --fs-base:  1rem;        /* 16 — body */
+  --fs-md:    1.125rem;    /* 18 — lede */
+  --fs-lg:    1.375rem;    /* 22 — section heads / h3 */
+  --fs-xl:    1.75rem;     /* 28 — h2 */
+  --fs-2xl:   2.5rem;      /* 40 — h1 */
+  --fs-3xl:   3.5rem;      /* 56 — hero */
+  --fs-4xl:   4.75rem;     /* 76 — display */
+
+  /* ---------- Line height ---------- */
+  --lh-tight:  1.1;   /* @kind other */
+  --lh-snug:   1.3;   /* @kind other */
+  --lh-body:   1.65;  /* @kind other */
+  --lh-loose:  1.8;   /* @kind other */
+
+  /* ---------- Letter spacing ---------- */
+  --tracking-tight:  -0.015em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-mono:    0.06em;   /* uppercase mono labels */
+}

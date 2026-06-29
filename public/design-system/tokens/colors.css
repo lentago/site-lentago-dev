@@ -1,0 +1,70 @@
+/* =========================================================================
+   LENTAGO LABS — Color tokens · "Tidewater"
+   Limestone paper + slate-teal ink, with a single warm copper accent.
+   Teal is the brand; copper is an accent (one element per region, never a
+   fill). The palette reads as survey-and-terrain: stone, water, and the
+   warm line of a contour drawn across cool ground. Status palette is the
+   ops signal set (ok / warn / info / err), tuned warm to sit on teal.
+   ========================================================================= */
+
+:root {
+  /* ---------- Surfaces (limestone paper) ---------- */
+  --color-bg:           #f3f0e8;   /* page — warm limestone */
+  --color-bg-alt:       #ece7da;   /* subtle band */
+  --color-surface:      #fffefb;   /* cards, inputs */
+  --color-surface-sunk: #e9e3d5;   /* code blocks, wells, tag chips */
+
+  /* ---------- Carbon (text + dark surfaces) ---------- */
+  --color-ink:          #13302d;   /* primary text — deep slate-teal */
+  --color-ink-strong:   #0e2b28;   /* hero / dark surfaces (near-black teal) */
+  --color-ink-soft:     #1c4a44;   /* mid teal */
+  --color-ink-muted:    #5c6b66;   /* secondary text */
+  --color-ink-faint:    #93a09a;   /* tertiary text, hints */
+
+  /* ---------- Brand teal (primary brand color) ---------- */
+  --color-brand:        #1c4a44;
+  --color-brand-deep:   #0e2b28;
+  --color-brand-soft:   #2a615a;
+
+  /* ---------- Lines ---------- */
+  --color-border:       #ddd6c6;   /* default hairline */
+  --color-border-strong:#cabfa9;   /* emphasised border, timeline rule */
+  --color-divider:      #e4ddcd;
+
+  /* ---------- Brand accent (warm copper — the contour line) ---------- */
+  --color-accent:       #c2643c;   /* primary action / link */
+  --color-accent-hover: #a8502d;   /* hover / pressed */
+  --color-accent-soft:  #e8c4ab;   /* soft fill */
+  --color-accent-tint:  #f5e3d6;   /* faint tint background */
+
+  /* ---------- Dark-surface foreground (text on teal) ---------- */
+  --color-on-dark:       #f3f0e8;
+  --color-on-dark-soft:  #cdd6d0;  /* body copy on dark */
+  --color-on-dark-muted: #9fb0aa;  /* meta on dark */
+  --color-on-dark-faint: #748983;  /* labels on dark */
+
+  /* Dark "field-station" panel (case-study + contact mocks) */
+  --color-term-bg:       #14201d;
+  --color-term-bg-sunk:  #0d1815;
+  --color-term-border:   #2d3f3a;
+
+  /* ---------- Semantic / status (ops signal palette) ---------- */
+  --status-ok:          #4a9e82;   /* healthy / passing */
+  --status-warn:        #c98a2b;   /* degraded */
+  --status-info:        #c2643c;   /* notice (== accent) */
+  --status-err:         #bb4a33;   /* failed / critical */
+  --status-ok-bg:       #e0ece4;
+  --status-warn-bg:     #f3e7cf;
+  --status-info-bg:     #f5e3d6;
+  --status-err-bg:      #f2d8cd;
+
+  /* ---------- Foreground roles (semantic aliases) ---------- */
+  --fg1: var(--color-ink);         /* primary */
+  --fg2: var(--color-ink-muted);   /* secondary */
+  --fg3: var(--color-ink-faint);   /* tertiary */
+  --fg-on-dark: var(--color-on-dark);
+  --fg-on-dark-muted: var(--color-ink-faint);
+
+  /* ---------- Gradients ---------- */
+  --grad-hero: linear-gradient(150deg, #0e2b28, #1c4a44); /* @kind color */
+}

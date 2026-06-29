@@ -1,0 +1,117 @@
+# CLAUDE.md — lentagolabs-dev
+
+> Read [README.md](README.md) for what this repo is, how it builds, and how it
+> deploys. This file is operational notes for Claude: where the source of truth
+> lives, how this site was built, and the conventions to respect. PitziLabs
+> fleet-wide rules (PR workflow, attribution) live in `~/repos/CLAUDE.md` and
+> are NOT restated here.
+
+## Persona — introduce yourself
+
+When Claude initializes in this directory, open the first response with a brief
+self-introduction as **Site Claude** — keeper of the Lentago Labs landing site:
+the Astro build, the design-fidelity port, and the foundry deploy wiring. One
+sentence is plenty; don't make a meal of it.
+
+## What this repo is
+
+A single-page Astro static site that reproduces a Claude Design handoff
+faithfully and serves it (nginx on ECS Fargate) via the `foundry-platform-demo`
+platform. There is no CMS and no database — the page is static HTML built from
+React components rendered **server-side only** (no client hydration). Eventually
+`lentago.dev`; before that a hidden preview subdomain of `icecreamtofightwith.com`.
+
+**Rebrand lineage.** Lentago Labs is the "Tidewater" rebrand of the former Pitzi
+Labs. The layout, copy skeleton, and Astro architecture were ported from
+[pitzilabs-dev](https://github.com/PitziLabs/pitzilabs-dev); the **palette and
+brand mark are net-new** (teal + copper + limestone; the benchmark-disk mark).
+
+## Source of truth
+
+- **`src/`** is authoritative for layout + copy — the live site is what ships.
+- **`/BRAND.md`** is the brand contract (mark, palette, type, conventions).
+- **`public/design-system/`** holds the canonical design tokens
+  (`styles.css` → `tokens/colors.css` · `typography.css` · `spacing.css` ·
+  `fonts.css` · `base.css`) and self-hosted fonts.
+- The upstream design system is the **"Lentago Labs Design System"** project in
+  [Claude Design](https://claude.ai/design) (a design-system project, synced via
+  the `claude_design` MCP / `DesignSync`). This repo is the *built* product, not
+  a mirror — re-pull from Claude Design only when intentionally re-syncing, and
+  re-evaluate against `/BRAND.md`. There is no in-repo `design/` or `lab/` tier.
+
+## How this site was built (port notes)
+
+The components under `src/components/` are a static port of the design system's
+`ui_kits/landing/` section components, which target the design system's
+interactive browser preview. The port:
+
+- **Primitives** (`Brand.jsx`, `Shared.jsx`) — `BrandMark`, `Eyebrow`,
+  `StatusDot`, `Button`, `Tag`, `ServiceCard`, `Stat`, `TimelineItem`,
+  `Input`/`Select`/`Textarea` — are ES-module versions of the design-system
+  components, recolored via tokens. Hover/pulse are CSS (embedded `<style>` /
+  `:hover`), not shipped JS.
+- **Sections** swap the prototype's `window.PitziLabsDesignSystem_*` globals and
+  `onNav` smooth-scroll callbacks for ES imports and plain in-page `#anchors`,
+  and the interactive `useState` consult form for a static styled mock.
+
+## Brand quick reference (full contract in `/BRAND.md`)
+
+- Mark: the **benchmark disk** (copper survey ring + cream crosshair + station
+  tick, in a deep-teal chip). Field prompt glyph: copper **▲** + `lentago`.
+- Palette: teal `#1c4a44` / `#0e2b28`, copper `#c2643c`, limestone `#f3f0e8`.
+  Copper is an accent, not a fill — one element per region.
+- Type: Space Grotesk (display/body), JetBrains Mono (mono). Self-hosted.
+- Dark surfaces get contour lines + a benchmark-disk watermark; light surfaces
+  are flat paper. Terminal/field-station mocks use ▲ `lentago`, not `$` or `>`.
+
+## Build / deploy quick reference
+
+| Item | Value |
+|---|---|
+| Build | `npm install && npm run build` → `dist/` |
+| Container | `nginx:latest`, `listen 8080`, `/health` → 200 (ALB health check) |
+| ECR repo | `foundry-dev-lentago` *(pending provisioning)* |
+| ECS cluster / service | `foundry-dev-cluster` / `foundry-dev-lentago` *(pending)* |
+| OIDC deploy role | `arn:aws:iam::365184644049:role/foundry-dev-github-actions` |
+| Platform repo | [foundry-platform-demo](https://github.com/PitziLabs/foundry-platform-demo) (`modules/site`) |
+
+**Deploy is not yet wired live.** `deploy.yml` is parameterised but runs on
+`workflow_dispatch` only — the ECR repo, ECS service, and the OIDC trust for
+this repo must be provisioned in `foundry-platform-demo` first (mirror the
+pitzilabs-dev `modules/site` entry). Once provisioned, restore the
+`push: branches: [main]` trigger.
+
+## CI & branch protection (fleet standard)
+
+This repo follows the PitziLabs fleet standard (`~/repos/dotgithub/fleet-ops`):
+squash-only merge button, auto-merge, delete-branch, the `pitzilabs`+`claude`
+topic spine, and a `main` branch ruleset (PR required, no force-push, no deletion).
+
+- **`Build` is a required check.** `.github/workflows/build.yml` runs
+  `npm ci && npm run build` on every PR; the `main` ruleset requires the `Build`
+  context, so **a PR can't merge unless the Astro build is green.**
+- `claude-code-review` / `claude` workflows are **advisory** (AI review + the
+  `@claude` bot), not merge gates. (`claude-code-review` is `workflow_dispatch`
+  only, matching the fleet 2026-06-25 default.)
+- Arm merges with `gh pr merge <N> --auto --squash --delete-branch`; let the
+  `Build` check gate it. Don't hand-merge past a red build.
+
+## Conventions to respect
+
+- Static output only: if you ever need a `client:*` directive, stop and
+  reconsider — this site has no interactive runtime by design. No React should
+  ship to the browser; verify the built `dist/index.html` has no `<script>` tag.
+- The contact form is a styled **mock** for v1 (no backend). Wiring it
+  (mailto/Formspree) is a separate, intentional change.
+- Founder credit in the footer reads the operator's real name (Christopher
+  Pitzi) under the Lentago brand — intentional; confirm before changing.
+- GitHub references in the site copy read `github.com/LentagoLabs` (the
+  brand-forward future org) while the repo itself lives under `PitziLabs` —
+  reconcile when/if a LentagoLabs org is created.
+
+## When in doubt
+
+- Visual/brand question → `/BRAND.md` + `public/design-system`; live truth is
+  `src/`.
+- Deploy question → mirror [ice-cream-book](https://github.com/PitziLabs/ice-cream-book)'s
+  `deploy.yml` / `Dockerfile` / `nginx.conf`, swapping the ECR/ECS names above.
