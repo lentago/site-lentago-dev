@@ -12,12 +12,17 @@ hidden subdomain of `icecreamtofightwith.com` (covered by the existing
 `*.icecreamtofightwith.com` wildcard cert), and is later promoted to
 `lentago.dev`.
 
-> **Why this guide exists.** `lentagolabs-dev/.github/workflows/deploy.yml` is
-> already written and parameterised for `foundry-dev-lentago`, but it is
-> `workflow_dispatch`-only and will fail until the platform side exists: the ECR
-> repo, the ECS service, and — critically — the **OIDC trust** for this repo.
-> Those are created in `foundry-platform-demo`. Once they exist, the only change
-> on this side is flipping the deploy trigger back on (Step 6).
+> **Status: ✅ provisioned 2026-06-30.** This runbook has been executed — the ECR
+> repo, ECS service, and OIDC trust for this repo exist in
+> `foundry-platform-demo`, and `deploy.yml` deploys on every push to `main`. The
+> steps below are retained as the record of how the wiring was done and as the
+> reference for promoting to `lentago.dev` later.
+>
+> **Why this guide existed.** `lentagolabs-dev/.github/workflows/deploy.yml` was
+> already written and parameterised for `foundry-dev-lentago`, but it could not
+> authenticate until the platform side existed: the ECR repo, the ECS service,
+> and — critically — the **OIDC trust** for this repo, all created in
+> `foundry-platform-demo`.
 
 ---
 
@@ -193,11 +198,10 @@ terraform output lentago_ecs_service_name     # foundry-dev-lentago
 
 ---
 
-## Step 6 — Hand back to the site repo (first deploy)
+## Step 6 — Hand back to the site repo (first deploy) ✅ done
 
-This is the only change on `lentagolabs-dev`. In its
-`.github/workflows/deploy.yml`, restore the push trigger (it's currently
-`workflow_dispatch`-only):
+The only change on `lentagolabs-dev` was the push trigger in its
+`.github/workflows/deploy.yml`, now in place:
 
 ```yaml
 on:

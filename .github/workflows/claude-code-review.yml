@@ -35,10 +35,10 @@ jobs:
 
         - **Brand fidelity** — output must follow `/BRAND.md` and the served
           tokens in `public/design-system/` (`styles.css` → `tokens/*.css`).
-          Brand = the **benchmark-disk** mark, teal #1c4a44 / #0e2b28 + copper
-          #c2643c + limestone #f3f0e8, Space Grotesk + JetBrains Mono, one
+          Brand = the **five-petal blossom** mark, teal #1c4a44 / #0e2b28 +
+          copper #c2643c + limestone #f3f0e8, Space Grotesk + JetBrains Mono, one
           copper accent per region. Dark surfaces carry contour lines + a
-          benchmark-disk watermark; light surfaces are flat paper. Flag drift in
+          blossom watermark; light surfaces are flat paper. Flag drift in
           palette, type, the mark, or section order. Copy is load-bearing —
           don't paraphrase the hero headline, "Queue's open.", or the
           principles. Field-station/terminal mocks use the ▲ triangulation
