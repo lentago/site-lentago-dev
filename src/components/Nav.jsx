@@ -23,8 +23,8 @@ export function NavBar({ active = "Practice" }) {
       display: "flex", justifyContent: "space-between", alignItems: "center",
     }}>
       <a href="#top" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", flexShrink: 0 }}>
-        <BrandMark size={28} />
-        <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 17, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
+        <BrandMark size={48} />
+        <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 34, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
       </a>
 
       <div style={{ display: "flex", alignItems: "center", gap: 32 }}>
