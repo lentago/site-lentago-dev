@@ -1,7 +1,7 @@
 import { Eyebrow, TimelineItem } from "./Shared.jsx";
 
 // Sticky intro + vertical timeline built from TimelineItem primitives. The most
-// recent entry is marked `current` for the copper node.
+// recent entry is marked `current` for the gold node.
 export function Experience() {
   const years = [
     { range: "2023 —", tag: "PRESENT", title: "Cloud-native bridge", desc: "AWS / Terraform / ECS Fargate. Foundry Platform. Moving the discipline without losing the rigor." },

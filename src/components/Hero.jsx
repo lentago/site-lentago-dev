@@ -28,7 +28,7 @@ export function HeroDark() {
 
       <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
         {/* Mark + tagline lockup — the blossom featured large to the LEFT of the
-            headline (crisp cream contours + copper anthers on the deep-teal
+            headline (crisp cream contours + gold anthers on the deep-green
             field), so it's a centerpiece without dead space above the words.
             Collapses to stacked on narrow viewports via flex-wrap. */}
         <div style={{ display: "flex", alignItems: "center", gap: 56, flexWrap: "wrap" }}>

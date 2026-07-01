@@ -4,7 +4,7 @@ import { Eyebrow, Input, Select, Textarea, BrandMark, StatusDot } from "./Shared
 // an interactive React form (useState → fake 202 transcript); this is the
 // STATIC site, so the form is a styled MOCK for v1 (no backend, no hydration).
 // Wiring it (mailto/Formspree) is a separate, intentional change. The prompt
-// glyph is the copper ▲ triangulation marker + `lentago` — never `$` or `>`.
+// glyph is the gold ▲ triangulation marker + `lentago` — never `$` or `>`.
 export function Contact() {
   return (
     <section id="contact" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "112px 40px 96px", position: "relative", overflow: "hidden" }}>
@@ -56,7 +56,7 @@ export function Contact() {
               options={["cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
             <Textarea terminal label="--symptoms <<EOF" rows={3} placeholder="NAT gateway eating budget. IAM roles nobody owns." />
             <button type="button" style={{
-              marginTop: 8, width: "100%", background: "var(--color-accent)", color: "#fff",
+              marginTop: 8, width: "100%", background: "var(--color-accent)", color: "var(--color-on-accent)",
               border: 0, padding: "12px 18px", borderRadius: "var(--r-md)",
               fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 500,
               cursor: "pointer", letterSpacing: "0.02em",

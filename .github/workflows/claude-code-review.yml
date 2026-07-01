@@ -35,9 +35,10 @@ jobs:
 
         - **Brand fidelity** — output must follow `/BRAND.md` and the served
           tokens in `public/design-system/` (`styles.css` → `tokens/*.css`).
-          Brand = the **five-petal blossom** mark, teal #1c4a44 / #0e2b28 +
-          copper #c2643c + limestone #f3f0e8, Space Grotesk + JetBrains Mono, one
-          copper accent per region. Dark surfaces carry contour lines + a
+          Brand = the **five-petal blossom** mark, warm forest-teal #1b4b2e /
+          #0e2b1a + anther gold #E0A81C + limestone #f3f0e8, Space Grotesk +
+          JetBrains Mono, one gold accent per region (text on a gold fill is
+          dark `--color-on-accent`, never white). Dark surfaces carry contour lines + a
           blossom watermark; light surfaces are flat paper. Flag drift in
           palette, type, the mark, or section order. Copy is load-bearing —
           don't paraphrase the hero headline, "Queue's open.", or the

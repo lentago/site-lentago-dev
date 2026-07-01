@@ -1,6 +1,6 @@
 // Brand mark — the Lentago Labs blossom. A five-petal field-flower: limestone
 // petals carried by teal contour outlines, a spray of deep-teal stamens tipped
-// in copper anthers, and a pale center. Net-new "Tidewater" mark (it replaced
+// in gold anthers, and a pale center. Net-new "Tidewater" mark (it replaced
 // the surveyor's benchmark disk). Drawn as SVG so it scales cleanly from
 // favicon to watermark.
 
@@ -8,7 +8,7 @@
 const PETAL = "M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z";
 // Ten stamens radiating from the center (36° apart), alternating long/short
 // reach, each ending in an anther dot — the most distinctive feature of the
-// bloom and where the copper accent lives.
+// bloom and where the gold accent lives.
 const STAMENS = Array.from({ length: 10 }, (_, i) => (i % 2 === 0
   ? { rot: i * 36, tip: 10, filament: "M32 31C31 24 33 17 32 11" }   // long — over a petal
   : { rot: i * 36, tip: 18, filament: "M32 31C31 27 33 23 32 19" })); // short — between petals
@@ -18,7 +18,7 @@ export function BrandMark({ size = 28, inverted = false, monochrome = false, squ
   const line   = onDark ? "var(--color-on-dark)"      : "var(--color-brand)";       // petal contour
   const fill   = onDark ? "none"                      : "var(--color-surface)";     // petal body
   const stem   = onDark ? "var(--color-on-dark-soft)" : "var(--color-brand-deep)";  // filaments
-  const anther = monochrome ? line                    : "var(--color-accent)";      // copper tips
+  const anther = monochrome ? line                    : "var(--color-accent)";      // gold tips
   const eye    = onDark ? "var(--color-brand-deep)"   : "var(--color-surface)";     // center
   return (
     <span style={{ display: "inline-flex", flexShrink: 0, lineHeight: 0 }}>
@@ -41,7 +41,7 @@ export function BrandMark({ size = 28, inverted = false, monochrome = false, squ
 }
 
 // Ghost blossom — the mark as a faint stroke-only watermark for dark surfaces
-// (the hero, banners). Petals + stamens in cream line; copper anther specks
+// (the hero, banners). Petals + stamens in cream line; gold anther specks
 // carry the accent through. Caller positions it via `style`.
 export function BlossomWatermark({ size = 560, opacity = 0.06, style }) {
   return (

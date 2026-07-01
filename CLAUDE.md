@@ -25,7 +25,7 @@ during design; that preview host is now retired).
 **Rebrand lineage.** Lentago Labs is the "Tidewater" rebrand of the former Pitzi
 Labs. The layout, copy skeleton, and Astro architecture were ported from
 [pitzilabs-dev](https://github.com/lentago/pitzilabs-dev); the **palette and
-brand mark are net-new** (teal + copper + limestone; the five-petal blossom mark).
+brand mark are net-new** (teal + gold + limestone; the five-petal blossom mark).
 
 ## Source of truth
 
@@ -58,10 +58,11 @@ interactive browser preview. The port:
 ## Brand quick reference (full contract in `/BRAND.md`)
 
 - Mark: the **five-petal blossom** (limestone petals + teal contour outlines +
-  deep-teal stamens with copper anther tips + pale center; reversed to cream +
-  copper on a teal chip for favicon/og). Field prompt glyph: copper **▲** + `lentago`.
-- Palette: teal `#1c4a44` / `#0e2b28`, copper `#c2643c`, limestone `#f3f0e8`.
-  Copper is an accent, not a fill — one element per region.
+  deep-teal stamens with gold anther tips + pale center; reversed to cream +
+  gold on a teal chip for favicon/og). Field prompt glyph: gold **▲** + `lentago`.
+- Palette: warm forest-teal `#1b4b2e` / `#0e2b1a`, anther gold `#E0A81C`,
+  limestone `#f3f0e8`. Gold is an accent, not a fill — one element per region;
+  text on a gold fill is dark (`--color-on-accent`), never white.
 - Type: Space Grotesk (display/body), JetBrains Mono (mono). Self-hosted.
 - Dark surfaces get contour lines + a blossom watermark; light surfaces
   are flat paper. Terminal/field-station mocks use ▲ `lentago`, not `$` or `>`.

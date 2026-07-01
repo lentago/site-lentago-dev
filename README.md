@@ -9,7 +9,7 @@ AWS stack (GitHub OIDC → ECR → ECS Fargate → ALB), the same platform that 
 
 > **Rebrand note.** Lentago Labs is the rebrand of the former **Pitzi Labs** —
 > same business, same operator, same fonts and runbook voice. What changed: the
-> name, the palette (navy + orange + cream → **teal + copper + limestone**), and
+> name, the palette (navy + orange + cream → **teal + gold + limestone**), and
 > the brand motif (terminal `<pl:>` command-prompt → a **five-petal blossom mark
 > + survey contour lines**). The original site lives at
 > [pitzilabs-dev](https://github.com/lentago/pitzilabs-dev).
@@ -27,7 +27,7 @@ Lentago Labs needed a front door. Rather than reach for a site builder, the page
 was designed as a [Claude Design](https://claude.ai/design) design system — a
 one-page consulting landing with a deliberately infrastructure-engineer
 aesthetic (monospace-forward, survey/terrain feel, a teal brand with a single
-warm copper accent, anchored by the blossom mark) — and then
+anther-gold accent, anchored by the blossom mark) — and then
 rebuilt as a real, production static site on the same platform the practice
 itself showcases. The case study on the page is that platform, running live.
 

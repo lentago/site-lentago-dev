@@ -1,7 +1,7 @@
 /* =========================================================================
    LENTAGO LABS — Color tokens · "Tidewater"
-   Limestone paper + slate-teal ink, with a single warm copper accent.
-   Teal is the brand; copper is an accent (one element per region, never a
+   Limestone paper + warm forest-teal ink, with a single anther-gold accent.
+   Teal is the brand; gold is an accent (one element per region, never a
    fill). The palette reads as survey-and-terrain: stone, water, and the
    warm line of a contour drawn across cool ground. Status palette is the
    ops signal set (ok / warn / info / err), tuned warm to sit on teal.
@@ -14,28 +14,29 @@
   --color-surface:      #fffefb;   /* cards, inputs */
   --color-surface-sunk: #e9e3d5;   /* code blocks, wells, tag chips */
 
-  /* ---------- Carbon (text + dark surfaces) ---------- */
-  --color-ink:          #13302d;   /* primary text — deep slate-teal */
-  --color-ink-strong:   #0e2b28;   /* hero / dark surfaces (near-black teal) */
-  --color-ink-soft:     #1c4a44;   /* mid teal */
+  /* ---------- Carbon (text + dark surfaces) — warmed green ---------- */
+  --color-ink:          #12311f;   /* primary text — warm forest-teal */
+  --color-ink-strong:   #0e2b1a;   /* hero / dark surfaces (near-black green) */
+  --color-ink-soft:     #1b4b2e;   /* mid warm-green */
   --color-ink-muted:    #5c6b66;   /* secondary text */
   --color-ink-faint:    #93a09a;   /* tertiary text, hints */
 
-  /* ---------- Brand teal (primary brand color) ---------- */
-  --color-brand:        #1c4a44;
-  --color-brand-deep:   #0e2b28;
-  --color-brand-soft:   #2a615a;
+  /* ---------- Brand teal (primary brand color) — warmed green ---------- */
+  --color-brand:        #1b4b2e;
+  --color-brand-deep:   #0e2b1a;
+  --color-brand-soft:   #296240;
 
   /* ---------- Lines ---------- */
   --color-border:       #ddd6c6;   /* default hairline */
   --color-border-strong:#cabfa9;   /* emphasised border, timeline rule */
   --color-divider:      #e4ddcd;
 
-  /* ---------- Brand accent (warm copper — the contour line) ---------- */
-  --color-accent:       #c2643c;   /* primary action / link */
-  --color-accent-hover: #a8502d;   /* hover / pressed */
-  --color-accent-soft:  #e8c4ab;   /* soft fill */
-  --color-accent-tint:  #f5e3d6;   /* faint tint background */
+  /* ---------- Brand accent (anther gold — the lentago bloom) ---------- */
+  --color-accent:       #E0A81C;   /* primary action / link */
+  --color-accent-hover: #C48F0C;   /* hover / pressed */
+  --color-accent-soft:  #f0d89a;   /* soft fill */
+  --color-accent-tint:  #f8efcf;   /* faint tint background */
+  --color-on-accent:    #241d08;   /* text/glyphs on an accent fill (dark) */
 
   /* ---------- Dark-surface foreground (text on teal) ---------- */
   --color-on-dark:       #f3f0e8;
@@ -43,19 +44,19 @@
   --color-on-dark-muted: #9fb0aa;  /* meta on dark */
   --color-on-dark-faint: #748983;  /* labels on dark */
 
-  /* Dark "field-station" panel (case-study + contact mocks) */
-  --color-term-bg:       #14201d;
-  --color-term-bg-sunk:  #0d1815;
-  --color-term-border:   #2d3f3a;
+  /* Dark "field-station" panel (case-study + contact mocks) — warmed */
+  --color-term-bg:       #142017;
+  --color-term-bg-sunk:  #0d1810;
+  --color-term-border:   #2c4031;
 
   /* ---------- Semantic / status (ops signal palette) ---------- */
   --status-ok:          #4a9e82;   /* healthy / passing */
   --status-warn:        #c98a2b;   /* degraded */
-  --status-info:        #c2643c;   /* notice (== accent) */
+  --status-info:        #E0A81C;   /* notice (== accent) */
   --status-err:         #bb4a33;   /* failed / critical */
   --status-ok-bg:       #e0ece4;
   --status-warn-bg:     #f3e7cf;
-  --status-info-bg:     #f5e3d6;
+  --status-info-bg:     #f8efcf;
   --status-err-bg:      #f2d8cd;
 
   /* ---------- Foreground roles (semantic aliases) ---------- */
@@ -66,5 +67,5 @@
   --fg-on-dark-muted: var(--color-ink-faint);
 
   /* ---------- Gradients ---------- */
-  --grad-hero: linear-gradient(150deg, #0e2b28, #1c4a44); /* @kind color */
+  --grad-hero: linear-gradient(150deg, #0e2b1a, #1b4b2e); /* @kind color */
 }

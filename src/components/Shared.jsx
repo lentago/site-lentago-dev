@@ -1,7 +1,7 @@
 // Shared design-system primitives for the Lentago Labs landing page.
 //
 // These are the "Tidewater" component primitives ported from the Lentago Labs
-// Design System (slate-teal + copper + limestone). They render SERVER-SIDE
+// Design System (forest-teal + anther gold + limestone). They render SERVER-SIDE
 // ONLY — there is no hydration on this site — so any interactivity is
 // expressed as CSS (embedded <style> tags / :hover), never shipped JS.
 import { BrandMark, BlossomWatermark } from "./Brand.jsx";
@@ -59,7 +59,7 @@ export function StatusDot({ status = "ok", size = 8, pulse = false }) {
   );
 }
 
-/* ---------- Button — copper primary (one per region) + secondary/outline --- */
+/* ---------- Button — gold primary (one per region) + secondary/outline ---- */
 const BTN_SIZES = {
   sm: { padding: "9px 14px", fontSize: 13 },
   md: { padding: "13px 22px", fontSize: 14.5 },
@@ -72,7 +72,7 @@ export function Button({
   const s = BTN_SIZES[size] || BTN_SIZES.md;
   const variants = {
     primary: {
-      background: "var(--color-accent)", color: "#fff",
+      background: "var(--color-accent)", color: "var(--color-on-accent)",
       border: "1px solid transparent",
       boxShadow: "var(--shadow-btn-accent)",
     },
@@ -210,7 +210,7 @@ export function TimelineItem({ range, tag, title, desc, current = false, last = 
         width: 15, height: 15, borderRadius: 999,
         background: "var(--color-bg-alt)",
         border: `2px solid ${current ? "var(--color-accent)" : "var(--color-border-strong)"}`,
-        boxShadow: current ? "0 0 0 4px rgba(194,100,60,0.18)" : "none",
+        boxShadow: current ? "0 0 0 4px rgba(224,168,28,0.18)" : "none",
       }} />
       <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 6, flexWrap: "wrap" }}>
         <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg1)", fontWeight: 600, letterSpacing: "0.02em" }}>
@@ -218,7 +218,7 @@ export function TimelineItem({ range, tag, title, desc, current = false, last = 
         </span>
         {tag && (
           <span style={{
-            fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-on-dark)",
+            fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--color-on-accent)",
             letterSpacing: "0.1em", background: "var(--color-accent)",
             padding: "2px 6px", borderRadius: "var(--r-xs)",
           }}>{tag}</span>

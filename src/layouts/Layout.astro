@@ -45,12 +45,12 @@ const {
       }
       ::selection {
         background: var(--color-accent);
-        color: #fffefb;
+        color: var(--color-on-accent);
       }
 
       /* Nav link hover re-expressed as CSS — the design prototype used
          onMouseEnter/onMouseLeave, which don't run on this static (no
-         hydration) site. The active item stays copper via .ll-navlink--active. */
+         hydration) site. The active item stays gold via .ll-navlink--active. */
       .ll-navlink {
         color: var(--fg2);
         transition: color 120ms var(--ease-standard);
