@@ -76,11 +76,10 @@ interactive browser preview. The port:
 | OIDC deploy role | `arn:aws:iam::365184644049:role/foundry-dev-github-actions` |
 | Platform repo | [foundry-platform-demo](https://github.com/lentago/foundry-platform-demo) (`modules/site`) |
 
-**Deploy is not yet wired live.** `deploy.yml` is parameterised but runs on
-`workflow_dispatch` only — the ECR repo, ECS service, and the OIDC trust for
-this repo must be provisioned in `foundry-platform-demo` first (mirror the
-pitzilabs-dev `modules/site` entry). Once provisioned, restore the
-`push: branches: [main]` trigger.
+**Deploy is live.** Every push to `main` builds the Astro site, pushes to ECR
+(`foundry-dev-lentago`), and rolls the ECS service. The provisioning was
+completed 2026-06-30 (see `deploy.yml` preamble for details). Manual redeploys
+are available via `workflow_dispatch`.
 
 ## CI & branch protection (fleet standard)
 
