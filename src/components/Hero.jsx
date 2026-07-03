@@ -64,7 +64,7 @@ export function HeroDark() {
               <Button variant="outline" onDark href="#practice">View runbook</Button>
               <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10, color: "var(--color-on-dark-muted)", fontFamily: "var(--font-mono)", fontSize: 12 }}>
                 <span>→</span>
-                <span>chris@lentago.dev</span>
+                <a href="mailto:chris@lentago.dev" style={{ color: "inherit", textDecoration: "none" }}>chris@lentago.dev</a>
               </div>
             </div>
           </div>

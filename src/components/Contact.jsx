@@ -27,14 +27,18 @@ export function Contact() {
           </p>
           <div style={{ display: "grid", gap: 20, maxWidth: 480 }}>
             {[
-              { k: "Email", v: "chris@lentago.dev" },
-              { k: "GitHub", v: "github.com/LentagoLabs" },
+              { k: "Email", v: "chris@lentago.dev", href: "mailto:chris@lentago.dev" },
+              { k: "GitHub", v: "github.com/lentago", href: "https://github.com/lentago" },
               { k: "Signal", v: "available on request" },
               { k: "Response", v: "< 24h on weekdays" },
             ].map(row => (
               <div key={row.k} style={{ display: "grid", gridTemplateColumns: "120px 1fr", paddingBottom: 16, borderBottom: "1px solid rgba(243,240,232,0.1)", alignItems: "baseline" }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-on-dark-faint)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{row.k}</span>
-                <span style={{ fontFamily: "var(--font-mono)", fontSize: 15, color: "var(--color-on-dark)" }}>{row.v}</span>
+                {row.href
+                  ? <a href={row.href}
+                       {...(row.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                       style={{ fontFamily: "var(--font-mono)", fontSize: 15, color: "var(--color-on-dark)", textDecoration: "none" }}>{row.v}</a>
+                  : <span style={{ fontFamily: "var(--font-mono)", fontSize: 15, color: "var(--color-on-dark)" }}>{row.v}</span>}
               </div>
             ))}
           </div>
@@ -82,7 +86,7 @@ export function Footer() {
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v2026.04.18</span>
         </div>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)" }}>
-          Christopher Pitzi · chris@lentago.dev · © 2026
+          Christopher Pitzi · <a href="mailto:chris@lentago.dev" style={{ color: "inherit", textDecoration: "none" }}>chris@lentago.dev</a> · © 2026
         </div>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", display: "flex", alignItems: "center", gap: 8 }}>
           <StatusDot status="ok" size={6} /> all systems operational
