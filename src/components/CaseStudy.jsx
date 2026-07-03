@@ -1,8 +1,8 @@
 import { Eyebrow, Button, Stat, Tag } from "./Shared.jsx";
 
 // Dark case-study band — topographic contour backing, a browser-chrome mock of
-// the live recipe site, and a stat strip built from Stat primitives. The mock's
-// action buttons are display-only (href="#"); the page never navigates away.
+// the live recipe site, and a stat strip built from Stat primitives. The two
+// action buttons link out to the live site and its public repo in a new tab.
 export function CaseStudy() {
   const stats = [
     { label: "Monthly run cost",   value: "$130",     note: "multi-env, managed" },
@@ -37,8 +37,8 @@ export function CaseStudy() {
               pipeline is limited to its scope. Runs on personal money.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Button size="sm" trailing="↗" href="#">icecreamtofightwith.com</Button>
-              <Button size="sm" variant="outline" onDark trailing="↗" href="#">github.com/LentagoLabs</Button>
+              <Button size="sm" trailing="↗" href="https://icecreamtofightwith.com" target="_blank" rel="noopener noreferrer">icecreamtofightwith.com</Button>
+              <Button size="sm" variant="outline" onDark trailing="↗" href="https://github.com/lentago/ice-cream-book" target="_blank" rel="noopener noreferrer">github.com/lentago/ice-cream-book</Button>
             </div>
           </div>
 
