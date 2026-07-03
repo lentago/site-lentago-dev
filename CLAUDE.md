@@ -108,9 +108,12 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
   (mailto/Formspree) is a separate, intentional change.
 - Founder credit in the footer reads the operator's real name (Christopher
   Pitzi) under the Lentago brand — intentional; confirm before changing.
-- GitHub references in the site copy read `github.com/LentagoLabs` (the
-  brand-forward future org) while the repo itself lives under `Lentago Labs` —
-  reconcile when/if a LentagoLabs org is created.
+- GitHub references in the site copy point to the real `github.com/lentago`
+  org (the contact row) and to specific public repos (e.g. the Ice Cream case
+  study links `github.com/lentago/ice-cream-book`). The earlier
+  `github.com/LentagoLabs` "brand-forward future org" placeholder was
+  reconciled to the live `lentago` org once the site went public — a
+  `LentagoLabs` org does not exist and the link would 404.
 
 ## When in doubt
 
