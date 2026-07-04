@@ -10,7 +10,7 @@
 #
 # >>> LIVE as of 2026-06-30. The ECR repo `foundry-dev-lentago`, the ECS service
 # `foundry-dev-lentago`, and the OIDC trust for THIS repo
-# (lentago/lentagolabs-dev) are provisioned in foundry-platform-demo
+# (lentago/site-lentago-dev, née lentagolabs-dev) are provisioned in solidago (née foundry-platform-demo)
 # (modules/site), mirroring the pitzilabs-dev entry. Every push to `main` now
 # builds, pushes to ECR, and rolls the ECS service; `workflow_dispatch` is kept
 # for manual redeploys.
