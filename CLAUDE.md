@@ -87,7 +87,7 @@ are available via `workflow_dispatch`.
 ## CI & branch protection (fleet standard)
 
 This repo follows the Lentago Labs fleet standard (`~/repos/dotgithub/fleet-ops`):
-squash-only merge button, auto-merge, delete-branch, the `pitzilabs`+`claude`
+squash-only merge button, auto-merge, delete-branch, the `lentago`+`claude`
 topic spine, and a `main` branch ruleset (PR required, no force-push, no deletion).
 
 - **`Build` is a required check.** `.github/workflows/build.yml` runs
