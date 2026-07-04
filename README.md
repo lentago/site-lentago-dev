@@ -31,7 +31,8 @@ one-page consulting landing with a deliberately infrastructure-engineer
 aesthetic (monospace-forward, survey/terrain feel, a teal brand with a single
 anther-gold accent, anchored by the blossom mark) — and then
 rebuilt as a real, production static site on the same platform the practice
-itself showcases. The case study on the page is that platform, running live.
+itself showcases. The systems the page names are real: the site ships on
+`solidago`, the cloud platform listed in its own suite section.
 
 ## What's here
 

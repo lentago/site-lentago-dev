@@ -1,14 +1,18 @@
 import { StatusDot } from "./Shared.jsx";
+import { showStatusStrip } from "../config.js";
 
 // A live ops band of monitored services beneath the hero. The LIVE marker
-// pulses (CSS animation, no JS); the rest are static signal dots.
+// pulses (CSS animation, no JS); the rest are static signal dots. The signals
+// now read as codenamed systems (drosera ingest, solidago ECS) rather than the
+// retired ice-cream host. Hidden entirely when showStatusStrip is off.
 export function StatusStrip() {
+  if (!showStatusStrip) return null;
   const items = [
-    { label: "icecreamtofightwith.com", status: "ok",   value: "200 OK · 142ms" },
-    { label: "ECS Fargate · solidago",   status: "ok",   value: "2/2 healthy" },
-    { label: "RDS · postgres",          status: "warn", value: "CPU 73%" },
-    { label: "terraform apply",         status: "ok",   value: "2h ago · 0 drift" },
-    { label: "pager",                   status: "ok",   value: "0 open" },
+    { label: "drosera · ingest",  status: "ok",   value: "6 hosts · 15s push" },
+    { label: "solidago · ECS",    status: "ok",   value: "2/2 healthy" },
+    { label: "RDS · postgres",    status: "warn", value: "CPU 73%" },
+    { label: "terraform apply",   status: "ok",   value: "2h ago · 0 drift" },
+    { label: "pager",             status: "ok",   value: "0 open" },
   ];
   return (
     <section style={{

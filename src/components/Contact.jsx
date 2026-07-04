@@ -1,4 +1,5 @@
 import { Eyebrow, Input, Select, Textarea, BrandMark, StatusDot } from "./Shared.jsx";
+import { queueCopy } from "../config.js";
 
 // Contact rows + a field-station "consult" form. The design-system version is
 // an interactive React form (useState → fake 202 transcript); this is the
@@ -19,7 +20,7 @@ export function Contact() {
         <div>
           <Eyebrow tone="dark" marker style={{ color: "var(--color-accent)", marginBottom: 16 }}>Contact · POST /consult</Eyebrow>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(44px, 5.5vw, 72px)", lineHeight: 1.02, letterSpacing: "-0.035em", margin: "0 0 24px" }}>
-            Queue's <span style={{ color: "var(--color-accent)" }}>open.</span>
+            Queue's <span style={{ color: "var(--color-accent)" }}>{queueCopy.queueWord}</span>
           </h2>
           <p style={{ fontSize: 18, color: "var(--color-on-dark-soft)", lineHeight: 1.55, margin: "0 0 40px", maxWidth: 480 }}>
             Short engagements, long ones, and one-off audits. If you know what
@@ -83,7 +84,7 @@ export function Footer() {
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <BrandMark size={48} />
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 34, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v2026.04.18</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v2026.07.04</span>
         </div>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)" }}>
           Christopher Pitzi · <a href="mailto:chris@lentago.dev" style={{ color: "inherit", textDecoration: "none" }}>chris@lentago.dev</a> · © 2026
