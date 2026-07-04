@@ -1,4 +1,10 @@
-# Deploying lentagolabs-dev on the Foundry Platform
+# Deploying site-lentago-dev (née lentagolabs-dev) on the Foundry Platform
+
+> **Naming note (2026-07-04):** the site repos have since been renamed to the
+> `site-<domain>` convention — this repo is now `site-lentago-dev` and
+> `pitzilabs-dev` is `site-pitzilabs-dev` (archived). Repo names quoted in the
+> historical narrative and Terraform snippets below are as-built at deploy time;
+> the OIDC role dual-trusts old and new names during the transition (solidago#89).
 
 A runbook for **Platform Claude** (the Terraform steward of
 [solidago](https://github.com/lentago/solidago) (formerly foundry-platform-demo)) to

@@ -1,4 +1,4 @@
-# CLAUDE.md — lentagolabs-dev
+# CLAUDE.md — site-lentago-dev
 
 > Read [README.md](README.md) for what this repo is, how it builds, and how it
 > deploys. This file is operational notes for Claude: where the source of truth

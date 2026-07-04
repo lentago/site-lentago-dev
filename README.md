@@ -1,6 +1,6 @@
-# lentagolabs-dev — Lentago Labs landing site
+# site-lentago-dev — Lentago Labs landing site
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/lentago/lentagolabs-dev)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/lentago/site-lentago-dev)
 
 The landing site for **Lentago Labs**, the infrastructure-operations consulting
 practice, live at [lentago.dev](https://lentago.dev). It's an Astro static
