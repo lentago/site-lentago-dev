@@ -8,7 +8,7 @@ import react from '@astrojs/react';
 // site; the output is plain HTML + the design-system CSS in public/.
 export default defineConfig({
   // Final destination FQDN. Until promotion, the site is also reachable via a
-  // hidden subdomain of icecreamtofightwith.com (see README / foundry platform).
+  // hidden subdomain of icecreamtofightwith.com (see README / solidago platform).
   site: 'https://lentago.dev',
   integrations: [react()],
 });

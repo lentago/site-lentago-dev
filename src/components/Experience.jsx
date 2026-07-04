@@ -4,7 +4,7 @@ import { Eyebrow, TimelineItem } from "./Shared.jsx";
 // recent entry is marked `current` for the gold node.
 export function Experience() {
   const years = [
-    { range: "2023 —", tag: "PRESENT", title: "Cloud-native bridge", desc: "AWS / Terraform / ECS Fargate. Foundry Platform. Moving the discipline without losing the rigor." },
+    { range: "2023 —", tag: "PRESENT", title: "Cloud-native bridge", desc: "AWS / Terraform / ECS Fargate. Solidago Platform. Moving the discipline without losing the rigor." },
     { range: "2015 — 2023", tag: "SR. OPS", title: "Production infrastructure lead", desc: "24×7 ops. On-call rotations. Incident command. Migrated a regulated workload through three datacenter transitions without a customer-visible outage." },
     { range: "2005 — 2015", tag: "OPS", title: "Datacenter operations", desc: "Bare-metal. Single-homed environments. Every change had physical consequences. Learned what 'production' actually means." },
     { range: "1997 — 2005", tag: "JR. OPS", title: "Started the pager", desc: "First rotation. First outage I caused. First runbook I wrote. Everything since is a refinement." },

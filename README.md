@@ -5,7 +5,7 @@
 The landing site for **Lentago Labs**, the infrastructure-operations consulting
 practice, live at [lentago.dev](https://lentago.dev). It's an Astro static
 site served as a container on the
-[solidago](https://github.com/lentago/solidago) (formerly foundry-platform-demo)
+[solidago](https://github.com/lentago/solidago)
 AWS stack (GitHub OIDC → ECR → ECS Fargate → ALB), the same platform that runs
 [icecreamtofightwith.com](https://icecreamtofightwith.com).
 
@@ -14,7 +14,7 @@ AWS stack (GitHub OIDC → ECR → ECS Fargate → ALB), the same platform that 
 > name, the palette (navy + orange + cream → **teal + gold + limestone**), and
 > the brand motif (terminal `<pl:>` command-prompt → a **five-petal blossom mark
 > + survey contour lines**). The original site lives at
-> [pitzilabs-dev](https://github.com/lentago/pitzilabs-dev).
+> [site-pitzilabs-dev](https://github.com/lentago/site-pitzilabs-dev).
 
 **Authorship:** The code and design in this repo are co-written with
 [Claude](https://claude.ai) (Anthropic). I direct the work, supply the brand and
@@ -56,18 +56,18 @@ The design components are **rendered server-side at build time** (no client
 hydration) — the output is plain HTML plus the design-system CSS, with no React
 shipped to the browser. Docker copies `dist/` into `nginx` (`:8080`, `/health`);
 GitHub Actions builds the image, pushes it to ECR, and rolls the ECS service via
-the foundry-platform OIDC role, no long-lived credentials.
+the solidago platform OIDC role, no long-lived credentials.
 
 > **Deploy is live (since 2026-06-30).** The ECR repo, ECS service, and the OIDC
 > trust for *this* repo are provisioned by `solidago`
-> (`modules/site`), mirroring the pitzilabs-dev wiring. `deploy.yml` runs on
+> (`modules/site`), mirroring the `site_pitzilabs` wiring. `deploy.yml` runs on
 > **every push to `main`** (build → ECR → ECS rollout); `workflow_dispatch` is
 > kept for manual redeploys.
 
 ## Live at lentago.dev
 
 The site is live at **[lentago.dev](https://lentago.dev)** (apex + `www`), served
-from the shared foundry ALB. During design it was reachable only at a hidden,
+from the shared solidago ALB. During design it was reachable only at a hidden,
 unguessable subdomain of `icecreamtofightwith.com`; that preview host was retired
 on promotion. The promotion is Terraform-managed in solidago via
 `modules/apex-domain` (`module.lentago_domain`): its own Route 53 zone + ACM cert

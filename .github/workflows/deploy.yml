@@ -1,17 +1,17 @@
 # .github/workflows/deploy.yml
 #
-# Build & Deploy: Lentago Labs landing -> ECR -> ECS Fargate (foundry platform)
+# Build & Deploy: Lentago Labs landing -> ECR -> ECS Fargate (solidago platform)
 #
 # Builds the Astro static site, packages it into the nginx container, pushes to
-# ECR, and rolls the ECS service. Authenticates via the foundry platform's
+# ECR, and rolls the ECS service. Authenticates via the solidago platform's
 # GitHub OIDC role (no long-lived AWS credentials). The ECR repo, ECS cluster/
 # service, and the OIDC trust for this repo are provisioned by
-# foundry-platform-demo (modules/site).
+# solidago (modules/site).
 #
 # >>> LIVE as of 2026-06-30. The ECR repo `foundry-dev-lentago`, the ECS service
 # `foundry-dev-lentago`, and the OIDC trust for THIS repo
 # (lentago/site-lentago-dev, née lentagolabs-dev) are provisioned in solidago (née foundry-platform-demo)
-# (modules/site), mirroring the pitzilabs-dev entry. Every push to `main` now
+# (modules/site), mirroring the `site_pitzilabs` entry. Every push to `main` now
 # builds, pushes to ECR, and rolls the ECS service; `workflow_dispatch` is kept
 # for manual redeploys.
 
