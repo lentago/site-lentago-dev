@@ -1,14 +1,16 @@
 import { BrandMark, StatusDot } from "./Shared.jsx";
+import { queueCopy } from "../config.js";
 
 // Sticky top bar — brand lockup, section links, availability pill. Static port
 // of the design-system Nav: the prototype's smooth-scroll onNav callback is
 // replaced with plain in-page #anchors, and the per-link hover (onMouseEnter in
 // the prototype) is re-expressed as CSS (.ll-navlink:hover) since nothing
-// hydrates on this site.
+// hydrates on this site. The #work link reads "Systems" — it now targets the
+// suite of named systems that replaced the single case study.
 export function NavBar({ active = "Practice" }) {
   const items = [
     { label: "Practice", href: "#practice" },
-    { label: "Work",     href: "#work" },
+    { label: "Systems",  href: "#work" },
     { label: "Writing",  href: "#writing" },
     { label: "About",    href: "#about" },
     { label: "Contact",  href: "#contact" },
@@ -47,8 +49,8 @@ export function NavBar({ active = "Practice" }) {
           padding: "9px 14px", borderRadius: "var(--r-md)", textDecoration: "none",
           display: "inline-flex", alignItems: "center", gap: 8, whiteSpace: "nowrap",
         }}>
-          <StatusDot status="ok" size={6} />
-          <span>Available · Q2 '26</span>
+          <StatusDot status={queueCopy.navDot} size={6} />
+          <span>{queueCopy.navPill}</span>
         </a>
       </div>
     </nav>
