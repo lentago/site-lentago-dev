@@ -10,7 +10,7 @@ name: Claude Code Review
 # >>> DISABLED 2026-06-25: automated Claude PR review turned off fleet-wide.
 # Trigger is manual `workflow_dispatch` only, so it never auto-runs on PRs. The
 # repo-specific review_prompt below is preserved. To re-enable, restore the
-# `on: pull_request` trigger (see pitzilabs-dev git history for the shape).
+# `on: pull_request` trigger (see site-pitzilabs-dev git history for the shape).
 on:
   workflow_dispatch:
 
@@ -27,7 +27,7 @@ jobs:
       review_prompt: |
         This repository is the **Lentago Labs landing site** — an Astro static
         site (server-rendered React, no client hydration) served by nginx on
-        the foundry-platform-demo AWS stack via GitHub OIDC → ECR/ECS/ALB. The
+        the solidago AWS stack via GitHub OIDC → ECR/ECS/ALB. The
         live site is `src/`; the upstream design system is the "Lentago Labs
         Design System" project in Claude Design (not in this repo). Lentago Labs
         is the "Tidewater" rebrand of the former Pitzi Labs. Review changes
@@ -54,7 +54,7 @@ jobs:
           `/health` endpoint (the ALB target group health check).
         - **Deploy wiring** — `.github/workflows/deploy.yml` targets ECR
           `foundry-dev-lentago` / ECS service `foundry-dev-lentago` on cluster
-          `foundry-dev-cluster`, via the foundry OIDC role, and is
+          `foundry-dev-cluster`, via the solidago OIDC role, and is
           `workflow_dispatch`-only until that infra is provisioned. No
           long-lived AWS credentials anywhere.
         - **Accessibility & semantics** — real landmarks (header/nav/main/

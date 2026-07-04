@@ -10,13 +10,13 @@
 
 When Claude initializes in this directory, open the first response with a brief
 self-introduction as **Site Claude** — keeper of the Lentago Labs landing site:
-the Astro build, the design-fidelity port, and the foundry deploy wiring. One
+the Astro build, the design-fidelity port, and the solidago deploy wiring. One
 sentence is plenty; don't make a meal of it.
 
 ## What this repo is
 
 A single-page Astro static site that reproduces a Claude Design handoff
-faithfully and serves it (nginx on ECS Fargate) via the `solidago` (formerly foundry-platform-demo)
+faithfully and serves it (nginx on ECS Fargate) via the `solidago`
 platform. There is no CMS and no database — the page is static HTML built from
 React components rendered **server-side only** (no client hydration). Live at
 `lentago.dev` (previewed on a hidden subdomain of `icecreamtofightwith.com`
@@ -24,7 +24,7 @@ during design; that preview host is now retired).
 
 **Rebrand lineage.** Lentago Labs is the "Tidewater" rebrand of the former Pitzi
 Labs. The layout, copy skeleton, and Astro architecture were ported from
-[pitzilabs-dev](https://github.com/lentago/pitzilabs-dev); the **palette and
+[site-pitzilabs-dev](https://github.com/lentago/site-pitzilabs-dev); the **palette and
 brand mark are net-new** (teal + gold + limestone; the five-petal blossom mark).
 
 ## Source of truth
@@ -110,7 +110,7 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
   Pitzi) under the Lentago brand — intentional; confirm before changing.
 - GitHub references in the site copy point to the real `github.com/lentago`
   org (the contact row) and to specific public repos (e.g. the Ice Cream case
-  study links `github.com/lentago/ice-cream-book`). The earlier
+  study links `github.com/lentago/site-icecreamtofightwith-com`). The earlier
   `github.com/LentagoLabs` "brand-forward future org" placeholder was
   reconciled to the live `lentago` org once the site went public — a
   `LentagoLabs` org does not exist and the link would 404.
@@ -119,5 +119,5 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
 
 - Visual/brand question → `/BRAND.md` + `public/design-system`; live truth is
   `src/`.
-- Deploy question → mirror [ice-cream-book](https://github.com/lentago/ice-cream-book)'s
+- Deploy question → mirror [site-icecreamtofightwith-com](https://github.com/lentago/site-icecreamtofightwith-com)'s
   `deploy.yml` / `Dockerfile` / `nginx.conf`, swapping the ECR/ECS names above.

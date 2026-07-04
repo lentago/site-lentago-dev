@@ -5,7 +5,7 @@ import { StatusDot } from "./Shared.jsx";
 export function StatusStrip() {
   const items = [
     { label: "icecreamtofightwith.com", status: "ok",   value: "200 OK · 142ms" },
-    { label: "ECS Fargate · foundry",   status: "ok",   value: "2/2 healthy" },
+    { label: "ECS Fargate · solidago",   status: "ok",   value: "2/2 healthy" },
     { label: "RDS · postgres",          status: "warn", value: "CPU 73%" },
     { label: "terraform apply",         status: "ok",   value: "2h ago · 0 drift" },
     { label: "pager",                   status: "ok",   value: "0 open" },

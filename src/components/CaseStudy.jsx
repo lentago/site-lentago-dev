@@ -28,7 +28,7 @@ export function CaseStudy() {
             </h2>
             <p style={{ fontSize: 17, color: "var(--color-on-dark-soft)", lineHeight: 1.6, margin: "0 0 20px", maxWidth: 540 }}>
               A live production deployment — recipe site for home cooks, built
-              on the Foundry Platform. Not a portfolio piece. A real app, under
+              on the Solidago Platform. Not a portfolio piece. A real app, under
               real load, paying real AWS bills.
             </p>
             <p style={{ fontSize: 17, color: "var(--color-on-dark-soft)", lineHeight: 1.6, margin: "0 0 28px", maxWidth: 540 }}>
@@ -38,7 +38,7 @@ export function CaseStudy() {
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Button size="sm" trailing="↗" href="https://icecreamtofightwith.com" target="_blank" rel="noopener noreferrer">icecreamtofightwith.com</Button>
-              <Button size="sm" variant="outline" onDark trailing="↗" href="https://github.com/lentago/ice-cream-book" target="_blank" rel="noopener noreferrer">github.com/lentago/ice-cream-book</Button>
+              <Button size="sm" variant="outline" onDark trailing="↗" href="https://github.com/lentago/site-icecreamtofightwith-com" target="_blank" rel="noopener noreferrer">github.com/lentago/site-icecreamtofightwith-com</Button>
             </div>
           </div>
 
