@@ -5,7 +5,7 @@
 The landing site for **Lentago Labs**, the infrastructure-operations consulting
 practice, live at [lentago.dev](https://lentago.dev). It's an Astro static
 site served as a container on the
-[foundry-platform-demo](https://github.com/lentago/foundry-platform-demo)
+[solidago](https://github.com/lentago/solidago) (formerly foundry-platform-demo)
 AWS stack (GitHub OIDC → ECR → ECS Fargate → ALB), the same platform that runs
 [icecreamtofightwith.com](https://icecreamtofightwith.com).
 
@@ -59,7 +59,7 @@ GitHub Actions builds the image, pushes it to ECR, and rolls the ECS service via
 the foundry-platform OIDC role, no long-lived credentials.
 
 > **Deploy is live (since 2026-06-30).** The ECR repo, ECS service, and the OIDC
-> trust for *this* repo are provisioned by `foundry-platform-demo`
+> trust for *this* repo are provisioned by `solidago`
 > (`modules/site`), mirroring the pitzilabs-dev wiring. `deploy.yml` runs on
 > **every push to `main`** (build → ECR → ECS rollout); `workflow_dispatch` is
 > kept for manual redeploys.
@@ -69,7 +69,7 @@ the foundry-platform OIDC role, no long-lived credentials.
 The site is live at **[lentago.dev](https://lentago.dev)** (apex + `www`), served
 from the shared foundry ALB. During design it was reachable only at a hidden,
 unguessable subdomain of `icecreamtofightwith.com`; that preview host was retired
-on promotion. The promotion is Terraform-managed in foundry-platform-demo via
+on promotion. The promotion is Terraform-managed in solidago via
 `modules/apex-domain` (`module.lentago_domain`): its own Route 53 zone + ACM cert
 (apex + `www`, attached to the shared HTTPS listener via SNI) + a host-header rule
 to the existing `site_lentago` backend. The service and image are unchanged.

@@ -16,7 +16,7 @@ sentence is plenty; don't make a meal of it.
 ## What this repo is
 
 A single-page Astro static site that reproduces a Claude Design handoff
-faithfully and serves it (nginx on ECS Fargate) via the `foundry-platform-demo`
+faithfully and serves it (nginx on ECS Fargate) via the `solidago` (formerly foundry-platform-demo)
 platform. There is no CMS and no database — the page is static HTML built from
 React components rendered **server-side only** (no client hydration). Live at
 `lentago.dev` (previewed on a hidden subdomain of `icecreamtofightwith.com`
@@ -77,7 +77,7 @@ interactive browser preview. The port:
 | ECS cluster / service | `foundry-dev-cluster` / `foundry-dev-lentago` |
 | Public domain | `lentago.dev` (+ `www`) — apex/www ALIAS → shared ALB, dedicated ACM cert via SNI |
 | OIDC deploy role | `arn:aws:iam::365184644049:role/foundry-dev-github-actions` |
-| Platform repo | [foundry-platform-demo](https://github.com/lentago/foundry-platform-demo) (`modules/site`) |
+| Platform repo | [solidago](https://github.com/lentago/solidago) (`modules/site`) |
 
 **Deploy is live.** Every push to `main` builds the Astro site, pushes to ECR
 (`foundry-dev-lentago`), and rolls the ECS service. The provisioning was

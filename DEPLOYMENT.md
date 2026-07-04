@@ -1,7 +1,7 @@
 # Deploying lentagolabs-dev on the Foundry Platform
 
 A runbook for **Platform Claude** (the Terraform steward of
-[foundry-platform-demo](https://github.com/lentago/foundry-platform-demo)) to
+[solidago](https://github.com/lentago/solidago) (formerly foundry-platform-demo)) to
 wire this site onto the shared AWS platform, mirroring how `pitzilabs-dev` is
 already hosted.
 
@@ -14,7 +14,7 @@ wildcard cert); that preview host was retired on promotion.
 
 > **Status: ✅ provisioned 2026-06-30.** This runbook has been executed — the ECR
 > repo, ECS service, and OIDC trust for this repo exist in
-> `foundry-platform-demo`, and `deploy.yml` deploys on every push to `main`. The
+> `solidago`, and `deploy.yml` deploys on every push to `main`. The
 > steps below are retained as the record of how the wiring was done and as the
 > reference for promoting to `lentago.dev` later.
 >
@@ -22,7 +22,7 @@ wildcard cert); that preview host was retired on promotion.
 > already written and parameterised for `foundry-dev-lentago`, but it could not
 > authenticate until the platform side existed: the ECR repo, the ECS service,
 > and — critically — the **OIDC trust** for this repo, all created in
-> `foundry-platform-demo`.
+> `solidago`.
 
 ---
 
