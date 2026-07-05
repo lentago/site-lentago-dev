@@ -13,7 +13,7 @@ const STAMENS = Array.from({ length: 10 }, (_, i) => (i % 2 === 0
   ? { rot: i * 36, tip: 10, filament: "M32 31C31 24 33 17 32 11" }   // long — over a petal
   : { rot: i * 36, tip: 18, filament: "M32 31C31 27 33 23 32 19" })); // short — between petals
 
-export function BrandMark({ size = 28, inverted = false, monochrome = false, square = false }) {
+export function BrandMark({ size = 28, inverted = false, monochrome = false, square = false, className }) {
   const onDark = inverted || square;                                 // square wraps it in a teal chip
   const line   = onDark ? "var(--color-on-dark)"      : "var(--color-brand)";       // petal contour
   const fill   = onDark ? "none"                      : "var(--color-surface)";     // petal body
@@ -21,7 +21,7 @@ export function BrandMark({ size = 28, inverted = false, monochrome = false, squ
   const anther = monochrome ? line                    : "var(--color-accent)";      // gold tips
   const eye    = onDark ? "var(--color-brand-deep)"   : "var(--color-surface)";     // center
   return (
-    <span style={{ display: "inline-flex", flexShrink: 0, lineHeight: 0 }}>
+    <span className={className} style={{ display: "inline-flex", flexShrink: 0, lineHeight: 0 }}>
       <svg width={size} height={size} viewBox="0 0 64 64" fill="none" role="img" aria-label="Lentago Labs">
         {square && <rect width="64" height="64" rx="0" fill="var(--color-brand-deep)" />}
         {[0, 72, 144, 216, 288].map(r => (

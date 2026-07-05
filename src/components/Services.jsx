@@ -18,15 +18,15 @@ export function ServicesGrid() {
       meta: ["GitHub Actions", "OIDC", "Cosign", "SBOM"] },
   ];
   return (
-    <section id="practice" style={{ maxWidth: 1280, margin: "0 auto", padding: "96px 40px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 340px) 1fr", gap: 64, marginBottom: 56, alignItems: "end" }}>
+    <section id="practice" className="ll-section" style={{ maxWidth: 1280, margin: "0 auto", padding: "96px 40px" }}>
+      <div className="ll-stack ll-stack-gap" style={{ display: "grid", gridTemplateColumns: "minmax(220px, 340px) 1fr", gap: 64, marginBottom: 56, alignItems: "end" }}>
         <div>
           <Eyebrow tone="accent" marker style={{ marginBottom: 14 }}>Services</Eyebrow>
           <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(36px, 4vw, 52px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: 0, color: "var(--fg1)" }}>
             What we'll do for you.
           </h2>
         </div>
-        <p style={{ fontSize: 16.5, color: "var(--fg2)", margin: 0, maxWidth: 520, lineHeight: 1.6, justifySelf: "end" }}>
+        <p className="ll-services-intro" style={{ fontSize: 16.5, color: "var(--fg2)", margin: 0, maxWidth: 520, lineHeight: 1.6, justifySelf: "end" }}>
           Four things, done well. No frameworks, no decks, no "digital transformation."
           Just infrastructure you can read, run, and hand off.
         </p>

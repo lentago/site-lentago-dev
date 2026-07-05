@@ -1,0 +1,63 @@
+/* =========================================================================
+   LENTAGO LABS — Responsive overrides (the mobile layer)
+
+   CONTRACT: The inline styles in the JSX components are the DESKTOP layout,
+   unchanged. This file is the only place mobile layout lives. Because inline
+   styles outrank classes, rules here use !important — deliberately, and only
+   inside these media queries. If you are adding !important anywhere else in
+   the design system, you are doing it wrong.
+
+   Breakpoints: 720px (phones + small tablets), 460px (narrow phones).
+   ========================================================================= */
+
+@media (max-width: 720px) {
+
+  /* ---- Section shells: reclaim the 40px gutters ------------------------ */
+  .ll-section { padding: 64px 20px !important; }
+  .ll-hero    { padding: 56px 20px 72px !important; }
+  .ll-contact { padding: 72px 20px 64px !important; }
+  .ll-footer  { padding: 32px 20px !important; }
+  .ll-strip   { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* ---- Nav: shrink the lockup, let links wrap, keep everything reachable */
+  .ll-nav        { padding: 10px 16px !important; flex-wrap: wrap !important; row-gap: 8px !important; }
+  .ll-nav-group  { gap: 14px !important; flex-wrap: wrap !important; }
+  .ll-nav-links  { gap: 12px !important; flex-wrap: wrap !important; }
+  .ll-navlink    { display: inline-block; padding: 6px 2px; } /* tap target; no !important needed — links have no inline padding */
+  .ll-wordmark   { font-size: 20px !important; }
+  .ll-nav-mark svg { width: 32px !important; height: 32px !important; }
+
+  /* ---- Hero: get the words above the fold ------------------------------ */
+  .ll-hero-lockup   { gap: 28px !important; }
+  .ll-hero-mark svg { width: 112px !important; height: 112px !important; }
+  .ll-hero-h1       { font-size: clamp(34px, 9.5vw, 46px) !important; }
+  .ll-hero-corner   { display: none !important; }
+
+  /* ---- Grid collapses: every fixed multi-column grid goes single-column */
+  .ll-stack     { grid-template-columns: 1fr !important; }
+  .ll-stack-gap { gap: 36px !important; }   /* companion for grids whose 64–72px desktop gap is too tall stacked */
+
+  /* Suite rows: codename → description → runs-on, stacked */
+  .ll-suite-row { gap: 16px !important; padding: 28px 0 !important; }
+
+  /* Principles: kill the column-position padding/border logic when stacked */
+  .ll-principle { padding: 28px 0 !important; border-right: none !important; }
+
+  /* Experience: sticky intro must not pin over the timeline when stacked */
+  .ll-exp-intro { position: static !important; }
+
+  /* Services header: intro paragraph no longer right-aligned in a 1fr column */
+  .ll-services-intro { justify-self: start !important; }
+
+  /* Contact headline: clamp floor of 44px is too tall for a 350px column */
+  .ll-contact-h2 { font-size: clamp(32px, 9vw, 44px) !important; }
+}
+
+@media (max-width: 460px) {
+  /* Wordmark goes mark-only; the pill yields to the Contact link in the list */
+  .ll-nav-wordmark { display: none !important; }
+  .ll-nav-pill     { display: none !important; }
+
+  /* Contact detail rows: label stacks above value */
+  .ll-contact-row  { grid-template-columns: 1fr !important; row-gap: 2px !important; }
+}

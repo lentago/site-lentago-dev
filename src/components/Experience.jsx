@@ -10,10 +10,10 @@ export function Experience() {
     { range: "1997 — 2005", tag: "JR. OPS", title: "Started the pager", desc: "First rotation. First outage I caused. First runbook I wrote. Everything since is a refinement." },
   ];
   return (
-    <section id="about" style={{ background: "var(--color-bg-alt)", borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)", padding: "96px 40px" }}>
+    <section id="about" className="ll-section" style={{ background: "var(--color-bg-alt)", borderTop: "1px solid var(--color-border)", borderBottom: "1px solid var(--color-border)", padding: "96px 40px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.6fr)", gap: 72, alignItems: "start" }}>
-          <div style={{ position: "sticky", top: 100 }}>
+        <div className="ll-stack ll-stack-gap" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.6fr)", gap: 72, alignItems: "start" }}>
+          <div className="ll-exp-intro" style={{ position: "sticky", top: 100 }}>
             <Eyebrow tone="accent" marker style={{ marginBottom: 14 }}>About</Eyebrow>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(36px, 4vw, 52px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: "0 0 20px", color: "var(--fg1)" }}>
               Twenty-five years <span style={{ color: "var(--color-accent)" }}>carrying the pager.</span>
