@@ -11,7 +11,7 @@ export function Principles() {
     { n: "06", title: "Cost is a posture.", desc: "A NAT gateway you forgot about is a security problem. A forgotten log bucket is a compliance problem. Run the audit monthly, not yearly." },
   ];
   return (
-    <section id="writing" style={{ maxWidth: 1280, margin: "0 auto", padding: "96px 40px" }}>
+    <section id="writing" className="ll-section" style={{ maxWidth: 1280, margin: "0 auto", padding: "96px 40px" }}>
       <div style={{ marginBottom: 56, maxWidth: 720 }}>
         <Eyebrow tone="accent" marker style={{ marginBottom: 14 }}>Operating principles</Eyebrow>
         <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(36px, 4vw, 52px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: "0 0 20px", color: "var(--fg1)" }}>
@@ -22,9 +22,9 @@ export function Principles() {
           we'd bring into a room on day one.
         </p>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, borderTop: "1px solid var(--color-border)" }}>
+      <div className="ll-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, borderTop: "1px solid var(--color-border)" }}>
         {items.map((item, i) => (
-          <div key={item.n} style={{
+          <div key={item.n} className="ll-principle" style={{
             padding: "36px 32px",
             borderBottom: "1px solid var(--color-border)",
             borderRight: (i % 3 !== 2) ? "1px solid var(--color-border)" : "none",

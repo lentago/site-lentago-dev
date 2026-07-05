@@ -47,7 +47,7 @@ const SYSTEMS = [
 
 export function Suite() {
   return (
-    <section id="work" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "96px 40px", position: "relative", overflow: "hidden" }}>
+    <section id="work" className="ll-section" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "96px 40px", position: "relative", overflow: "hidden" }}>
       {/* Topographic contour lines (fainter than the hero — this section is dense) */}
       <svg viewBox="0 0 1280 480" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
         fill="none" stroke="var(--color-on-dark)" strokeOpacity="0.05" strokeWidth="1.4">
@@ -74,7 +74,7 @@ export function Suite() {
 
         <div style={{ borderTop: "1px solid rgba(243,240,232,0.1)" }}>
           {SYSTEMS.map(s => (
-            <div key={s.codename} style={{ display: "grid", gridTemplateColumns: "220px minmax(0,1fr) 280px", gap: 40, padding: "36px 0", borderBottom: "1px solid rgba(243,240,232,0.1)" }}>
+            <div key={s.codename} className="ll-stack ll-suite-row" style={{ display: "grid", gridTemplateColumns: "220px minmax(0,1fr) 280px", gap: 40, padding: "36px 0", borderBottom: "1px solid rgba(243,240,232,0.1)" }}>
               {/* Left — status, numbered codename, botanical note, repo link */}
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>

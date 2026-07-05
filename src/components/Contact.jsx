@@ -8,7 +8,7 @@ import { queueCopy } from "../config.js";
 // glyph is the gold ▲ triangulation marker + `lentago` — never `$` or `>`.
 export function Contact() {
   return (
-    <section id="contact" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "112px 40px 96px", position: "relative", overflow: "hidden" }}>
+    <section id="contact" className="ll-contact" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "112px 40px 96px", position: "relative", overflow: "hidden" }}>
       <svg viewBox="0 0 1080 480" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
         fill="none" stroke="var(--color-accent)" strokeOpacity="0.08" strokeWidth="1.4">
         <path d="M-40 380 C 200 320 320 420 540 370 S 900 290 1120 370" />
@@ -16,10 +16,10 @@ export function Contact() {
         <path d="M-40 260 C 200 200 320 300 540 250 S 900 170 1120 250" />
         <path d="M-40 200 C 200 140 320 240 540 190 S 900 110 1120 190" />
       </svg>
-      <div style={{ maxWidth: 1080, margin: "0 auto", position: "relative", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 72, alignItems: "start" }}>
+      <div className="ll-stack ll-stack-gap" style={{ maxWidth: 1080, margin: "0 auto", position: "relative", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 72, alignItems: "start" }}>
         <div>
           <Eyebrow tone="dark" marker style={{ color: "var(--color-accent)", marginBottom: 16 }}>Contact · POST /consult</Eyebrow>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(44px, 5.5vw, 72px)", lineHeight: 1.02, letterSpacing: "-0.035em", margin: "0 0 24px" }}>
+          <h2 className="ll-contact-h2" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(44px, 5.5vw, 72px)", lineHeight: 1.02, letterSpacing: "-0.035em", margin: "0 0 24px" }}>
             Queue's <span style={{ color: "var(--color-accent)" }}>{queueCopy.queueWord}</span>
           </h2>
           <p style={{ fontSize: 18, color: "var(--color-on-dark-soft)", lineHeight: 1.55, margin: "0 0 40px", maxWidth: 480 }}>
@@ -33,7 +33,7 @@ export function Contact() {
               { k: "Signal", v: "available on request" },
               { k: "Response", v: "< 24h on weekdays" },
             ].map(row => (
-              <div key={row.k} style={{ display: "grid", gridTemplateColumns: "120px 1fr", paddingBottom: 16, borderBottom: "1px solid rgba(243,240,232,0.1)", alignItems: "baseline" }}>
+              <div key={row.k} className="ll-contact-row" style={{ display: "grid", gridTemplateColumns: "120px 1fr", paddingBottom: 16, borderBottom: "1px solid rgba(243,240,232,0.1)", alignItems: "baseline" }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-on-dark-faint)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{row.k}</span>
                 {row.href
                   ? <a href={row.href}
@@ -79,11 +79,11 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border)", padding: "40px" }}>
+    <footer className="ll-footer" style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border)", padding: "40px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <BrandMark size={48} />
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 34, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
+          <span className="ll-wordmark" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 34, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
           <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v2026.07.04</span>
         </div>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)" }}>

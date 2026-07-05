@@ -15,7 +15,7 @@ export function StatusStrip() {
     { label: "pager",             status: "ok",   value: "0 open" },
   ];
   return (
-    <section style={{
+    <section className="ll-strip" style={{
       background: "var(--color-bg-alt)",
       borderBottom: "1px solid var(--color-border)",
       padding: "16px 32px",

@@ -6,7 +6,7 @@ import { StatusDot, Eyebrow, Button, BlossomWatermark, BrandMark } from "./Share
 // become plain #anchors (the Button primitive renders an <a> when given href).
 export function HeroDark() {
   return (
-    <header id="top" style={{
+    <header id="top" className="ll-hero" style={{
       background: "var(--grad-hero)",
       color: "var(--fg-on-dark)",
       padding: "112px 32px 120px",
@@ -31,8 +31,8 @@ export function HeroDark() {
             headline (crisp cream contours + gold anthers on the deep-green
             field), so it's a centerpiece without dead space above the words.
             Collapses to stacked on narrow viewports via flex-wrap. */}
-        <div style={{ display: "flex", alignItems: "center", gap: 56, flexWrap: "wrap" }}>
-          <BrandMark size={208} inverted />
+        <div className="ll-hero-lockup" style={{ display: "flex", alignItems: "center", gap: 56, flexWrap: "wrap" }}>
+          <BrandMark size={208} inverted className="ll-hero-mark" />
 
           <div style={{ flex: "1 1 540px", minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
@@ -40,7 +40,7 @@ export function HeroDark() {
               <Eyebrow tone="dark">Practice · EST. 1997 · Infrastructure ops</Eyebrow>
             </div>
 
-            <h1 style={{
+            <h1 className="ll-hero-h1" style={{
               fontFamily: "var(--font-display)", fontWeight: 700,
               fontSize: "clamp(48px, 7vw, 88px)", lineHeight: 1.02,
               letterSpacing: "-0.035em", margin: "0 0 28px", maxWidth: 920,
@@ -72,7 +72,7 @@ export function HeroDark() {
       </div>
 
       {/* Corner runbook snippet */}
-      <div style={{
+      <div className="ll-hero-corner" style={{
         position: "absolute", right: 40, bottom: 28,
         fontFamily: "var(--font-mono)", fontSize: 11,
         color: "rgba(243,240,232,0.32)", textAlign: "right",
