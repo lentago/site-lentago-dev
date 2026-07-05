@@ -27,7 +27,7 @@ const SYSTEMS = [
     title: "Observability",
     desc: "Dashboards live as JSON and apply by Terraform on merge; one declarative Alloy collector per host. Built on Grafana Cloud — Mimir, Loki, Grafana — and we say so. What's ours is the git discipline: if it isn't in the repo, it doesn't exist.",
     runsOn: ["Grafana Cloud", "Alloy", "Terraform"],
-    roadmap: "first source: the homelab → next: AWS (solidago)",
+    roadmap: "first source: the Lentago lab → next: AWS (solidago)",
   },
   {
     num: "04", codename: "betula", botanical: "birch — where the logs keep",
