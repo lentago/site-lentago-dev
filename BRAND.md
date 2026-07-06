@@ -32,6 +32,18 @@ The mark is drawn (SVG), not typed — `BrandMark` (inline/chip) and
 `BlossomWatermark` (ghost) in `src/components/Brand.jsx` are the source of truth
 for the geometry; the static `public/*.svg` files mirror it.
 
+### Fleet genus marks
+
+Each fleet system carries its own **genus mark** — a sibling of the lentago
+blossom on the same 64-grid (cream/limestone contour 2.2, filament 1.4, gold
+`#E0A81C` anthers, one gold accent per mark): **solidago** the upright panicle,
+**drosera** the dew-tipped rosette, **betula** the bark lenticels, **claytonia**
+the notched petals with gold veins, **kalmia** the pentagonal corolla. The
+sharp-chip variants (cream + gold on a `#0e2b1a` ground, so the chip sits flush
+on the dark Suite surface) live in `public/marks/<genus>-mark-square.svg` and
+anchor each row of the `#work` Suite section. They are canon from the "Lentago
+Labs Design System" project (`assets/marks/`) — pulled in, not redrawn.
+
 ## Palette — "Tidewater"
 
 Warm forest-teal is the brand, anther gold is the accent, limestone is the

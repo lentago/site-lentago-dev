@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" fill="none" role="img" aria-label="Solidago">
+  <rect width="64" height="64" fill="#0e2b1a"></rect>
+  <path d="M32 58C31 45 33 30 32 16" stroke="#f3f0e8" stroke-width="2.2" stroke-linecap="round"></path>
+  <path d="M32 46C27 44 23 40 21 34" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 46C37 44 41 40 43 34" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 38C28 36 25 32 24 27" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 38C36 36 39 32 40 27" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 30C29 28 27 25 26 21" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 30C35 28 37 25 38 21" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 55C28.5 54 25.5 52 24 48.5" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <path d="M32 55C35.5 54 38.5 52 40 48.5" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round"></path>
+  <circle cx="21" cy="34" r="2" fill="#E0A81C"></circle>
+  <circle cx="43" cy="34" r="2" fill="#E0A81C"></circle>
+  <circle cx="24" cy="27" r="2" fill="#E0A81C"></circle>
+  <circle cx="40" cy="27" r="2" fill="#E0A81C"></circle>
+  <circle cx="26" cy="21" r="2" fill="#E0A81C"></circle>
+  <circle cx="38" cy="21" r="2" fill="#E0A81C"></circle>
+  <circle cx="32" cy="13.5" r="2.3" fill="#E0A81C"></circle>
+</svg>
