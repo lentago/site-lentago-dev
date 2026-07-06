@@ -5,12 +5,12 @@ import { queueCopy } from "../config.js";
 // of the design-system Nav: the prototype's smooth-scroll onNav callback is
 // replaced with plain in-page #anchors, and the per-link hover (onMouseEnter in
 // the prototype) is re-expressed as CSS (.ll-navlink:hover) since nothing
-// hydrates on this site. The #work link reads "Systems" — it now targets the
-// suite of named systems that replaced the single case study.
+// hydrates on this site. The "Systems" link targets #systems — the suite of
+// named systems that replaced the single case study.
 export function NavBar({ active = "Practice" }) {
   const items = [
     { label: "Practice",   href: "#practice" },
-    { label: "Systems",    href: "#work" },
+    { label: "Systems",    href: "#systems" },
     { label: "Principles", href: "#principles" },
     { label: "About",      href: "#about" },
     { label: "Contact",    href: "#contact" },
