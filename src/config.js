@@ -23,7 +23,7 @@ export const queueCopy = queueOpen
 // no secret to hide here. Create/manage the form at https://formspree.io and
 // paste its 8-char hash below (the part after /f/).
 export const consultForm = {
-  endpoint: "https://formspree.io/f/REPLACE_WITH_FORM_HASH",
+  endpoint: "https://formspree.io/f/mqevjknw",
   subject:  "New consult · lentago.dev",
   next:     "https://lentago.dev/thanks",
 };
