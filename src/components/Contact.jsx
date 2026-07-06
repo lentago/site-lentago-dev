@@ -1,11 +1,13 @@
 import { Eyebrow, Input, Select, Textarea, BrandMark, StatusDot } from "./Shared.jsx";
-import { queueCopy } from "../config.js";
+import { queueCopy, consultForm } from "../config.js";
 
 // Contact rows + a field-station "consult" form. The design-system version is
-// an interactive React form (useState → fake 202 transcript); this is the
-// STATIC site, so the form is a styled MOCK for v1 (no backend, no hydration).
-// Wiring it (mailto/Formspree) is a separate, intentional change. The prompt
-// glyph is the gold ▲ triangulation marker + `lentago` — never `$` or `>`.
+// an interactive React form (useState → fake 202 transcript). This static site
+// ships no JS, so instead of hydration the form is wired to Formspree via a
+// native HTML POST: the browser submits straight to consultForm.endpoint,
+// Formspree emails chris@lentago.dev and redirects to /thanks. Endpoint + copy
+// live in config.js. The prompt glyph is the gold ▲ triangulation marker +
+// `lentago` — never `$` or `>`.
 export function Contact() {
   return (
     <section id="contact" className="ll-contact" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "112px 40px 96px", position: "relative", overflow: "hidden" }}>
@@ -45,7 +47,7 @@ export function Contact() {
           </div>
         </div>
 
-        {/* Field-station consult form — static styled MOCK for v1 (no backend). */}
+        {/* Field-station consult form — native HTML POST to Formspree (no JS). */}
         <div style={{ background: "var(--color-term-bg)", border: "1px solid var(--color-term-border)", borderRadius: 10, padding: "28px 28px 32px", fontFamily: "var(--font-mono)", fontSize: 13, boxShadow: "var(--shadow-term)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20, paddingBottom: 14, borderBottom: "1px solid var(--color-term-border)" }}>
             <span style={{ color: "var(--color-on-dark-faint)", fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase" }}>~/consult.sh</span>
@@ -54,13 +56,24 @@ export function Contact() {
             </span>
           </div>
 
-          <div style={{ color: "var(--color-on-dark-soft)", lineHeight: 1.9, display: "grid", gap: 12 }}>
-            <Input terminal label="▲ lentago ./new-consult --your=" placeholder="name" />
-            <Input terminal label="--email=" type="email" placeholder="you@company.com" />
-            <Select terminal label="--scope="
+          <form action={consultForm.endpoint} method="POST"
+                style={{ color: "var(--color-on-dark-soft)", lineHeight: 1.9, display: "grid", gap: 12 }}>
+            {/* Formspree control fields */}
+            <input type="hidden" name="_subject" defaultValue={consultForm.subject} />
+            <input type="hidden" name="_next" defaultValue={consultForm.next} />
+            {/* Honeypot — bots fill this; Formspree silently drops those submissions */}
+            <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true"
+                   style={{ display: "none" }} />
+
+            <Input terminal id="consult-name" name="name" required
+              label="▲ lentago ./new-consult --your=" placeholder="name" />
+            <Input terminal id="consult-email" name="email" type="email" required
+              label="--email=" placeholder="you@company.com" />
+            <Select terminal id="consult-scope" name="scope" label="--scope="
               options={["cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
-            <Textarea terminal label="--symptoms <<EOF" rows={3} placeholder="NAT gateway eating budget. IAM roles nobody owns." />
-            <button type="button" style={{
+            <Textarea terminal id="consult-symptoms" name="message" required rows={3}
+              label="--symptoms <<EOF" placeholder="NAT gateway eating budget. IAM roles nobody owns." />
+            <button type="submit" style={{
               marginTop: 8, width: "100%", background: "var(--color-accent)", color: "var(--color-on-accent)",
               border: 0, padding: "12px 18px", borderRadius: "var(--r-md)",
               fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 500,
@@ -70,7 +83,7 @@ export function Contact() {
               <span>./send --priority=normal</span>
               <span>↵</span>
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </section>

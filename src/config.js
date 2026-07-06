@@ -13,3 +13,17 @@ export const showRoadmap = true;      // false → hide each system's "first →
 export const queueCopy = queueOpen
   ? { navPill: "Available · Q2 '26", navDot: "ok",   queueWord: "open." }
   : { navPill: "Waitlist · Q3 '26",  navDot: "warn", queueWord: "waitlisted." };
+
+// Consult form → Formspree (issue #31). The form does a native HTML POST (no
+// JS, no hydration) straight to `endpoint`; Formspree emails the submission to
+// the address the form is configured for (chris@lentago.dev, hosted on
+// Fastmail) and 302-redirects the browser to `next` (the on-brand /thanks page).
+//
+// The form hash is PUBLIC by design — it ships in the built HTML — so there is
+// no secret to hide here. Create/manage the form at https://formspree.io and
+// paste its 8-char hash below (the part after /f/).
+export const consultForm = {
+  endpoint: "https://formspree.io/f/mqevjknw",
+  subject:  "New consult · lentago.dev",
+  next:     "https://lentago.dev/thanks",
+};
