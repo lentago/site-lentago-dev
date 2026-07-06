@@ -75,8 +75,10 @@ export function Suite() {
         <div style={{ borderTop: "1px solid rgba(243,240,232,0.1)" }}>
           {SYSTEMS.map(s => (
             <div key={s.codename} className="ll-stack ll-suite-row" style={{ display: "grid", gridTemplateColumns: "220px minmax(0,1fr) 280px", gap: 40, padding: "36px 0", borderBottom: "1px solid rgba(243,240,232,0.1)" }}>
-              {/* Left — status, numbered codename, botanical note, repo link */}
+              {/* Left — genus mark, status, numbered codename, botanical note, repo link */}
               <div>
+                <img src={`/marks/${s.codename}-mark-square.svg`} width={40} height={40} alt=""
+                     style={{ display: "block", marginBottom: 12 }} />
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
                   <StatusDot status="ok" size={6} />
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--color-accent)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{s.num} · {s.codename}</span>
