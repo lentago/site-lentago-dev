@@ -113,7 +113,7 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
 - Founder credit in the footer reads the operator's real name (Christopher
   Pitzi) under the Lentago brand — intentional; confirm before changing.
 - GitHub references in the site copy point to the real `github.com/lentago`
-  org (the contact row) and to specific public repos (the `#work` suite section
+  org (the contact row) and to specific public repos (the `#systems` suite section
   links the five system repos: `github.com/lentago/{solidago,kalmia,drosera,
   betula,claytonia}`). The earlier
   `github.com/LentagoLabs` "brand-forward future org" placeholder was

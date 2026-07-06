@@ -6,7 +6,7 @@ import { showRoadmap } from "../config.js";
 // botanical codename is a gold mono tag) and honest about what it stands on:
 // a "Runs on" column names the underlying platform outright (Grafana Cloud,
 // Axiom, Ansible, Claude Code, AWS…). Replaces the retired ice-cream case
-// study in the #work slot. The per-row roadmap line is gated on showRoadmap.
+// study in the #systems slot. The per-row roadmap line is gated on showRoadmap.
 const SYSTEMS = [
   {
     num: "01", codename: "solidago", botanical: 'goldenrod — "to make whole"',
@@ -47,7 +47,7 @@ const SYSTEMS = [
 
 export function Suite() {
   return (
-    <section id="work" className="ll-section" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "96px 40px", position: "relative", overflow: "hidden" }}>
+    <section id="systems" className="ll-section" style={{ background: "var(--color-ink-strong)", color: "var(--fg-on-dark)", padding: "96px 40px", position: "relative", overflow: "hidden" }}>
       {/* Topographic contour lines (fainter than the hero — this section is dense) */}
       <svg viewBox="0 0 1280 480" preserveAspectRatio="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
         fill="none" stroke="var(--color-on-dark)" strokeOpacity="0.05" strokeWidth="1.4">
