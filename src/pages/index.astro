@@ -14,6 +14,10 @@ import { Suite } from '../components/Suite.jsx';
 import { Principles } from '../components/Principles.jsx';
 import { Experience } from '../components/Experience.jsx';
 import { Contact, Footer } from '../components/Contact.jsx';
+
+// Build-time version stamp (vYYYY.MM.DD). Computed at build, which for this
+// deploy-on-merge site tracks the last deploy date — no hand-bumped literal.
+const buildVersion = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
 ---
 
 <Layout>
@@ -25,5 +29,5 @@ import { Contact, Footer } from '../components/Contact.jsx';
   <Principles />
   <Experience />
   <Contact />
-  <Footer />
+  <Footer version={buildVersion} />
 </Layout>

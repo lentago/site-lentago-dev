@@ -77,14 +77,17 @@ export function Contact() {
   );
 }
 
-export function Footer() {
+// `version` is the build date, threaded in from index.astro (the site deploys
+// on every merge to main, so build date == last deploy date). Keeps the
+// vYYYY.MM.DD convention self-correcting instead of a hand-bumped literal.
+export function Footer({ version = "dev" }) {
   return (
     <footer className="ll-footer" style={{ background: "var(--color-bg)", borderTop: "1px solid var(--color-border)", padding: "40px" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <BrandMark size={48} />
           <span className="ll-wordmark" style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 34, color: "var(--fg1)", letterSpacing: "-0.02em" }}>Lentago Labs</span>
-          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v2026.07.04</span>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg3)", marginLeft: 12, letterSpacing: "0.05em" }}>v{version}</span>
         </div>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)" }}>
           Christopher Pitzi · <a href="mailto:chris@lentago.dev" style={{ color: "inherit", textDecoration: "none" }}>chris@lentago.dev</a> · © 2026

@@ -9,11 +9,11 @@ import { queueCopy } from "../config.js";
 // suite of named systems that replaced the single case study.
 export function NavBar({ active = "Practice" }) {
   const items = [
-    { label: "Practice", href: "#practice" },
-    { label: "Systems",  href: "#work" },
-    { label: "Writing",  href: "#writing" },
-    { label: "About",    href: "#about" },
-    { label: "Contact",  href: "#contact" },
+    { label: "Practice",   href: "#practice" },
+    { label: "Systems",    href: "#work" },
+    { label: "Principles", href: "#principles" },
+    { label: "About",      href: "#about" },
+    { label: "Contact",    href: "#contact" },
   ];
   return (
     <nav className="ll-nav" style={{
