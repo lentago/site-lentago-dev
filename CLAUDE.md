@@ -104,8 +104,12 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
 - Static output only: if you ever need a `client:*` directive, stop and
   reconsider — this site has no interactive runtime by design. No React should
   ship to the browser; verify the built `dist/index.html` has no `<script>` tag.
-- The contact form is a styled **mock** for v1 (no backend). Wiring it
-  (mailto/Formspree) is a separate, intentional change.
+- The contact form posts to **Formspree** via a native HTML `POST` (no JS, no
+  hydration): `<form action={consultForm.endpoint} method="POST">` in
+  `Contact.jsx`, endpoint + copy in `src/config.js`, on-brand redirect at
+  `src/pages/thanks.astro` (`/thanks`). Submissions email `chris@lentago.dev`
+  (Fastmail). The form hash is public by design — it ships in the HTML. To
+  re-point it, change the hash in `config.js`, not the markup.
 - Founder credit in the footer reads the operator's real name (Christopher
   Pitzi) under the Lentago brand — intentional; confirm before changing.
 - GitHub references in the site copy point to the real `github.com/lentago`

@@ -1,0 +1,43 @@
+---
+// Post-submit landing for the consult form. Formspree redirects here (config.js
+// `next`) after a successful POST. Static, no JS — same shell as index. The dark
+// field-station treatment mirrors the Contact section so the handoff feels
+// continuous rather than dumping the visitor on Formspree's generic page.
+import Layout from '../layouts/Layout.astro';
+import { BrandMark } from '../components/Shared.jsx';
+---
+
+<Layout
+  title="Message received — Lentago Labs"
+  description="Your consult request reached Lentago Labs. Expect a reply within 24h on weekdays."
+>
+  <main style="min-height:100vh; background:var(--color-ink-strong); color:var(--fg-on-dark); display:flex; align-items:center; justify-content:center; padding:40px; position:relative; overflow:hidden;">
+    <svg viewBox="0 0 1080 480" preserveAspectRatio="none" aria-hidden="true"
+      style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none;"
+      fill="none" stroke="var(--color-accent)" stroke-opacity="0.08" stroke-width="1.4">
+      <path d="M-40 380 C 200 320 320 420 540 370 S 900 290 1120 370"></path>
+      <path d="M-40 320 C 200 260 320 360 540 310 S 900 230 1120 310"></path>
+      <path d="M-40 260 C 200 200 320 300 540 250 S 900 170 1120 250"></path>
+      <path d="M-40 200 C 200 140 320 240 540 190 S 900 110 1120 190"></path>
+    </svg>
+
+    <div style="position:relative; max-width:560px; text-align:center;">
+      <div style="display:flex; justify-content:center; margin-bottom:28px;">
+        <BrandMark size={72} />
+      </div>
+      <div style="font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-accent); margin-bottom:16px;">
+        ▲ lentago · consult received
+      </div>
+      <h1 style="font-family:var(--font-display); font-weight:700; font-size:clamp(40px, 7vw, 64px); line-height:1.02; letter-spacing:-0.03em; margin:0 0 20px;">
+        Queue's <span style="color:var(--color-accent);">got it.</span>
+      </h1>
+      <p style="font-size:18px; color:var(--color-on-dark-soft); line-height:1.55; margin:0 0 36px;">
+        Your consult request is in. Expect a reply within 24h on weekdays, from
+        <span style="color:var(--color-on-dark);">chris@lentago.dev</span>.
+      </p>
+      <a href="/" style="font-family:var(--font-mono); font-size:14px; color:var(--color-accent); text-decoration:none;">
+        ← back to lentago.dev
+      </a>
+    </div>
+  </main>
+</Layout>
