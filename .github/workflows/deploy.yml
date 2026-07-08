@@ -8,12 +8,18 @@
 # service, and the OIDC trust for this repo are provisioned by
 # solidago (modules/site).
 #
-# >>> LIVE as of 2026-06-30. The ECR repo `foundry-dev-lentago`, the ECS service
-# `foundry-dev-lentago`, and the OIDC trust for THIS repo
+# >>> LIVE as of 2026-06-30. The ECR repo `solidago-dev-lentago`, the ECS service
+# `solidago-dev-lentago`, and the OIDC trust for THIS repo
 # (lentago/site-lentago-dev, née lentagolabs-dev) are provisioned in solidago (née foundry-platform-demo)
 # (modules/site), mirroring the `site_pitzilabs` entry. Every push to `main` now
 # builds, pushes to ECR, and rolls the ECS service; `workflow_dispatch` is kept
 # for manual redeploys.
+#
+# >>> 2026-07-08: the platform renamed all `foundry-dev-*` AWS resources to the
+# `solidago-dev-*` codename (solidago #102), which recreated the ECR repo/ECS
+# service/OIDC role under new names and left this repo's deploy pointing at the
+# now-deleted `foundry-dev-*` names — the site 503'd on an empty ECR repo. The
+# env block below tracks the current `solidago-dev-*` names.
 
 name: Build & Deploy
 
@@ -32,10 +38,10 @@ permissions:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPO: foundry-dev-lentago
-  ECS_CLUSTER: foundry-dev-cluster
-  ECS_SERVICE: foundry-dev-lentago
-  AWS_ROLE_ARN: arn:aws:iam::365184644049:role/foundry-dev-github-actions
+  ECR_REPO: solidago-dev-lentago
+  ECS_CLUSTER: solidago-dev-cluster
+  ECS_SERVICE: solidago-dev-lentago
+  AWS_ROLE_ARN: arn:aws:iam::365184644049:role/solidago-dev-github-actions
 
 jobs:
   deploy:

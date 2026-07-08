@@ -73,16 +73,19 @@ interactive browser preview. The port:
 |---|---|
 | Build | `npm install && npm run build` → `dist/` |
 | Container | `nginx:latest`, `listen 8080`, `/health` → 200 (ALB health check) |
-| ECR repo | `foundry-dev-lentago` |
-| ECS cluster / service | `foundry-dev-cluster` / `foundry-dev-lentago` |
+| ECR repo | `solidago-dev-lentago` |
+| ECS cluster / service | `solidago-dev-cluster` / `solidago-dev-lentago` |
 | Public domain | `lentago.dev` (+ `www`) — apex/www ALIAS → shared ALB, dedicated ACM cert via SNI |
-| OIDC deploy role | `arn:aws:iam::365184644049:role/foundry-dev-github-actions` |
+| OIDC deploy role | `arn:aws:iam::365184644049:role/solidago-dev-github-actions` |
 | Platform repo | [solidago](https://github.com/lentago/solidago) (`modules/site`) |
 
 **Deploy is live.** Every push to `main` builds the Astro site, pushes to ECR
-(`foundry-dev-lentago`), and rolls the ECS service. The provisioning was
+(`solidago-dev-lentago`), and rolls the ECS service. The provisioning was
 completed 2026-06-30 (see `deploy.yml` preamble for details). Manual redeploys
-are available via `workflow_dispatch`.
+are available via `workflow_dispatch`. **2026-07-08:** the platform renamed all
+`foundry-dev-*` AWS resources to the `solidago-dev-*` codename (solidago #102);
+the names above and in `deploy.yml` were updated to match — the old `foundry-dev-*`
+names no longer exist.
 
 ## CI & branch protection (fleet standard)
 
