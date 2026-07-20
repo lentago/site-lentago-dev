@@ -1,4 +1,4 @@
-# Deploying site-lentago-dev (née lentagolabs-dev) on the Foundry Platform
+# Deploying site-lentago-dev (née lentagolabs-dev) on the solidago platform
 
 > **Naming note (2026-07-04):** the site repos have since been renamed to the
 > `site-<domain>` convention — this repo is now `site-lentago-dev` and
@@ -7,7 +7,7 @@
 > the OIDC role dual-trusts old and new names during the transition (solidago#89).
 
 A runbook for **Platform Claude** (the Terraform steward of
-[solidago](https://github.com/lentago/solidago) (formerly foundry-platform-demo)) to
+[solidago](https://github.com/lentago/solidago)) to
 wire this site onto the shared AWS platform, mirroring how `pitzilabs-dev` is
 already hosted.
 
@@ -41,11 +41,11 @@ any of it again:
   `ALB → app:8080`)
 - The **shared ALB** + its **HTTPS listener** with the `*.icecreamtofightwith.com`
   wildcard cert
-- The **shared ECS cluster** (`foundry-dev-cluster`)
+- The **shared ECS cluster** (`solidago-dev-cluster`)
 - The **ECS task execution + task roles**
 - The Route 53 hosted zone for `icecreamtofightwith.com`
-- The **app deploy OIDC role** `foundry-dev-github-actions`
-  (`arn:aws:iam::365184644049:role/foundry-dev-github-actions`) — its ECR/ECS
+- The **app deploy OIDC role** `solidago-dev-github-actions`
+  (`arn:aws:iam::365184644049:role/solidago-dev-github-actions`) — its ECR/ECS
   permissions are already account-scoped, so a new workload repo only needs to be
   **added to its trust list**, nothing more.
 
@@ -57,9 +57,9 @@ listener rule, and a Route 53 alias.
 
 | Thing | Value |
 |---|---|
-| Site `name` | `lentago` → resources named `foundry-dev-lentago` |
-| ECR repo | `foundry-dev-lentago` |
-| ECS service | `foundry-dev-lentago` (on shared cluster `foundry-dev-cluster`) |
+| Site `name` | `lentago` → resources named `solidago-dev-lentago` |
+| ECR repo | `solidago-dev-lentago` |
+| ECS service | `solidago-dev-lentago` (on shared cluster `solidago-dev-cluster`) |
 | Listener rule priority | **`110`** (100 is taken by pitzilabs — must be unique) |
 | Preview hostname | a **single-label** subdomain of `icecreamtofightwith.com` (wildcard-covered), supplied out-of-band via an Actions variable |
 | OIDC trust to add | `lentagolabs-dev` |
@@ -158,14 +158,14 @@ output "lentago_ecs_service_name" {
 
 ## Step 4 — Supply the hidden host to the Terraform pipeline
 
-1. On `foundry-platform-demo`, create a **repo Actions variable**
+1. On `solidago`, create a **repo Actions variable**
    `LENTAGO_PREVIEW_HOST` — a fresh single-label subdomain, e.g.
    `lt-preview-7q2x9k.icecreamtofightwith.com` (don't reuse the pitzilabs one;
    keep it unguessable and out of git).
 
    ```bash
    gh variable set LENTAGO_PREVIEW_HOST \
-     --repo lentago/foundry-platform-demo \
+     --repo lentago/solidago \
      --body 'lt-preview-7q2x9k.icecreamtofightwith.com'
    ```
 
@@ -182,7 +182,7 @@ output "lentago_ecs_service_name" {
 
 ## Step 5 — Plan & apply
 
-Open a PR on `foundry-platform-demo` with Steps 1–4. Let the Terraform pipeline
+Open a PR on `solidago` with Steps 1–4. Let the Terraform pipeline
 `plan` on the PR; review that it adds **only** the `module.site_lentago.*`
 resources (ECR repo, log group, target group, listener rule, task def, ECS
 service, Route 53 record) and the IAM trust update — and touches nothing on the
@@ -198,8 +198,8 @@ After apply, confirm the new outputs resolve:
 ```bash
 cd environments/dev
 terraform output lentago_preview_url
-terraform output lentago_ecr_repository_url   # .../foundry-dev-lentago
-terraform output lentago_ecs_service_name     # foundry-dev-lentago
+terraform output lentago_ecr_repository_url   # .../solidago-dev-lentago
+terraform output lentago_ecs_service_name     # solidago-dev-lentago
 ```
 
 ---
@@ -217,14 +217,14 @@ on:
 ```
 
 The deploy workflow is already correct for the names above
-(`ECR_REPO`/`ECS_SERVICE` = `foundry-dev-lentago`, cluster
-`foundry-dev-cluster`, role `foundry-dev-github-actions`). Merging that change to
+(`ECR_REPO`/`ECS_SERVICE` = `solidago-dev-lentago`, cluster
+`solidago-dev-cluster`, role `solidago-dev-github-actions`). Merging that change to
 `main` (or a manual **Run workflow**) then:
 
 1. `npm ci && npm run build` → `dist/`
 2. `docker build` the nginx image, push `:latest` + `:<sha>` to ECR
-   `foundry-dev-lentago`
-3. `aws ecs update-service --force-new-deployment` on `foundry-dev-lentago`
+   `solidago-dev-lentago`
+3. `aws ecs update-service --force-new-deployment` on `solidago-dev-lentago`
 4. `aws ecs wait services-stable` — the task pulls `:latest`, passes the
    `/health` check, the target group goes healthy.
 
@@ -235,9 +235,9 @@ The deploy workflow is already correct for the names above
 curl -sS https://<LENTAGO_PREVIEW_HOST>/health        # -> OK
 
 # Service is running 1/1
-aws ecs describe-services --cluster foundry-dev-cluster \
-  --services foundry-dev-lentago --region us-east-1 \
-  --query 'services[0].{desired:desiredCount,running:runningCount}' --profile foundry
+aws ecs describe-services --cluster solidago-dev-cluster \
+  --services solidago-dev-lentago --region us-east-1 \
+  --query 'services[0].{desired:desiredCount,running:runningCount}' --profile solidago
 ```
 
 Then load `https://<LENTAGO_PREVIEW_HOST>/` — you should get the teal/copper
@@ -266,8 +266,8 @@ The hidden `lt-preview-*.icecreamtofightwith.com` host was then retired
 
 ## One-glance summary
 
-| | Platform side (`foundry-platform-demo`) | Site side (`lentagolabs-dev`) |
+| | Platform side (`solidago`) | Site side (`lentagolabs-dev`) |
 |---|---|---|
 | **Edits** | iam trust + `module.site_lentago` + var + 3 outputs + CI `TF_VAR` line + `LENTAGO_PREVIEW_HOST` Actions var | restore `push: [main]` trigger in `deploy.yml` |
-| **Creates** | ECR `foundry-dev-lentago`, ECS service, target group, listener rule (prio 110), Route 53 alias, OIDC trust | first container image |
+| **Creates** | ECR `solidago-dev-lentago`, ECS service, target group, listener rule (prio 110), Route 53 alias, OIDC trust | first container image |
 | **Owner** | Platform Claude | Site Claude |
