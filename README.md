@@ -96,6 +96,7 @@ its own suite section.
 | `public/favicon.svg` · `public/lentago-mark-square.svg` · `public/banner.svg` | The blossom brand assets (favicon, square mark, README/og banner). |
 | `Dockerfile` / `nginx.conf` | Packages the built `dist/` into an `nginx` container on port `8080` with a `/health` endpoint for the ALB. |
 | `.github/workflows/deploy.yml` | Build → ECR → ECS rollout via OIDC. Runs on every push to `main`; `workflow_dispatch` kept for manual redeploys. |
+| `docs/adr/` | **Architecture decisions** — reconstructed decision records (zero-JS static build, external design system, platform/workload boundary). |
 
 ## How it's built & served
 
