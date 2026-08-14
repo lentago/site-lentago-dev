@@ -53,18 +53,24 @@ smallest first:
 - **Full backend submission.** Explicitly called out as the largest option and
   out of scope for a static site. *Worse* for this site: it would require a
   runtime the architecture deliberately does not have.
+- **A platform-hosted form: HTML `POST` → Lambda Function URL → SES.** Not a
+  retrospective idea — this was the *designed original*, specified for this
+  site's direct predecessor (the portfolio site) in the pre-repo era
+  (2026-06-19, per early-era session records): a plain HTML form posting to a
+  Lambda Function URL (chosen there over API Gateway as right-sized for one
+  endpoint) that validates, checks a honeypot, sends via SES, and 303-redirects
+  to a thanks page — zero JS throughout, submission data inside Lentago-owned
+  infrastructure. Formspree displaced it when the form actually shipped
+  (#31/#34): it needed no new platform surface and no SES sending path.
+  *Lateral, better on data ownership* — reviving the designed original remains
+  on the table if submission volume or data-residency concerns ever grow.
 
 **Retrospective — not considered at the time:**
 
-- **A platform-hosted form Lambda** behind the shared solidago ALB. *Lateral,
-  arguably better on one axis:* it would keep submission data inside
-  Lentago-owned infrastructure instead of a third party, which is a genuine
-  data-ownership improvement. But it adds moving parts — a function, an
-  integration, and a deploy surface — to a site whose entire thesis is having no
-  runtime, and it couples the marketing site to the platform's request path.
-  For a low-volume consult form the ownership gain does not pay for the added
-  operational surface, so it is lateral at best today; it would become
-  attractive only if submission volume or data-residency requirements grew.
+- **A hosted-form SaaS with client-side JS embed** (the mainstream option in
+  this space). *Worse:* it would break the zero-JS invariant outright — the
+  native-POST property is exactly why Formspree fit and a script-embed widget
+  would not.
 
 ## Consequences
 
