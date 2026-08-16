@@ -4,6 +4,8 @@
 // showStatusStrip / showRoadmap) via its `renderVals()`. This static site has
 // no runtime, so those toggles bake in here at their defaults. Flip one and the
 // whole site re-renders in that state on the next build — no per-component edits.
+// (queueOpen is now AVAILABILITY_STATE below — a tri-state, so "booked" and
+// "limited" are expressible rather than just on/off.)
 export const AVAILABILITY_STATE = 'available'; // 'available' | 'limited' | 'booked'
 export const showStatusStrip = true;  // false → hide the live ops band under the hero
 export const showRoadmap = true;      // false → hide each system's "first → next" line
