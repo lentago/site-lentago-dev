@@ -4,15 +4,27 @@
 // showStatusStrip / showRoadmap) via its `renderVals()`. This static site has
 // no runtime, so those toggles bake in here at their defaults. Flip one and the
 // whole site re-renders in that state on the next build — no per-component edits.
-export const queueOpen = true;        // false → waitlist pill + "Queue's waitlisted."
+export const AVAILABILITY_STATE = 'available'; // 'available' | 'limited' | 'booked'
 export const showStatusStrip = true;  // false → hide the live ops band under the hero
 export const showRoadmap = true;      // false → hide each system's "first → next" line
 
-// Nav + contact copy derived from queueOpen (mirrors the design's renderVals()).
+// Compute current quarter at build time — no hand-bumped date literals.
+const _d = new Date();
+const _q = Math.ceil((_d.getMonth() + 1) / 3);
+const _yr = String(_d.getFullYear()).slice(-2);
+const _quarterShort = `Q${_q} '${_yr}`;
+const _quarterFull  = `Q${_q} ${_d.getFullYear()}`;
+
+// Nav + contact copy derived from AVAILABILITY_STATE and current quarter.
 // navDot is a StatusDot status key; the whole object keeps the two surfaces in sync.
-export const queueCopy = queueOpen
-  ? { navPill: "Available · Q2 '26", navDot: "ok",   queueWord: "open." }
-  : { navPill: "Waitlist · Q3 '26",  navDot: "warn", queueWord: "waitlisted." };
+export const queueCopy = AVAILABILITY_STATE === 'available'
+  ? { navPill: `Available · ${_quarterShort}`, navDot: "ok",   queueWord: "open." }
+  : AVAILABILITY_STATE === 'limited'
+  ? { navPill: `Limited · ${_quarterShort}`,   navDot: "warn", queueWord: "limited." }
+  : { navPill: `Booked · ${_quarterShort}`,    navDot: "warn", queueWord: "waitlisted." };
+
+// Booking line for the About section — same quarter, single source of truth.
+export const bookingLine = `Booking: ${_quarterFull} forward`;
 
 // Consult form → Formspree (issue #31). The form does a native HTML POST (no
 // JS, no hydration) straight to `endpoint`; Formspree emails the submission to

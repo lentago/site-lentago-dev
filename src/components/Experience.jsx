@@ -1,4 +1,5 @@
 import { Eyebrow, TimelineItem } from "./Shared.jsx";
+import { bookingLine } from "../config.js";
 
 // Sticky intro + vertical timeline built from TimelineItem primitives. The most
 // recent entry is marked `current` for the gold node.
@@ -27,7 +28,7 @@ export function Experience() {
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)", lineHeight: 1.8 }}>
               <div>Based: New England, US</div>
               <div>Working: remote · async-friendly</div>
-              <div>Booking: Q2 2026 forward</div>
+              <div>{bookingLine}</div>
             </div>
           </div>
 
