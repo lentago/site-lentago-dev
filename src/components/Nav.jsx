@@ -10,6 +10,7 @@ import { queueCopy } from "../config.js";
 export function NavBar({ active = "Practice" }) {
   const items = [
     { label: "Practice",   href: "#practice" },
+    { label: "Pledge",     href: "#pledge" },
     { label: "Systems",    href: "#systems" },
     { label: "Principles", href: "#principles" },
     { label: "About",      href: "#about" },

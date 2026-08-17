@@ -132,8 +132,11 @@ export function Tag({ children, onDark = false, style }) {
   );
 }
 
-/* ---------- ServiceCard — numbered offering, status rule, hover deepens ---- */
-export function ServiceCard({ num, tag, status = "info", title, desc, meta = [], style }) {
+/* ---------- ServiceCard — numbered offering, status rule, hover deepens ----
+   `receipt` (optional) renders a linked mono line under the meta tags: the live
+   artifact that proves the offering is real, not a promise. Kept dark ink (not
+   accent gold) so the link text clears contrast on the light card surface. */
+export function ServiceCard({ num, tag, status = "info", title, desc, meta = [], receipt, style }) {
   return (
     <div
       className="ll-service-card"
@@ -172,7 +175,23 @@ export function ServiceCard({ num, tag, status = "info", title, desc, meta = [],
       <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
         {meta.map(m => <Tag key={m}>{m}</Tag>)}
       </div>
-      <style>{`.ll-service-card:hover { background: var(--color-surface-sunk); }`}</style>
+      {receipt && (
+        <a href={receipt.href} target="_blank" rel="noopener noreferrer"
+           className="ll-receipt-link"
+           style={{
+             marginTop: 16, paddingTop: 14, borderTop: "1px solid var(--color-border)",
+             display: "flex", alignItems: "baseline", gap: 8,
+             fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--color-ink)",
+             textDecoration: "none",
+           }}>
+          <span style={{ color: "var(--fg2)", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 10 }}>Receipt</span>
+          <span>{receipt.label} ↗</span>
+        </a>
+      )}
+      <style>{`
+        .ll-service-card:hover { background: var(--color-surface-sunk); }
+        .ll-receipt-link:hover span:last-child { text-decoration: underline; }
+      `}</style>
     </div>
   );
 }
