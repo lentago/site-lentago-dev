@@ -1,0 +1,60 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      actions-routine:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      actions-major:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["major"]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # astro and its integrations are peer-locked to each other, so they must
+      # move as one unit. Declared first so it matches before the routine/major
+      # groups. Deliberately no update-types filter: @astrojs/* packages are
+      # pre-1.0 or lag astro's major, so semver labels their breaking changes
+      # inconsistently — see lentago/site-pondviewlane-com#57, where a "minor"
+      # starlight bump demanded astro@^7 against an astro 5 repo and failed CI.
+      astro-stack:
+        applies-to: version-updates
+        patterns:
+          - "astro"
+          - "@astrojs/*"
+      npm-routine:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      npm-major:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["major"]
+
+  # The Dockerfile pins its nginx base by digest (supply-chain integrity), which
+  # also freezes it — without this ecosystem, base-image security patches would
+  # never arrive. Dependabot proposes digest bumps as reviewable PRs instead.
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      docker-routine:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+      docker-major:
+        applies-to: version-updates
+        patterns: ["*"]
+        update-types: ["major"]
