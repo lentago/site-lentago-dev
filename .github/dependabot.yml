@@ -21,6 +21,17 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     groups:
+      # astro and its integrations are peer-locked to each other, so they must
+      # move as one unit. Declared first so it matches before the routine/major
+      # groups. Deliberately no update-types filter: @astrojs/* packages are
+      # pre-1.0 or lag astro's major, so semver labels their breaking changes
+      # inconsistently — see lentago/site-pondviewlane-com#57, where a "minor"
+      # starlight bump demanded astro@^7 against an astro 5 repo and failed CI.
+      astro-stack:
+        applies-to: version-updates
+        patterns:
+          - "astro"
+          - "@astrojs/*"
       npm-routine:
         applies-to: version-updates
         patterns: ["*"]
