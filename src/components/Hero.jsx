@@ -37,7 +37,7 @@ export function HeroDark() {
           <div style={{ flex: "1 1 540px", minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
               <StatusDot status="ok" size={8} pulse />
-              <Eyebrow tone="dark">Practice · EST. 1997 · Infrastructure ops</Eyebrow>
+              <Eyebrow tone="dark">Practice · Modern ops for mission-driven orgs</Eyebrow>
             </div>
 
             <h1 className="ll-hero-h1" style={{
@@ -55,8 +55,12 @@ export function HeroDark() {
               fontFamily: "var(--font-body)", fontSize: 19, color: "var(--color-on-dark-soft)",
               margin: "0 0 36px", maxWidth: 640, lineHeight: 1.55,
             }}>
-              Keeping production up — bare metal through cloud-native, and every
-              platform shift in between. We build it, break it, and operate it.
+              Modern operations, sized for the organizations that run on
+              volunteers and donations. Most mission-driven teams rent their
+              systems — donated SaaS seats and free vendor tiers they don't own
+              and can't leave. We help you graduate to infrastructure you own
+              outright: the same free primitives, but in your accounts, as code
+              you can fork — so firing us is a runbook, not a migration.
             </p>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
