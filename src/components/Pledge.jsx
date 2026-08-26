@@ -63,11 +63,20 @@ export function Pledge() {
           ))}
         </div>
 
+        {/* Adoption guide link — everything is public and forkable. */}
+        <a href="https://github.com/lentago/lupinus"
+           target="_blank" rel="noopener noreferrer"
+           className="ll-adoption-link"
+           style={{ marginTop: 24, display: "inline-flex", alignItems: "baseline", gap: 8, fontFamily: "var(--font-mono)", fontSize: 12.5, color: "var(--color-ink)", textDecoration: "none" }}>
+          <span style={{ color: "var(--fg2)", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 10 }}>Adoption guide</span>
+          <span>Everything is public and documented. Start here. ↗</span>
+        </a>
+
         {/* Receipt — the pledge is a documented decision, not marketing copy. */}
         <a href="https://github.com/lentago/.github/blob/main/docs/adr/0007-client-owned-delivery-no-multi-tenant-saas.md"
            target="_blank" rel="noopener noreferrer"
            className="ll-receipt-link"
-           style={{ marginTop: 24, display: "inline-flex", alignItems: "baseline", gap: 8, fontFamily: "var(--font-mono)", fontSize: 12.5, color: "var(--color-ink)", textDecoration: "none" }}>
+           style={{ marginTop: 8, display: "inline-flex", alignItems: "baseline", gap: 8, fontFamily: "var(--font-mono)", fontSize: 12.5, color: "var(--color-ink)", textDecoration: "none" }}>
           <span style={{ color: "var(--fg2)", textTransform: "uppercase", letterSpacing: "0.08em", fontSize: 10 }}>Receipt</span>
           <span>ADR-0007 · client-owned delivery, no multi-tenant SaaS ↗</span>
         </a>
