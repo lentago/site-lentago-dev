@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // The design components are React (ported from the Lentago Labs Design System
 // handoff). They are rendered SERVER-SIDE ONLY at build time — no client
@@ -10,5 +11,5 @@ export default defineConfig({
   // Final destination FQDN. Until promotion, the site is also reachable via a
   // hidden subdomain of icecreamtofightwith.com (see README / solidago platform).
   site: 'https://lentago.dev',
-  integrations: [react()],
+  integrations: [react(), sitemap()],
 });

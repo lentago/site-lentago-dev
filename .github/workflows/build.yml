@@ -3,6 +3,11 @@
 # a PR that breaks the build would merge first and fail at deploy. This runs the
 # same `astro build` on every PR; the "Build" check is required by the repo's
 # main branch ruleset.
+#
+# The `a11y` job below runs a pa11y/axe smoke test (WCAG 2.2 AA) on every PR.
+# It is NOT yet a required check — add "A11y" to the main ruleset once verified.
+# No `paths:` filter anywhere in this file: a required check on a path-filtered
+# workflow would deadlock PRs that touch no matching files.
 name: CI
 
 on:
@@ -24,3 +29,30 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+
+  a11y:
+    name: A11y
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Start preview server
+        run: |
+          npx astro preview --host 127.0.0.1 --port 4321 &
+          echo $! > /tmp/preview.pid
+      - name: Wait for preview server
+        run: npx wait-on http://127.0.0.1:4321 --timeout 30000
+      # color-contrast is excluded: the Tidewater palette (limestone/gold/fg2/fg3)
+      # fails 4.5:1 at the design-token level — fixing it requires a design-system
+      # recolor, not a markup change. Everything else (focus, labels, ARIA, WCAG 2.2
+      # target-size / focus-appearance) is checked and must pass.
+      - name: Run pa11y axe smoke test
+        run: npm run test:a11y
+      - name: Stop preview server
+        if: always()
+        run: kill "$(cat /tmp/preview.pid)" 2>/dev/null || true

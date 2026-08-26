@@ -1,0 +1,17 @@
+{
+  "defaults": {
+    "runners": ["axe"],
+    "runnerOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]
+      }
+    },
+    "ignore": ["color-contrast"],
+    "timeout": 30000,
+    "chromeLaunchConfig": {
+      "args": ["--no-sandbox"]
+    }
+  },
+  "urls": ["http://127.0.0.1:4321/"]
+}
