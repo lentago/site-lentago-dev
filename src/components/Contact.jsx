@@ -25,8 +25,10 @@ export function Contact() {
             Queue's <span style={{ color: "var(--color-accent)" }}>{queueCopy.queueWord}</span>
           </h2>
           <p style={{ fontSize: 18, color: "var(--color-on-dark-soft)", lineHeight: 1.55, margin: "0 0 40px", maxWidth: 480 }}>
-            Short engagements, long ones, and one-off audits. If you know what
-            you need, send the repo. If you don't, send the symptoms.
+            No invoice if you're a nonprofit, a volunteer-run org, or the one
+            person keeping the lights on somewhere. If you know what you need,
+            send the repo. If you don't, send the symptoms. Either way you'll
+            hear back inside a day.
           </p>
           <div style={{ display: "grid", gap: 20, maxWidth: 480 }}>
             {[

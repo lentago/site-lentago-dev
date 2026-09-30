@@ -55,7 +55,9 @@ An Astro static site on a production deploy pipeline — simple enough to read e
 
 ## 🛠️ Make a change yourself
 
-This is a lab — the systems are real, the stakes are not. Pick a vector:
+These systems are real, and nothing critical rides on them. That makes this a
+safe place to try a change before you make the same kind of change in your own
+shop. Pick one:
 
 **Change site content and watch it ship**
 
@@ -125,7 +127,8 @@ repo contains no Terraform.
 
 ---
 
-🌱 **Lentago Labs** is a team learning lab — real systems, non-critical stakes, modern
-operations patterns demonstrated in the open. Start at the
-[org profile](https://github.com/lentago), and read this repo on
-[DeepWiki](https://deepwiki.com/lentago/site-lentago-dev).
+🌱 **Lentago Labs** is a pro-bono operations practice for organizations that
+run on volunteers, donations, and one overworked tech person. Everything here
+is free to take, and we practice what we publish: our own estate runs this
+way, in the open. Start at the [org profile](https://github.com/lentago), and
+read this repo on [DeepWiki](https://deepwiki.com/lentago/site-lentago-dev).

@@ -3,7 +3,8 @@ import { Eyebrow } from "./Shared.jsx";
 // The bespoke-engagements shelf — a horizontal row of custom work that isn't a
 // productized kit. These are the generic-consulting engagements that used to sit
 // in the offerings grid; they moved here because bespoke work doesn't map to a
-// single shippable receipt the way the kits do. The shelf's own credibility
+// single shippable receipt the way the kits do. Pro bono for mission-driven
+// orgs (ADR-0008 in lentago/.github); anyone else asks. The shelf's own credibility
 // anchor is the incident register (post-mortems published verbatim) plus the
 // consult form. Everything here is still delivered under the pledge above.
 const SHELF = [
@@ -36,8 +37,9 @@ export function Bespoke() {
           <p style={{ fontSize: 16, color: "var(--fg2)", margin: 0, maxWidth: 560, lineHeight: 1.6, justifySelf: "end" }}>
             Not everything is a template. Custom work — audits, migrations,
             incident response, hardening — sized to your constraints and
-            delivered into your estate under the same pledge. Priced as
-            engagements and retainers, never a subscription to something we run.
+            delivered into your estate under the same pledge. Free for
+            nonprofits and volunteer-run organizations; everyone else, ask.
+            Never a subscription to something we run.
           </p>
         </div>
 

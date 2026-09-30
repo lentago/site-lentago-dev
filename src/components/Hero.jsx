@@ -37,7 +37,7 @@ export function HeroDark() {
           <div style={{ flex: "1 1 540px", minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
               <StatusDot status="ok" size={8} pulse />
-              <Eyebrow tone="dark">Practice · Modern ops for mission-driven orgs</Eyebrow>
+              <Eyebrow tone="dark">Pro-bono practice · Modern ops for mission-driven orgs</Eyebrow>
             </div>
 
             <h1 className="ll-hero-h1" style={{
@@ -61,10 +61,12 @@ export function HeroDark() {
               and can't leave. We help you graduate to infrastructure you own
               outright: the same free primitives, but in your accounts, as code
               you can fork — so firing us is a runbook, not a migration.
+              If you're a nonprofit or a volunteer-run org, there's no invoice.
+              Call when you need to, if you need to.
             </p>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
-              <Button trailing="→" href="#contact">Book a consult</Button>
+              <Button trailing="→" href="#contact">Get in touch</Button>
               <Button variant="outline" onDark href="#practice">View runbook</Button>
               <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10, color: "var(--color-on-dark-muted)", fontFamily: "var(--font-mono)", fontSize: 12 }}>
                 <span>→</span>
