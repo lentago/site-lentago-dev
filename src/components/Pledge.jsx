@@ -36,8 +36,9 @@ export function Pledge() {
           </div>
           <div style={{ alignSelf: "end" }}>
             <p style={{ fontSize: 18, color: "var(--fg1)", lineHeight: 1.55, margin: "0 0 16px", fontWeight: 500, maxWidth: 520 }}>
-              You'll own every piece. We'll teach your people. Firing us is a
-              runbook — a fork, not a migration off a service we run.
+              You'll own every piece. We'll show your people how to run it.
+              Firing us is a runbook — a fork, not a migration off a service we
+              run.
             </p>
             <p style={{ fontSize: 15.5, color: "var(--fg2)", lineHeight: 1.6, margin: 0, maxWidth: 520 }}>
               An anti-lock-in practice is only believable if walking away is

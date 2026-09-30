@@ -22,9 +22,9 @@ export function ServicesGrid() {
       desc: "Git-driven observability into the Grafana Cloud free tier — one Alloy collector per host, dashboards that live as JSON and apply by Terraform on merge. Caps and retention windows are managed as real constraints, not billed past.",
       meta: ["Grafana Cloud", "Alloy", "Terraform"],
       receipt: { label: "lentago/drosera", href: `${gh}/drosera` } },
-    { num: "04", tag: "ENABLEMENT", title: "We teach your people to run it", status: "ok",
-      desc: "The field guide: an operations manual, a day-one path, and hands-on labs that ladder from asking the fleet a question up to owning a pattern. A glossary maps it all onto common enterprise practice. Ownership is only real if your people can operate it.",
-      meta: ["Field guide", "Labs", "Glossary"],
+    { num: "04", tag: "ENABLEMENT", title: "We show your people how to run it", status: "ok",
+      desc: "The guide, in two volumes. Vol. 1 walks through how our own estate works, with labs you can run against it for free, starting with nothing but a browser. Vol. 2 gets a product into your accounts and running from an ops vault you own. Ownership is only real if your people can operate it.",
+      meta: ["Guide", "Labs", "Ops vault"],
       receipt: { label: "lentago/asclepias", href: `${gh}/asclepias` } },
   ];
   return (
@@ -38,9 +38,9 @@ export function ServicesGrid() {
         </div>
         <p className="ll-services-intro" style={{ fontSize: 16.5, color: "var(--fg2)", margin: 0, maxWidth: 520, lineHeight: 1.6, justifySelf: "end" }}>
           Four things we deliver into estates you own — each one already running
-          in the open. Every offering links to a live receipt: a public repo you
-          can read, fork, and run today. Nothing here is a slide about something
-          unbuilt.
+          in the open, because we practice what we publish. Every offering links
+          to a live receipt: a public repo you can read, fork, and run today.
+          Nothing here is a slide about something unbuilt.
         </p>
       </div>
 
