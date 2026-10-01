@@ -18,8 +18,8 @@ const SYSTEMS = [
   {
     num: "02", codename: "kalmia", botanical: "mountain laurel",
     title: "Provisioning",
-    desc: "Role-based, idempotent provisioning that turns a fresh Linux box into a configured infrastructure workstation — one command, four target profiles. It's Ansible under the hood; ours is the roles, the profiles, and the discipline.",
-    runsOn: ["Ansible", "apt / dnf", "4 profiles"],
+    desc: "Role-based, idempotent provisioning that turns a fresh Linux box into a configured infrastructure workstation — one command, five target profiles. It's Ansible under the hood; ours is the roles, the profiles, and the discipline.",
+    runsOn: ["Ansible", "apt / dnf", "5 profiles"],
     roadmap: "first target: workstations → next: VMs, containers",
   },
   {
@@ -27,13 +27,13 @@ const SYSTEMS = [
     title: "Observability",
     desc: "Dashboards live as JSON and apply by Terraform on merge; one declarative Alloy collector per host. Built on Grafana Cloud — Mimir, Loki, Grafana — and we say so. What's ours is the git discipline: if it isn't in the repo, it doesn't exist.",
     runsOn: ["Grafana Cloud", "Alloy", "Terraform"],
-    roadmap: "first source: the Lentago lab → next: AWS (solidago)",
+    roadmap: "first sources: our own estate, then AWS (solidago) via CloudWatch → next: a multi-client pane",
   },
   {
     num: "04", codename: "betula", botanical: "birch — where the logs keep",
     title: "Log capture & archive",
-    desc: "Per-source collectors shipping full-volume logs — DNS, flows, TLS handshakes — to Axiom for 30-day search at $0/month. Fluent Bit ships, Axiom stores; betula is the persistence, the packaging, and the GitOps around both.",
-    runsOn: ["Fluent Bit", "Axiom", "GitOps"],
+    desc: "Per-source collectors shipping full-volume logs — DNS, flows, TLS handshakes — to Grafana Cloud Loki, searchable on the free tier at $0/month; the AWS client ships to Axiom. Each client picks its own destination; betula is the collectors, the packaging, and the GitOps around both.",
+    runsOn: ["Fluent Bit", "Grafana Loki", "GitOps"],
     roadmap: "first collector: Firewalla → next: AWS CloudTrail",
   },
   {
