@@ -11,15 +11,15 @@ export function ServicesGrid() {
   const gh = "https://github.com/lentago";
   const offerings = [
     { num: "01", tag: "PUBLIC RECORD", title: "A public record your community can trust", status: "ok",
-      desc: "A version-controlled public-record site with a grounded Ask box, built into a repo the organization owns. Facts live in git, the site rebuilds on merge, and it serves from a free tier — the fact base is yours to fork the day we finish.",
+      desc: "A public-record website for your community — the minutes, bylaws, and documents people keep asking for — with an Ask box that answers only from those documents. It lives in a repository your organization owns, updates when you approve a change, and runs on a free tier. The day we finish, it's yours.",
       meta: ["Astro", "static site", "grounded Ask"],
       receipt: { label: "lentago/site-pondviewlane-com", href: `${gh}/site-pondviewlane-com` } },
     { num: "02", tag: "PLATFORM", title: "Cloud you own, not rent", status: "ok",
-      desc: "A reference three-tier AWS platform, 100% Terraform — VPC across two AZs, ECS Fargate behind an ALB, RDS, WAF. Plan on PR, apply on merge, OIDC-only. It's AWS run the way today's standards say it should be, in an account you hold the keys to.",
+      desc: "A complete AWS environment written entirely as code: private networking, containers behind a load balancer, a managed database, a firewall, budgets and alarms. Every change is reviewed before it's applied, and no long-lived cloud passwords exist anywhere. It's AWS run the way it should be, in an account you hold the keys to — and because it costs real money, the runbook also tells you how to turn it off.",
       meta: ["Terraform", "ECS Fargate", "RDS", "OIDC"],
       receipt: { label: "lentago/solidago", href: `${gh}/solidago` } },
     { num: "03", tag: "OBSERVABILITY", title: "See your systems on a free tier", status: "info",
-      desc: "Git-driven observability into the Grafana Cloud free tier — one Alloy collector per host, dashboards that live as JSON and apply by Terraform on merge. Caps and retention windows are managed as real constraints, not billed past.",
+      desc: "Dashboards and alerts for everything you run, on Grafana Cloud's free tier. One small collector per machine, dashboards kept as files you can review before they change, and the free tier's limits treated as real constraints to plan around — not something to buy past.",
       meta: ["Grafana Cloud", "Alloy", "Terraform"],
       receipt: { label: "lentago/drosera", href: `${gh}/drosera` } },
     { num: "04", tag: "ENABLEMENT", title: "We show your people how to run it", status: "ok",

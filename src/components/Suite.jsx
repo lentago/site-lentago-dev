@@ -65,10 +65,10 @@ export function Suite() {
           </h2>
           <p style={{ fontSize: 17, color: "var(--color-on-dark-soft)", lineHeight: 1.6, margin: 0 }}>
             The practice runs on five internal systems — botanical codenames, all
-            New England natives. Each separates an agnostic core from its clients:
-            the current implementation is always the first client, never the
-            product. And where a system stands on someone else's platform, it says
-            so by name.
+            New England natives. Each is built so the parts specific to our setup
+            can be swapped for yours: our own estate is always the first client,
+            never the product. And where a system stands on someone else's
+            platform, it says so by name.
           </p>
         </div>
 
