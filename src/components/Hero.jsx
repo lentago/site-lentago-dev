@@ -55,19 +55,19 @@ export function HeroDark() {
               fontFamily: "var(--font-body)", fontSize: 19, color: "var(--color-on-dark-soft)",
               margin: "0 0 36px", maxWidth: 640, lineHeight: 1.55,
             }}>
-              Modern operations, sized for the organizations that run on
-              volunteers and donations. Most mission-driven teams rent their
-              systems — donated SaaS seats and free vendor tiers they don't own
-              and can't leave. We help you graduate to infrastructure you own
-              outright: the same free primitives, but in your accounts, as code
-              you can fork — so firing us is a runbook, not a migration.
-              If you're a nonprofit or a volunteer-run org, there's no invoice.
+              Modern operations, sized for organizations that run on volunteers
+              and donations. Most mission-driven teams rent their systems:
+              donated software seats and free vendor tiers they don't own and
+              can't leave. We help you move to infrastructure you own outright
+              — the same free tiers, but in your own accounts, set up as code
+              you can copy — so firing us is a runbook, not a migration. If
+              you're a nonprofit or a volunteer-run org, there's no invoice.
               Call when you need to, if you need to.
             </p>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
               <Button trailing="→" href="#contact">Get in touch</Button>
-              <Button variant="outline" onDark href="#practice">View runbook</Button>
+              <Button variant="outline" onDark href="#practice">See what we build</Button>
               <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10, color: "var(--color-on-dark-muted)", fontFamily: "var(--font-mono)", fontSize: 12 }}>
                 <span>→</span>
                 <a href="mailto:chris@lentago.dev" style={{ color: "inherit", textDecoration: "none" }}>chris@lentago.dev</a>

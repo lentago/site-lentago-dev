@@ -70,11 +70,11 @@ export function Contact() {
             <Input terminal id="consult-name" name="name" required
               label="▲ lentago ./new-consult --your=" placeholder="name" />
             <Input terminal id="consult-email" name="email" type="email" required
-              label="--email=" placeholder="you@company.com" />
+              label="--email=" placeholder="you@yourorg.org" />
             <Select terminal id="consult-scope" name="scope" label="--scope="
-              options={["cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
+              options={["not-sure-yet", "cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
             <Textarea terminal id="consult-symptoms" name="message" required rows={3}
-              label="--symptoms <<EOF" placeholder="NAT gateway eating budget. IAM roles nobody owns." />
+              label="--symptoms <<EOF" placeholder="Our donor site lives on a volunteer's personal account. Nobody knows the DNS login." />
             <button type="submit" style={{
               marginTop: 8, width: "100%", background: "var(--color-accent)", color: "var(--color-on-accent)",
               border: 0, padding: "12px 18px", borderRadius: "var(--r-md)",

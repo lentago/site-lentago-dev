@@ -7,7 +7,9 @@
 // (queueOpen is now AVAILABILITY_STATE below — a tri-state, so "booked" and
 // "limited" are expressible rather than just on/off.)
 export const AVAILABILITY_STATE = 'available'; // 'available' | 'limited' | 'booked'
-export const showStatusStrip = true;  // false → hide the live ops band under the hero
+export const showStatusStrip = false; // false → hide the ops band under the hero. Off since 2026-09-30:
+                                      // its values were illustrative, not live, and a site built on
+                                      // receipts shouldn't label a mock-up LIVE. Wire real data before re-enabling.
 export const showRoadmap = true;      // false → hide each system's "first → next" line
 
 // Compute current quarter at build time — no hand-bumped date literals.
@@ -26,7 +28,7 @@ export const queueCopy = AVAILABILITY_STATE === 'available'
   : { navPill: `Booked · ${_quarterShort}`,    navDot: "warn", queueWord: "waitlisted." };
 
 // Booking line for the About section — same quarter, single source of truth.
-export const bookingLine = `Booking: ${_quarterFull} forward`;
+export const bookingLine = `Taking new work: ${_quarterFull} forward`;
 
 // Consult form → Formspree (issue #31). The form does a native HTML POST (no
 // JS, no hydration) straight to `endpoint`; Formspree emails the submission to

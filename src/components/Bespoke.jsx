@@ -13,9 +13,9 @@ const SHELF = [
   { tag: "MIGRATION", title: "Cloud & datacenter migrations",
     desc: "Bare metal through cloud-native, and the platform shifts in between — moved without losing the rigor or a customer-visible outage." },
   { tag: "ONCALL", title: "Incident response & on-call",
-    desc: "Runbooks, alarms, and rotations humans can live with. SLOs that reflect reality, not aspiration. Pager hygiene included." },
+    desc: "Runbooks, alarms, and on-call rotations humans can live with. Service targets that reflect reality, not aspiration. Pager hygiene included." },
   { tag: "CI/CD", title: "CI/CD & supply-chain hardening",
-    desc: "OIDC, signed images, plan-on-PR, apply-on-merge. No long-lived credentials, so a compromised pipeline stays inside its scope." },
+    desc: "Deploy pipelines with no stored passwords, every change reviewed before it applies, and signed builds — so a compromised pipeline can only reach what it was allowed to." },
 ];
 
 export function Bespoke() {
@@ -29,7 +29,7 @@ export function Bespoke() {
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div className="ll-stack ll-stack-gap" style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1.4fr)", gap: 64, alignItems: "end", marginBottom: 44 }}>
           <div>
-            <Eyebrow tone="accent" marker style={{ marginBottom: 14 }}>Bespoke engagements</Eyebrow>
+            <Eyebrow tone="accent" marker style={{ marginBottom: 14 }}>Custom help</Eyebrow>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "clamp(32px, 3.6vw, 48px)", lineHeight: 1.05, letterSpacing: "-0.03em", margin: 0, color: "var(--fg1)" }}>
               When the work isn't a kit.
             </h2>
