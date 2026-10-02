@@ -11,37 +11,37 @@ const SYSTEMS = [
   {
     num: "01", codename: "solidago", botanical: 'goldenrod — "to make whole"',
     title: "Cloud platform",
-    desc: "A Terraform-managed AWS estate, root module down — VPC across two AZs, ECS Fargate behind an ALB, RDS, WAFv2, KMS. Plan on PR, apply on merge, OIDC-only. Plainly: it's AWS, run the way it should be run. The value is the posture.",
-    runsOn: ["AWS", "Terraform", "OIDC"],
+    desc: "Our AWS setup, written entirely as code: network, servers, database, web firewall, and encryption keys. Every change is proposed, reviewed, and applied automatically once it's approved, and nothing stores a long-lived password. It's what serves this site.",
+    runsOn: ["AWS", "Terraform", "GitHub Actions"],
     roadmap: "live since 2026-06 · serves lentago.dev",
   },
   {
     num: "02", codename: "kalmia", botanical: "mountain laurel",
-    title: "Provisioning",
-    desc: "Role-based, idempotent provisioning that turns a fresh Linux box into a configured infrastructure workstation — one command, five target profiles. It's Ansible under the hood; ours is the roles, the profiles, and the discipline.",
-    runsOn: ["Ansible", "apt / dnf", "5 profiles"],
-    roadmap: "first target: workstations → next: VMs, containers",
+    title: "Machine setup",
+    desc: "Turns a freshly installed Linux computer into a fully set-up work machine with one command. Running it again is always safe: it only fixes what's out of place. Five ready-made profiles cover different kinds of machines.",
+    runsOn: ["Ansible", "Debian / Ubuntu", "Fedora"],
+    roadmap: "today: work machines → next: virtual machines and containers",
   },
   {
     num: "03", codename: "drosera", botanical: "sundew",
-    title: "Observability",
-    desc: "Dashboards live as JSON and apply by Terraform on merge; one declarative Alloy collector per host. Built on Grafana Cloud — Mimir, Loki, Grafana — and we say so. What's ours is the git discipline: if it isn't in the repo, it doesn't exist.",
-    runsOn: ["Grafana Cloud", "Alloy", "Terraform"],
-    roadmap: "first sources: our own estate, then AWS (solidago) via CloudWatch → next: a multi-client pane",
+    title: "Monitoring",
+    desc: "Shows what your systems are doing right now, on dashboards anyone can read. One small collector on each machine sends in the numbers and logs. Every dashboard is saved as code and published on approval, so nobody's hand edit gets lost or drifts. If it isn't in the repo, it doesn't exist.",
+    runsOn: ["Grafana Cloud", "Grafana Alloy", "Terraform"],
+    roadmap: "first: our own machines, then our AWS account → next: one view across several setups",
   },
   {
     num: "04", codename: "betula", botanical: "birch — where the logs keep",
     title: "Log capture & archive",
-    desc: "Per-source collectors shipping full-volume logs — DNS, flows, TLS handshakes — to Grafana Cloud Loki, searchable on the free tier at $0/month; the AWS client ships to Axiom. Each client picks its own destination; betula is the collectors, the packaging, and the GitOps around both.",
-    runsOn: ["Fluent Bit", "Grafana Loki", "GitOps"],
-    roadmap: "first collector: Firewalla → next: AWS CloudTrail",
+    desc: "Keeps a complete, searchable record of what happens on a network: every domain looked up, every connection, every encrypted session opened. Each source sends its records wherever suits it: our firewall's go to Grafana's free tier, searchable at $0 a month, and our AWS account's go to Axiom.",
+    runsOn: ["Fluent Bit", "Grafana Loki", "Axiom"],
+    roadmap: "first source: our Firewalla → next: AWS's record of who changed what (CloudTrail)",
   },
   {
     num: "05", codename: "claytonia", botanical: "spring beauty — a.k.a. the bullpen",
-    title: "Agent fleet",
-    desc: "A self-hosted pool of headless coding agents. Drop a job on the NAS, an idle worker claims it, does the work in a clean checkout, opens a PR. It never merges. Today's workers run Claude Code; the queue doesn't care.",
-    runsOn: ["Claude Code", "LXC", "NAS queue"],
-    roadmap: "first runtime: Claude Code → next: any agent CLI",
+    title: "AI coding agents",
+    desc: "A small pool of AI coding assistants that work unattended on our own hardware. Drop a job in a shared folder, and a free worker picks it up, does the work on a fresh copy of the code, and proposes the change for review. It can't approve its own work; a person always decides. Today's workers run Claude Code, but any assistant could take the jobs.",
+    runsOn: ["Claude Code", "Proxmox", "GitHub"],
+    roadmap: "today: Claude Code → next: any AI coding tool",
   },
 ];
 
@@ -64,11 +64,10 @@ export function Suite() {
             Named systems. <span style={{ color: "var(--color-accent)" }}>Honest parts.</span>
           </h2>
           <p style={{ fontSize: 17, color: "var(--color-on-dark-soft)", lineHeight: 1.6, margin: 0 }}>
-            The practice runs on five internal systems — botanical codenames, all
-            New England natives. Each is built so the parts specific to our setup
-            can be swapped for yours: our own estate is always the first client,
-            never the product. And where a system stands on someone else's
-            platform, it says so by name.
+            Five systems run our own shop, and every one is free to take. Each
+            is built so the parts specific to us swap out for yours. Where a
+            system stands on someone else's platform, the Runs on column names
+            it. The codenames are New England native plants.
           </p>
         </div>
 
@@ -108,10 +107,10 @@ export function Suite() {
           ))}
         </div>
 
-        {/* Fleet acceptance test — the invariant that keeps clients decoupled */}
+        {/* Built-to-swap promise — the fleet acceptance test, in plain words */}
         <div style={{ marginTop: 28, fontFamily: "var(--font-mono)", fontSize: 11.5, color: "var(--color-on-dark-muted)", lineHeight: 1.8 }}>
           <span style={{ color: "var(--color-accent)", marginRight: 8 }}>▲</span>
-          fleet acceptance test: adding a client must not touch existing clients. betula keeps the archive; drosera keeps the live pane.
+          built to swap: replace any piece with your own without touching the rest. betula keeps the record; drosera shows what's happening now.
         </div>
       </div>
     </section>
