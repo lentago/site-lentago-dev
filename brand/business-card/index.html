@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lentago Labs — business card</title>
+<!-- Same tokens and self-hosted fonts the site ships. Nothing here is restated. -->
+<link rel="stylesheet" href="../../public/design-system/tokens/colors.css">
+<link rel="stylesheet" href="../../public/design-system/tokens/fonts.css">
+<style>
+  /* Print geometry: US 3.5 × 2 in trim, 0.125 in bleed on every side, and a
+     0.125 in safe inset inside the trim. The PDF page is the bleed box. */
+  :root {
+    --bleed: 0.125in;
+    --safe:  0.125in;
+    --page-w: 3.75in;
+    --page-h: 2.25in;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  @page { size: 3.75in 2.25in; margin: 0; }
+
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-display);
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+
+  .face {
+    position: relative; overflow: hidden; box-sizing: border-box;
+    width: var(--page-w); height: var(--page-h);
+    break-after: page;
+  }
+  .face:last-child { break-after: auto; }
+  .content { position: absolute; inset: calc(var(--bleed) + var(--safe)); }
+
+  /* ---- Front: a deep-teal band bleeding off the left edge carries the chip
+         mark over faint contours (the brand's dark-surface treatment); the
+         limestone column beside it stays flat paper. ---------------------- */
+  :root { --band-w: 1.18in; }
+  .front { background: var(--color-bg); color: var(--color-ink); }
+  .band {
+    position: absolute; left: 0; top: 0; bottom: 0; width: var(--band-w);
+    background: var(--color-brand-deep); overflow: hidden;
+  }
+  .band .contours { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .band .chip {
+    position: absolute; left: 50%; top: 50%; width: 0.6in; height: 0.6in;
+    transform: translate(-50%, -50%);
+  }
+  .front .content {
+    left: calc(var(--band-w) + 0.26in);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .name { font-weight: 700; font-size: 15pt; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 3pt; }
+  .role { font-size: 7.4pt; line-height: 1.35; color: var(--color-ink-muted); margin: 0 0 10pt; max-width: 1.9in; }
+  .person { font-weight: 700; font-size: 8pt; letter-spacing: -0.01em; margin: 0 0 1pt; }
+  .contact { font-family: var(--font-mono); font-size: 7.4pt; line-height: 1.7; margin: 0; }
+  .contact .dim { color: var(--color-ink-muted); }
+
+  /* ---- Back: the hero's dark field — contours, a ghost blossom bleeding off
+         the corner, and the field prompt. Gold lives in the ▲ only. Solid teal,
+         not the hero gradient: narrow gradients band on digital presses, and
+         the textures sit a step stronger than on screen so they survive CMYK. */
+  .back { background: var(--color-brand-deep); color: var(--color-on-dark); }
+  .back .content { display: flex; flex-direction: column; justify-content: center; }
+  .contours, .watermark { position: absolute; pointer-events: none; }
+  .contours { inset: 0; width: 100%; height: 100%; }
+  .watermark { width: 2.3in; height: 2.3in; right: -0.85in; bottom: -1.05in; opacity: 0.14; }
+  .prompt { font-family: var(--font-mono); font-size: 9.5pt; line-height: 1.8; margin: 0; position: relative; }
+  .prompt .glyph { display: inline-block; width: 0.62em; height: 0.62em; vertical-align: -0.02em; margin-right: 0.55em; }
+  .prompt .cmd { font-weight: 600; }
+  .prompt .out { color: var(--color-on-dark-soft); padding-left: 1.17em; }
+  .corner {
+    position: absolute; right: 0; bottom: 0; text-align: right;
+    font-family: var(--font-mono); font-size: 6.5pt; line-height: 1.6;
+    color: var(--color-on-dark-muted);
+  }
+
+  /* ---- Screen preview only: stack the faces and draw trim + safe guides --- */
+  @media screen {
+    body { background: #6b6b66; display: grid; gap: 0.4in; padding: 0.5in; justify-content: start; }
+    .face { box-shadow: 0 2px 14px rgba(0,0,0,0.45); }
+    .guide { position: absolute; pointer-events: none; }
+    .guide.trim { inset: var(--bleed); outline: 1px dashed rgba(220,40,40,0.7); }
+    .guide.safe { inset: calc(var(--bleed) + var(--safe)); outline: 1px dotted rgba(40,120,220,0.7); }
+    .legend { font: 11px/1.5 var(--font-mono); color: #eee; }
+  }
+  @media print { .guide, .legend { display: none; } }
+</style>
+</head>
+<body>
+
+<p class="legend">Red dashed = trim (3.5 × 2 in). Blue dotted = safe area. Page = bleed box (3.75 × 2.25 in). Guides don't print.</p>
+
+<!-- FRONT -->
+<section class="face front" aria-label="Front">
+  <div class="band">
+    <svg class="contours" viewBox="0 0 113 216" preserveAspectRatio="none" fill="none"
+         stroke="var(--color-accent)" stroke-opacity="0.22" stroke-width="1.1">
+      <path d="M-5 196 C 30 184 60 204 118 190"/>
+      <path d="M-5 168 C 30 156 60 176 118 162"/>
+      <path d="M-5 140 C 30 128 60 148 118 134"/>
+      <path d="M-5 112 C 30 100 60 120 118 106"/>
+      <path d="M-5 84 C 30 72 60 92 118 78"/>
+      <path d="M-5 56 C 30 44 60 64 118 50"/>
+      <path d="M-5 28 C 30 16 60 36 118 22"/>
+    </svg>
+    <!-- Chip mark: the blossom reversed — cream contours, gold anthers — on the teal field. -->
+    <svg class="chip" viewBox="0 0 64 64" fill="none" role="img" aria-label="Lentago Labs">
+      <g stroke="var(--color-on-dark)" stroke-width="2.2" stroke-linejoin="round">
+        <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z"/>
+        <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(72 32 32)"/>
+        <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(144 32 32)"/>
+        <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(216 32 32)"/>
+        <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(288 32 32)"/>
+      </g>
+      <g stroke="var(--color-on-dark-soft)" stroke-width="1.4" stroke-linecap="round">
+        <path d="M32 31C31 24 33 17 32 11"/>
+        <path d="M32 31C31 27 33 23 32 19" transform="rotate(36 32 32)"/>
+        <path d="M32 31C31 24 33 17 32 11" transform="rotate(72 32 32)"/>
+        <path d="M32 31C31 27 33 23 32 19" transform="rotate(108 32 32)"/>
+        <path d="M32 31C31 24 33 17 32 11" transform="rotate(144 32 32)"/>
+        <path d="M32 31C31 27 33 23 32 19" transform="rotate(180 32 32)"/>
+        <path d="M32 31C31 24 33 17 32 11" transform="rotate(216 32 32)"/>
+        <path d="M32 31C31 27 33 23 32 19" transform="rotate(252 32 32)"/>
+        <path d="M32 31C31 24 33 17 32 11" transform="rotate(288 32 32)"/>
+        <path d="M32 31C31 27 33 23 32 19" transform="rotate(324 32 32)"/>
+      </g>
+      <g fill="var(--color-accent)">
+        <circle cx="32" cy="10" r="2.3"/>
+        <circle cx="32" cy="18" r="2.3" transform="rotate(36 32 32)"/>
+        <circle cx="32" cy="10" r="2.3" transform="rotate(72 32 32)"/>
+        <circle cx="32" cy="18" r="2.3" transform="rotate(108 32 32)"/>
+        <circle cx="32" cy="10" r="2.3" transform="rotate(144 32 32)"/>
+        <circle cx="32" cy="18" r="2.3" transform="rotate(180 32 32)"/>
+        <circle cx="32" cy="10" r="2.3" transform="rotate(216 32 32)"/>
+        <circle cx="32" cy="18" r="2.3" transform="rotate(252 32 32)"/>
+        <circle cx="32" cy="10" r="2.3" transform="rotate(288 32 32)"/>
+        <circle cx="32" cy="18" r="2.3" transform="rotate(324 32 32)"/>
+      </g>
+      <circle cx="32" cy="32" r="4.4" fill="var(--color-brand-deep)" stroke="var(--color-on-dark)" stroke-width="1.4"/>
+    </svg>
+  </div>
+  <div class="guide trim"></div><div class="guide safe"></div>
+  <div class="content">
+    <h1 class="name">Lentago Labs</h1>
+    <p class="role">Technical operations for <span style="white-space: nowrap">mission-driven orgs</span></p>
+    <p class="person">Christopher Pitzi</p>
+    <p class="contact">
+      chris@lentago.dev<br>
+      <span class="dim">New England, US</span>
+    </p>
+  </div>
+</section>
+
+<!-- BACK -->
+<section class="face back" aria-label="Back">
+  <!-- Topographic contours: the hero's paths, scaled to the card. -->
+  <svg class="contours" viewBox="0 0 360 216" preserveAspectRatio="none" fill="none"
+       stroke="var(--color-accent)" stroke-opacity="0.22" stroke-width="1.1">
+    <path d="M-10 175 C 65 146 110 196 180 171 S 300 133 375 171"/>
+    <path d="M-10 150 C 65 121 110 171 180 146 S 300 108 375 146"/>
+    <path d="M-10 125 C 65 96 110 146 180 121 S 300 83 375 121"/>
+    <path d="M-10 100 C 65 71 110 121 180 96 S 300 58 375 96"/>
+    <path d="M-10 75 C 65 46 110 96 180 71 S 300 33 375 71"/>
+    <path d="M-10 50 C 65 21 110 71 180 46 S 300 8 375 46"/>
+  </svg>
+  <!-- Ghost blossom bleeding off the bottom-right corner. -->
+  <svg class="watermark" viewBox="0 0 64 64" fill="none">
+    <g stroke="var(--color-on-dark)" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z"/>
+      <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(72 32 32)"/>
+      <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(144 32 32)"/>
+      <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(216 32 32)"/>
+      <path d="M32 31C24 31 19 26 19 18C19 10 25 5 32 5C39 5 45 10 45 18C45 26 40 31 32 31Z" transform="rotate(288 32 32)"/>
+    </g>
+    <g stroke="var(--color-on-dark)" stroke-width="0.9" stroke-linecap="round">
+      <path d="M32 31C31 24 33 17 32 11"/>
+      <path d="M32 31C31 27 33 23 32 19" transform="rotate(36 32 32)"/>
+      <path d="M32 31C31 24 33 17 32 11" transform="rotate(72 32 32)"/>
+      <path d="M32 31C31 27 33 23 32 19" transform="rotate(108 32 32)"/>
+      <path d="M32 31C31 24 33 17 32 11" transform="rotate(144 32 32)"/>
+      <path d="M32 31C31 27 33 23 32 19" transform="rotate(180 32 32)"/>
+      <path d="M32 31C31 24 33 17 32 11" transform="rotate(216 32 32)"/>
+      <path d="M32 31C31 27 33 23 32 19" transform="rotate(252 32 32)"/>
+      <path d="M32 31C31 24 33 17 32 11" transform="rotate(288 32 32)"/>
+      <path d="M32 31C31 27 33 23 32 19" transform="rotate(324 32 32)"/>
+    </g>
+    <g fill="var(--color-accent)">
+      <circle cx="32" cy="10" r="2.1"/>
+      <circle cx="32" cy="18" r="2.1" transform="rotate(36 32 32)"/>
+      <circle cx="32" cy="10" r="2.1" transform="rotate(72 32 32)"/>
+      <circle cx="32" cy="18" r="2.1" transform="rotate(108 32 32)"/>
+      <circle cx="32" cy="10" r="2.1" transform="rotate(144 32 32)"/>
+      <circle cx="32" cy="18" r="2.1" transform="rotate(180 32 32)"/>
+      <circle cx="32" cy="10" r="2.1" transform="rotate(216 32 32)"/>
+      <circle cx="32" cy="18" r="2.1" transform="rotate(252 32 32)"/>
+      <circle cx="32" cy="10" r="2.1" transform="rotate(288 32 32)"/>
+      <circle cx="32" cy="18" r="2.1" transform="rotate(324 32 32)"/>
+    </g>
+    <circle cx="32" cy="32" r="4.4" stroke="var(--color-on-dark)" stroke-width="1.2"/>
+  </svg>
+
+  <div class="guide trim"></div><div class="guide safe"></div>
+  <div class="content">
+    <!-- The field prompt: gold ▲ drawn as SVG so no fallback font decides its shape. -->
+    <p class="prompt">
+      <svg class="glyph" viewBox="0 0 10 10" aria-hidden="true"><path d="M5 0.6 L9.6 9.2 H0.4 Z" fill="var(--color-accent)"/></svg><span class="cmd">lentago</span><br>
+      <span class="out">lentago.dev</span><br>
+      <span class="out">github.com/lentago</span>
+    </p>
+    <div class="corner">build it · break it · operate it</div>
+  </div>
+</section>
+
+</body>
+</html>
