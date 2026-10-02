@@ -23,7 +23,7 @@ export function Experience() {
               I've kept production running around the clock since 1997: first
               in server rooms where every change had physical consequences, now
               in cloud systems defined entirely in code. These days I help
-              organizations with donated budgets run that same kind of reliable
+              organizations that run on donations run that same kind of reliable
               setup on infrastructure they own, and I do it in the open.
             </p>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--fg3)", lineHeight: 1.8 }}>
