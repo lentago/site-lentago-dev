@@ -9,7 +9,7 @@ export function HeroDark() {
     <header id="top" className="ll-hero" style={{
       background: "var(--grad-hero)",
       color: "var(--fg-on-dark)",
-      padding: "112px 32px 120px",
+      padding: "56px 32px 80px",
       position: "relative", overflow: "hidden",
     }}>
       {/* Topographic contour lines */}
@@ -35,35 +35,54 @@ export function HeroDark() {
           <BrandMark size={208} inverted className="ll-hero-mark" />
 
           <div style={{ flex: "1 1 540px", minWidth: 0 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 28 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
               <StatusDot status="ok" size={8} pulse />
               <Eyebrow tone="dark">Pro-bono practice · Modern ops for mission-driven orgs</Eyebrow>
             </div>
 
             <h1 className="ll-hero-h1" style={{
               fontFamily: "var(--font-display)", fontWeight: 700,
-              fontSize: "clamp(48px, 7vw, 88px)", lineHeight: 1.02,
-              letterSpacing: "-0.035em", margin: "0 0 28px", maxWidth: 920,
+              fontSize: "clamp(48px, 7vw, 76px)", lineHeight: 1.02,
+              letterSpacing: "-0.035em", margin: "0 0 24px", maxWidth: 920,
+              textWrap: "balance",
             }}>
               Production{" "}
-              <span style={{ color: "var(--color-accent)" }}>that shows up</span>
+              <span style={{ color: "var(--color-accent)", whiteSpace: "nowrap" }}>that shows up</span>
               {" "}when the{" "}
-              <span style={{ fontStyle: "italic", fontWeight: 700, color: "var(--color-on-dark-muted)" }}>need</span>{" "}does.
+              <span style={{ fontStyle: "italic", fontWeight: 700, color: "var(--color-on-dark-muted)" }}>need</span>{"\u00A0"}does.
             </h1>
 
-            <p style={{
-              fontFamily: "var(--font-body)", fontSize: 19, color: "var(--color-on-dark-soft)",
-              margin: "0 0 36px", maxWidth: 640, lineHeight: 1.55,
-            }}>
-              Modern operations, sized for organizations that run on volunteers
-              and donations. Most mission-driven teams rent their systems:
-              donated software seats and free vendor tiers they don't own and
-              can't leave. We help you move to infrastructure you own outright
-              — the same free tiers, but in your own accounts, set up as code
-              you can copy — so firing us is a runbook, not a migration. If
-              you're a nonprofit or a volunteer-run org, there's no invoice.
-              Call when you need to, if you need to.
-            </p>
+            {/* Lead line, the problem in one sentence, three short promises,
+                and the terms. Emphasis is cream on soft body copy — the h1
+                already holds this region's one gold accent. */}
+            <div style={{ fontFamily: "var(--font-body)", color: "var(--color-on-dark-soft)", maxWidth: 640, margin: "0 0 36px" }}>
+              <p style={{ fontSize: 21, lineHeight: 1.45, color: "var(--color-on-dark)", margin: "0 0 16px" }}>
+                Modern operations, sized for organizations that run on
+                volunteers and donations.
+              </p>
+              <p style={{ fontSize: 17, lineHeight: 1.6, margin: "0 0 14px" }}>
+                Most mission-driven teams rent their systems: donated software
+                seats and free vendor tiers they don't own and can't leave. We
+                help you move to infrastructure you own outright.
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 16px", display: "grid", gap: 8, fontSize: 17, lineHeight: 1.5 }}>
+                {[
+                  ["The same free tiers,", " in your own accounts."],
+                  ["Set up as code", " you can copy."],
+                  ["Firing us is a runbook,", " not a migration."],
+                ].map(([strong, rest]) => (
+                  <li key={strong} style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+                    <span aria-hidden="true" style={{ flex: "none", width: 14, height: 1.5, background: "var(--color-on-dark-muted)", transform: "translateY(-5px)" }} />
+                    <span><strong style={{ color: "var(--color-on-dark)", fontWeight: 600 }}>{strong}</strong>{rest}</span>
+                  </li>
+                ))}
+              </ul>
+              <p style={{ fontSize: 17, lineHeight: 1.6, margin: 0 }}>
+                <strong style={{ color: "var(--color-on-dark)", fontWeight: 600 }}>No invoice</strong>{" "}
+                for nonprofits and volunteer-run orgs. Call when you need to, if
+                you need to.
+              </p>
+            </div>
 
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}>
               <Button trailing="→" href="#contact">Get in touch</Button>
