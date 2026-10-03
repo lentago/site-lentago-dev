@@ -9,15 +9,15 @@
 <style>
   /* Print geometry: US 3.5 × 2 in trim, 0.125 in bleed on every side, and a
      0.125 in safe inset inside the trim. The PDF page is the bleed box. */
+  /* GEOMETRY — render.sh rewrites the next two lines per printer profile (see
+     PROFILES there). Default: 0.125 in bleed → a 3.75 × 2.25 in page. */
+  :root { --bleed: 0.125in; --page-w: 3.75in; --page-h: 2.25in; }
+  @page { size: 3.75in 2.25in; margin: 0; }
   :root {
-    --bleed: 0.125in;
-    --safe:  0.125in;
-    --page-w: 3.75in;
-    --page-h: 2.25in;
+    --safe: 0.125in;
     --font-display: 'Space Grotesk', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
   }
-  @page { size: 3.75in 2.25in; margin: 0; }
 
   html, body { margin: 0; padding: 0; }
   body {
@@ -36,7 +36,7 @@
   /* ---- Front: a deep-teal band bleeding off the left edge carries the chip
          mark over faint contours (the brand's dark-surface treatment); the
          limestone column beside it stays flat paper. ---------------------- */
-  :root { --band-w: 1.18in; }
+  :root { --band-w: calc(1.055in + var(--bleed)); } /* 1.055 in visible after trim, whatever the bleed */
   .front { background: var(--color-bg); color: var(--color-ink); }
   .band {
     position: absolute; left: 0; top: 0; bottom: 0; width: var(--band-w);
@@ -72,7 +72,7 @@
   .prompt .out { color: var(--color-on-dark-soft); padding-left: 1.17em; }
   .corner {
     position: absolute; right: 0; bottom: 0; text-align: right;
-    font-family: var(--font-mono); font-size: 6.5pt; line-height: 1.6;
+    font-family: var(--font-mono); font-size: 6.5pt; /* CORNER-SIZE */ line-height: 1.6;
     color: var(--color-on-dark-muted);
   }
 
