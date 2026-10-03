@@ -11,7 +11,7 @@ const SHELF = [
   { tag: "AUDIT", title: "Cost & posture audits",
     desc: "Find the NAT gateway eating the budget; the IAM role nobody owns; the bucket with forgotten logs. One-page report, no theatre." },
   { tag: "MIGRATION", title: "Cloud & datacenter migrations",
-    desc: "Bare metal through cloud-native, and the platform shifts in between — moved without losing the rigor or a customer-visible outage." },
+    desc: "Bare metal to cloud-native and every platform shift in between. Rigor intact, no customer-visible outages." },
   { tag: "ONCALL", title: "Incident response & on-call",
     desc: "Runbooks, alarms, and on-call rotations humans can live with. Service targets that reflect reality, not aspiration. Pager hygiene included." },
   { tag: "CI/CD", title: "CI/CD & supply-chain hardening",
