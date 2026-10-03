@@ -1,9 +1,9 @@
 import { Eyebrow, ServiceCard } from "./Shared.jsx";
 
-// The offerings grid. Every card maps to a public, linkable repo. Three are
-// live receipts you can fork and run today; the public-record card points at
-// uvularia, which is being built in the open (status "info" until Phase 0
-// ships — see lentago/.github ADR-0009). Never link a client's site here. Built from ServiceCard primitives laid out with hairline dividers
+// The offerings grid. Every card maps to a LIVE, linkable receipt — a public
+// repo you can read, fork, and run today. The public-record card is uvularia
+// (lentago/.github ADR-0009; first timed dry-run 2026-10-03). Never link a
+// client's site here — the demonstration client is fictional by design. Built from ServiceCard primitives laid out with hairline dividers
 // (1px gap over a border-colored background). The section keeps id="practice"
 // (the nav anchor) even though the framing moved from generic services to
 // receipt-backed offerings; the old generic-consulting services now live in the
@@ -11,9 +11,9 @@ import { Eyebrow, ServiceCard } from "./Shared.jsx";
 export function ServicesGrid() {
   const gh = "https://github.com/lentago";
   const offerings = [
-    { num: "01", tag: "PUBLIC RECORD", title: "A public record your community can trust", status: "info",
-      desc: "Your minutes, bylaws, notices, and policies kept as plain files in a repository your organization owns, with the rules about what must be posted and when kept right next to them. Merge a change and the records publish, a public \"Is it posted?\" board updates, and an Ask box that answers only from those records picks up the new facts. Being built in the open now — the plan, the decisions, and the work are all public.",
-      meta: ["Markdown vault", "obligations-as-code", "grounded Ask", "in build"],
+    { num: "01", tag: "PUBLIC RECORD", title: "A public record your community can trust", status: "ok",
+      desc: "Your minutes, bylaws, notices, and policies kept as plain files in a repository your organization owns, with the rules about what must be posted and when kept right next to them. Merge a change and the records publish, a public \"Is it posted?\" board updates, and every publish leaves a stamped receipt. Stood up from two templates in about half an hour, on a free GitHub account; the grounded Ask box that answers only from those records is the next phase.",
+      meta: ["Markdown vault", "obligations-as-code", "live board", "receipts"],
       receipt: { label: "lentago/uvularia", href: `${gh}/uvularia` } },
     { num: "02", tag: "PLATFORM", title: "Cloud you own, not rent", status: "ok",
       desc: "A complete AWS environment written entirely as code: private networking, containers behind a load balancer, a managed database, a firewall, budgets and alarms. Every change is reviewed before it's applied, and no long-lived cloud passwords exist anywhere. It's AWS run the way it should be, in an account you hold the keys to — and because it costs real money, the runbook also tells you how to turn it off.",
@@ -38,10 +38,10 @@ export function ServicesGrid() {
           </h2>
         </div>
         <p className="ll-services-intro" style={{ fontSize: 16.5, color: "var(--fg2)", margin: 0, maxWidth: 520, lineHeight: 1.6, justifySelf: "end" }}>
-          Four things we deliver into estates you own, because we practice what
-          we publish. Every offering links to a public repo you can read today:
-          three you can fork and run now, and the fourth is being built in the
-          open, issues and all. Nothing here is a slide.
+          Four things we deliver into estates you own — each one already running
+          in the open, because we practice what we publish. Every offering links
+          to a live receipt: a public repo you can read, fork, and run today.
+          Nothing here is a slide about something unbuilt.
         </p>
       </div>
 
