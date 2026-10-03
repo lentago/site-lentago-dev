@@ -1,0 +1,392 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Lentago Labs Lentago Labs" [ref=e3] [cursor=pointer]:
+      - /url: "#top"
+      - img "Lentago Labs" [ref=e5]
+      - generic [ref=e42]: Lentago Labs
+    - generic [ref=e43]:
+      - list [ref=e44]:
+        - listitem [ref=e45]:
+          - link "Practice" [ref=e46] [cursor=pointer]:
+            - /url: "#practice"
+        - listitem [ref=e47]:
+          - link "Pledge" [ref=e48] [cursor=pointer]:
+            - /url: "#pledge"
+        - listitem [ref=e49]:
+          - link "Systems" [ref=e50] [cursor=pointer]:
+            - /url: "#systems"
+        - listitem [ref=e51]:
+          - link "Principles" [ref=e52] [cursor=pointer]:
+            - /url: "#principles"
+        - listitem [ref=e53]:
+          - link "About" [ref=e54] [cursor=pointer]:
+            - /url: "#about"
+        - listitem [ref=e55]:
+          - link "Contact" [ref=e56] [cursor=pointer]:
+            - /url: "#contact"
+      - link "Available · Q4 '26" [ref=e57] [cursor=pointer]:
+        - /url: "#contact"
+  - banner [ref=e60]:
+    - generic [ref=e62]:
+      - img "Lentago Labs" [ref=e64]
+      - generic [ref=e101]:
+        - generic [ref=e102]: Pro-bono practice · Modern ops for mission-driven orgs
+        - heading "Production that shows up when the need does." [level=1] [ref=e105]
+        - generic [ref=e106]:
+          - paragraph [ref=e107]: Modern operations, sized for organizations that run on volunteers and donations.
+          - paragraph [ref=e108]: "Most mission-driven teams rent their systems: donated software seats and free vendor tiers they don't own and can't leave. We help you move to infrastructure you own outright."
+          - list [ref=e109]:
+            - listitem [ref=e110]:
+              - generic [ref=e112]:
+                - strong [ref=e113]: The same free tiers,
+                - text: in your own accounts.
+            - listitem [ref=e114]:
+              - generic [ref=e116]:
+                - strong [ref=e117]: Set up as code
+                - text: you can copy.
+            - listitem [ref=e118]:
+              - generic [ref=e120]:
+                - strong [ref=e121]: Firing us is a runbook,
+                - text: not a migration.
+          - paragraph [ref=e122]:
+            - strong [ref=e123]: No invoice
+            - text: for nonprofits and volunteer-run orgs. Call when you need to, if you need to.
+        - generic [ref=e124]:
+          - link "Get in touch →" [ref=e125] [cursor=pointer]:
+            - /url: "#contact"
+            - generic [ref=e126]: Get in touch
+            - generic [ref=e127]: →
+          - link "See what we build" [ref=e128] [cursor=pointer]:
+            - /url: "#practice"
+          - generic [ref=e130]:
+            - generic [ref=e131]: →
+            - link "chris@lentago.dev" [ref=e132] [cursor=pointer]:
+              - /url: mailto:chris@lentago.dev
+    - generic [ref=e133]:
+      - generic [ref=e134]: ~/lentago/runbook.md
+      - generic [ref=e135]: build it · break it · operate it
+  - generic [ref=e136]:
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - generic [ref=e139]: ◆Offerings
+        - heading "What we build. Where to check." [level=2] [ref=e140]
+      - paragraph [ref=e141]: "Four things we deliver into estates you own — each one already running in the open, because we practice what we publish. Every offering links to a live receipt: a public repo you can read, fork, and run today. Nothing here is a slide about something unbuilt."
+    - generic [ref=e142]:
+      - generic [ref=e143]:
+        - generic [ref=e145]: 01 / PUBLIC RECORD
+        - heading "A public record your community can trust" [level=3] [ref=e148]
+        - paragraph [ref=e149]: A public-record website for your community — the minutes, bylaws, and documents people keep asking for — with an Ask box that answers only from those documents. It lives in a repository your organization owns, updates when you approve a change, and runs on a free tier. The day we finish, it's yours.
+        - generic [ref=e150]:
+          - generic [ref=e151]: Astro
+          - generic [ref=e152]: static site
+          - generic [ref=e153]: grounded Ask
+        - link "Receipt lentago/site-pondviewlane-com ↗" [ref=e154] [cursor=pointer]:
+          - /url: https://github.com/lentago/site-pondviewlane-com
+          - generic [ref=e155]: Receipt
+          - generic [ref=e156]: lentago/site-pondviewlane-com ↗
+      - generic [ref=e157]:
+        - generic [ref=e159]: 02 / PLATFORM
+        - heading "Cloud you own, not rent" [level=3] [ref=e162]
+        - paragraph [ref=e163]: "A complete AWS environment written entirely as code: private networking, containers behind a load balancer, a managed database, a firewall, budgets and alarms. Every change is reviewed before it's applied, and no long-lived cloud passwords exist anywhere. It's AWS run the way it should be, in an account you hold the keys to — and because it costs real money, the runbook also tells you how to turn it off."
+        - generic [ref=e164]:
+          - generic [ref=e165]: Terraform
+          - generic [ref=e166]: ECS Fargate
+          - generic [ref=e167]: RDS
+          - generic [ref=e168]: OIDC
+        - link "Receipt lentago/solidago ↗" [ref=e169] [cursor=pointer]:
+          - /url: https://github.com/lentago/solidago
+          - generic [ref=e170]: Receipt
+          - generic [ref=e171]: lentago/solidago ↗
+      - generic [ref=e172]:
+        - generic [ref=e174]: 03 / OBSERVABILITY
+        - heading "See your systems on a free tier" [level=3] [ref=e177]
+        - paragraph [ref=e178]: Dashboards and alerts for everything you run, on Grafana Cloud's free tier. One small collector per machine, dashboards kept as files you can review before they change, and the free tier's limits treated as real constraints to plan around — not something to buy past.
+        - generic [ref=e179]:
+          - generic [ref=e180]: Grafana Cloud
+          - generic [ref=e181]: Alloy
+          - generic [ref=e182]: Terraform
+        - link "Receipt lentago/drosera ↗" [ref=e183] [cursor=pointer]:
+          - /url: https://github.com/lentago/drosera
+          - generic [ref=e184]: Receipt
+          - generic [ref=e185]: lentago/drosera ↗
+      - generic [ref=e186]:
+        - generic [ref=e188]: 04 / ENABLEMENT
+        - heading "We show your people how to run it" [level=3] [ref=e191]
+        - paragraph [ref=e192]: The guide, in two volumes. Vol. 1 walks through how our own estate works, with labs you can run against it for free, starting with nothing but a browser. Vol. 2 gets a product into your accounts and running from an ops vault you own. Ownership is only real if your people can operate it.
+        - generic [ref=e193]:
+          - generic [ref=e194]: Guide
+          - generic [ref=e195]: Labs
+          - generic [ref=e196]: Ops vault
+        - link "Receipt lentago/asclepias ↗" [ref=e197] [cursor=pointer]:
+          - /url: https://github.com/lentago/asclepias
+          - generic [ref=e198]: Receipt
+          - generic [ref=e199]: lentago/asclepias ↗
+  - generic [ref=e201]:
+    - generic [ref=e202]:
+      - generic [ref=e203]:
+        - generic [ref=e204]: ◆The pledge
+        - heading "We will never host your systems for you." [level=2] [ref=e205]
+      - generic [ref=e206]:
+        - paragraph [ref=e207]: You'll own every piece. We'll show your people how to run it. Firing us is a runbook — a fork, not a migration off a service we run.
+        - paragraph [ref=e208]: An anti-lock-in practice is only believable if walking away is trivial. So the boundary isn't a promise — it's the standing delivery model, true by construction.
+    - generic [ref=e209]:
+      - generic [ref=e210]:
+        - generic [ref=e211]: "01"
+        - heading "Client-owned repos" [level=3] [ref=e212]
+        - paragraph [ref=e213]: Every kit ships as a repository you own from day one — a template plus an engagement, in open formats. Not a tenancy on ours.
+      - generic [ref=e214]:
+        - generic [ref=e215]: "02"
+        - heading "Runs in your accounts" [level=3] [ref=e216]
+        - paragraph [ref=e217]: Anything that runs continuously runs in your accounts on free tiers — your GitHub Actions, your static host, your Grafana free tier. We don't host it.
+      - generic [ref=e218]:
+        - generic [ref=e219]: "03"
+        - heading "No multi-tenancy" [level=3] [ref=e220]
+        - paragraph [ref=e221]: We never operate one system serving many organizations. No shared endpoints, no pooled data, no custody of your records.
+      - generic [ref=e222]:
+        - generic [ref=e223]: "04"
+        - heading "Fireable from day one" [level=3] [ref=e224]
+        - paragraph [ref=e225]: Ongoing help is help with your systems, never a subscription to ours. A hand-off runbook stands from day one; if we stop tomorrow, you keep a working system.
+      - generic [ref=e226]:
+        - generic [ref=e227]: "05"
+        - heading "Forkable is the exit" [level=3] [ref=e228]
+        - paragraph [ref=e229]: Reusable logic is open source. Every kit names what it depends on — GitHub and Actions included — and how to leave each one.
+    - link "Adoption guide Everything is public and documented. Start here. ↗" [ref=e230] [cursor=pointer]:
+      - /url: https://github.com/lentago/lupinus
+      - generic [ref=e231]: Adoption guide
+      - generic [ref=e232]: Everything is public and documented. Start here. ↗
+    - link "Receipt ADR-0007 · client-owned delivery, no multi-tenant SaaS ↗" [ref=e233] [cursor=pointer]:
+      - /url: https://github.com/lentago/.github/blob/main/docs/adr/0007-client-owned-delivery-no-multi-tenant-saas.md
+      - generic [ref=e234]: Receipt
+      - generic [ref=e235]: ADR-0007 · client-owned delivery, no multi-tenant SaaS ↗
+  - generic [ref=e237]:
+    - generic [ref=e238]:
+      - generic [ref=e239]: ◆The suite · ~/lentago/
+      - heading "Named systems. Honest parts." [level=2] [ref=e240]
+      - paragraph [ref=e241]: "The practice runs on five internal systems — botanical codenames, all New England natives. Each is built so the parts specific to our setup can be swapped for yours: our own estate is always the first client, never the product. And where a system stands on someone else's platform, it says so by name."
+    - generic [ref=e242]:
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - generic [ref=e245]: 01 · solidago
+          - generic [ref=e248]: goldenrod — "to make whole"
+          - link "lentago/solidago ↗" [ref=e249] [cursor=pointer]:
+            - /url: https://github.com/lentago/solidago
+        - generic [ref=e250]:
+          - heading "Cloud platform" [level=3] [ref=e251]
+          - paragraph [ref=e252]: "A Terraform-managed AWS estate, root module down — VPC across two AZs, ECS Fargate behind an ALB, RDS, WAFv2, KMS. Plan on PR, apply on merge, OIDC-only. Plainly: it's AWS, run the way it should be run. The value is the posture."
+        - generic [ref=e253]:
+          - generic [ref=e254]: Runs on
+          - generic [ref=e255]:
+            - generic [ref=e256]: AWS
+            - generic [ref=e257]: Terraform
+            - generic [ref=e258]: OIDC
+          - generic [ref=e259]: live since 2026-06 · serves lentago.dev
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - generic [ref=e262]: 02 · kalmia
+          - generic [ref=e265]: mountain laurel
+          - link "lentago/kalmia ↗" [ref=e266] [cursor=pointer]:
+            - /url: https://github.com/lentago/kalmia
+        - generic [ref=e267]:
+          - heading "Provisioning" [level=3] [ref=e268]
+          - paragraph [ref=e269]: Role-based, idempotent provisioning that turns a fresh Linux box into a configured infrastructure workstation — one command, five target profiles. It's Ansible under the hood; ours is the roles, the profiles, and the discipline.
+        - generic [ref=e270]:
+          - generic [ref=e271]: Runs on
+          - generic [ref=e272]:
+            - generic [ref=e273]: Ansible
+            - generic [ref=e274]: apt / dnf
+            - generic [ref=e275]: 5 profiles
+          - generic [ref=e276]: "first target: workstations → next: VMs, containers"
+      - generic [ref=e277]:
+        - generic [ref=e278]:
+          - generic [ref=e279]: 03 · drosera
+          - generic [ref=e282]: sundew
+          - link "lentago/drosera ↗" [ref=e283] [cursor=pointer]:
+            - /url: https://github.com/lentago/drosera
+        - generic [ref=e284]:
+          - heading "Observability" [level=3] [ref=e285]
+          - paragraph [ref=e286]: "Dashboards live as JSON and apply by Terraform on merge; one declarative Alloy collector per host. Built on Grafana Cloud — Mimir, Loki, Grafana — and we say so. What's ours is the git discipline: if it isn't in the repo, it doesn't exist."
+        - generic [ref=e287]:
+          - generic [ref=e288]: Runs on
+          - generic [ref=e289]:
+            - generic [ref=e290]: Grafana Cloud
+            - generic [ref=e291]: Alloy
+            - generic [ref=e292]: Terraform
+          - generic [ref=e293]: "first sources: our own estate, then AWS (solidago) via CloudWatch → next: a multi-client pane"
+      - generic [ref=e294]:
+        - generic [ref=e295]:
+          - generic [ref=e296]: 04 · betula
+          - generic [ref=e299]: birch — where the logs keep
+          - link "lentago/betula ↗" [ref=e300] [cursor=pointer]:
+            - /url: https://github.com/lentago/betula
+        - generic [ref=e301]:
+          - heading "Log capture & archive" [level=3] [ref=e302]
+          - paragraph [ref=e303]: Per-source collectors shipping full-volume logs — DNS, flows, TLS handshakes — to Grafana Cloud Loki, searchable on the free tier at $0/month; the AWS client ships to Axiom. Each client picks its own destination; betula is the collectors, the packaging, and the GitOps around both.
+        - generic [ref=e304]:
+          - generic [ref=e305]: Runs on
+          - generic [ref=e306]:
+            - generic [ref=e307]: Fluent Bit
+            - generic [ref=e308]: Grafana Loki
+            - generic [ref=e309]: GitOps
+          - generic [ref=e310]: "first collector: Firewalla → next: AWS CloudTrail"
+      - generic [ref=e311]:
+        - generic [ref=e312]:
+          - generic [ref=e313]: 05 · claytonia
+          - generic [ref=e316]: spring beauty — a.k.a. the bullpen
+          - link "lentago/claytonia ↗" [ref=e317] [cursor=pointer]:
+            - /url: https://github.com/lentago/claytonia
+        - generic [ref=e318]:
+          - heading "Agent fleet" [level=3] [ref=e319]
+          - paragraph [ref=e320]: A self-hosted pool of headless coding agents. Drop a job on the NAS, an idle worker claims it, does the work in a clean checkout, opens a PR. It never merges. Today's workers run Claude Code; the queue doesn't care.
+        - generic [ref=e321]:
+          - generic [ref=e322]: Runs on
+          - generic [ref=e323]:
+            - generic [ref=e324]: Claude Code
+            - generic [ref=e325]: LXC
+            - generic [ref=e326]: NAS queue
+          - generic [ref=e327]: "first runtime: Claude Code → next: any agent CLI"
+    - generic [ref=e328]: "▲fleet acceptance test: adding a client must not touch existing clients. betula keeps the archive; drosera keeps the live pane."
+  - generic [ref=e330]:
+    - generic [ref=e331]:
+      - generic [ref=e332]:
+        - generic [ref=e333]: ◆Custom help
+        - heading "When the work isn't a kit." [level=2] [ref=e334]
+      - paragraph [ref=e335]: Not everything is a template. Custom work — audits, migrations, incident response, hardening — sized to your constraints and delivered into your estate under the same pledge. Free for nonprofits and volunteer-run organizations; everyone else, ask. Never a subscription to something we run.
+    - generic [ref=e336]:
+      - generic [ref=e337]:
+        - generic [ref=e338]: AUDIT
+        - heading "Cost & posture audits" [level=3] [ref=e339]
+        - paragraph [ref=e340]: Find the NAT gateway eating the budget; the IAM role nobody owns; the bucket with forgotten logs. One-page report, no theatre.
+      - generic [ref=e341]:
+        - generic [ref=e342]: MIGRATION
+        - heading "Cloud & datacenter migrations" [level=3] [ref=e343]
+        - paragraph [ref=e344]: Bare metal through cloud-native, and the platform shifts in between — moved without losing the rigor or a customer-visible outage.
+      - generic [ref=e345]:
+        - generic [ref=e346]: ONCALL
+        - heading "Incident response & on-call" [level=3] [ref=e347]
+        - paragraph [ref=e348]: Runbooks, alarms, and on-call rotations humans can live with. Service targets that reflect reality, not aspiration. Pager hygiene included.
+      - generic [ref=e349]:
+        - generic [ref=e350]: CI/CD
+        - heading "CI/CD & supply-chain hardening" [level=3] [ref=e351]
+        - paragraph [ref=e352]: Deploy pipelines with no stored passwords, every change reviewed before it applies, and signed builds — so a compromised pipeline can only reach what it was allowed to.
+    - generic [ref=e353]:
+      - link "Receipt incident register · post-mortems, published verbatim ↗" [ref=e354] [cursor=pointer]:
+        - /url: https://github.com/lentago/.github/blob/main/fleet-reports/incidents.md
+        - generic [ref=e355]: Receipt
+        - generic [ref=e356]: incident register · post-mortems, published verbatim ↗
+      - link "Send the symptoms →" [ref=e357] [cursor=pointer]:
+        - /url: "#contact"
+  - generic [ref=e358]:
+    - generic [ref=e359]:
+      - generic [ref=e360]: ◆Operating principles
+      - heading "How we think about production." [level=2] [ref=e361]
+      - paragraph [ref=e362]: The full runbook is longer, drier, and in the repo. These are the six we'd bring into a room on day one.
+    - generic [ref=e363]:
+      - generic [ref=e364]:
+        - generic [ref=e365]: "01"
+        - heading "Build it, break it, operate it." [level=3] [ref=e366]
+        - paragraph [ref=e367]: The person who designs the system is the person who carries the pager for it. Otherwise the design is a suggestion, not a commitment.
+      - generic [ref=e368]:
+        - generic [ref=e369]: "02"
+        - heading "Blast radius over blast capacity." [level=3] [ref=e370]
+        - paragraph [ref=e371]: Least-privilege isn't a checkbox — it's the default. If a compromised pipeline can reach production, the problem is the pipeline, not the compromise.
+      - generic [ref=e372]:
+        - generic [ref=e373]: "03"
+        - heading "Runbooks beat heroics." [level=3] [ref=e374]
+        - paragraph [ref=e375]: An incident handled by a sleepy engineer following the runbook is better than a hero who remembers. Write the doc. Update it when it lies.
+      - generic [ref=e376]:
+        - generic [ref=e377]: "04"
+        - heading "Observable from day one." [level=3] [ref=e378]
+        - paragraph [ref=e379]: You cannot operate what you cannot see. Logs, metrics, traces, and a single dashboard a human actually opens. No 'we'll add it later.'
+      - generic [ref=e380]:
+        - generic [ref=e381]: "05"
+        - heading "Plan on PR. Apply on merge." [level=3] [ref=e382]
+        - paragraph [ref=e383]: Infrastructure changes are code review. OIDC, no long-lived credentials, signed artifacts. The pipeline is the contract.
+      - generic [ref=e384]:
+        - generic [ref=e385]: "06"
+        - heading "Cost is a posture." [level=3] [ref=e386]
+        - paragraph [ref=e387]: A NAT gateway you forgot about is a security problem. A forgotten log bucket is a compliance problem. Run the audit monthly, not yearly.
+  - generic [ref=e390]:
+    - generic [ref=e391]:
+      - generic [ref=e392]: ◆About
+      - heading "Nearly thirty years carrying the pager." [level=2] [ref=e393]
+      - paragraph [ref=e394]: "I've kept production running around the clock since 1997: first in server rooms where every change had physical consequences, now in cloud systems defined entirely in code. These days I help organizations that run on donations run that same kind of reliable setup on infrastructure they own, and I do it in the open."
+      - generic [ref=e395]:
+        - generic [ref=e396]: "Based: New England, US"
+        - generic [ref=e397]: "Working: remote · async-friendly"
+        - generic [ref=e398]: "Taking new work: Q4 2026 forward"
+    - generic [ref=e399]:
+      - generic [ref=e401]:
+        - generic [ref=e403]: 2022 —
+        - heading "Moving the discipline; keeping the rigor" [level=3] [ref=e405]
+        - paragraph [ref=e406]: "Moved to cloud-native work: infrastructure written as code, every change reviewed where the whole team can see it. The tools changed; the habits didn't. Rehearse the failure, write down the fix, make the next change boring. Lentago is where I practice those habits in the open, on an estate anyone can copy."
+      - generic [ref=e407]:
+        - generic [ref=e409]: 2017 — 2021
+        - heading "Internet engineering; public cloud" [level=3] [ref=e411]
+        - paragraph [ref=e412]: A much larger company bought us and put real money behind the platform. I ran disaster-recovery drills, cut recovery times, and made every component within reach redundant. Led the capacity buildout team, with a lot of vendor evaluation along the way. The job grew to cover internet routing, large email domains, DNS, CDNs, and cloud integrations.
+      - generic [ref=e413]:
+        - generic [ref=e415]: 2007 — 2016
+        - heading "Operator number three at a startup; IPO five years later" [level=3] [ref=e417]
+        - paragraph [ref=e418]: "Joined a small startup of fewer than 50 people in 2007 as its third infrastructure operator. Each instance of the platform was hardware we designed and racked ourselves: load balancers, storage, layers of network switching, one cabinet at first and later several. I made the buildouts repeatable and added redundancy wherever it would fit. Every hardware generation changed something, so I used configuration management and orchestration to keep those differences away from the support team."
+      - generic [ref=e419]:
+        - generic [ref=e421]: 1997 — 2006
+        - heading "Graveyard shift to principal; left it better than I found it" [level=3] [ref=e423]
+        - paragraph [ref=e424]: "Started as the overnight operator: data-center keys, orders to change the backup tapes, and escalations from support. I learned AIX and VMS from the career sysadmins I'd just woken for the third time that night, and never called anyone about the same thing twice. I earned the day shift by doing a full sysadmin's job on nights, trained my own replacement, and kept leading the night shift from days. By 2005 I was a principal operator who'd brought two new data centers from construction to production."
+  - generic [ref=e426]:
+    - generic [ref=e427]:
+      - generic [ref=e428]: ◆Contact · POST /consult
+      - heading "Queue's open." [level=2] [ref=e429]
+      - paragraph [ref=e430]: No invoice if you're a nonprofit, a volunteer-run org, or the one person keeping the lights on somewhere. If you know what you need, send the repo. If you don't, send the symptoms. Either way you'll hear back inside a day.
+      - generic [ref=e431]:
+        - generic [ref=e432]:
+          - generic [ref=e433]: Email
+          - link "chris@lentago.dev" [ref=e434] [cursor=pointer]:
+            - /url: mailto:chris@lentago.dev
+        - generic [ref=e435]:
+          - generic [ref=e436]: GitHub
+          - link "github.com/lentago" [ref=e437] [cursor=pointer]:
+            - /url: https://github.com/lentago
+        - generic [ref=e438]:
+          - generic [ref=e439]: Signal
+          - generic [ref=e440]: available on request
+        - generic [ref=e441]:
+          - generic [ref=e442]: Response
+          - generic [ref=e443]: < 24h on weekdays
+    - generic [ref=e444]:
+      - generic [ref=e445]: ~/consult.sh
+      - generic [ref=e451]:
+        - generic [ref=e452]:
+          - generic [ref=e453]: ▲ lentago ./new-consult --your=
+          - textbox "▲ lentago ./new-consult --your=" [ref=e454]:
+            - /placeholder: name
+        - generic [ref=e455]:
+          - generic [ref=e456]: "--email="
+          - textbox "--email=" [ref=e457]:
+            - /placeholder: you@yourorg.org
+        - generic [ref=e458]:
+          - generic [ref=e459]: "--scope="
+          - combobox "--scope=" [ref=e460] [cursor=pointer]:
+            - option "not-sure-yet" [selected]
+            - option "cost-and-posture-audit"
+            - option "platform-engineering"
+            - option "incident-oncall-setup"
+            - option "ci-cd-supply-chain"
+            - option "other"
+        - generic [ref=e461]:
+          - generic [ref=e462]: "--symptoms <<EOF"
+          - textbox "--symptoms <<EOF" [ref=e463]:
+            - /placeholder: Our donor site lives on a volunteer's personal account. Nobody knows the DNS login.
+        - button "./send --priority=normal ↵" [ref=e464] [cursor=pointer]:
+          - generic [ref=e465]: ./send --priority=normal
+          - generic [ref=e466]: ↵
+  - contentinfo [ref=e467]:
+    - generic [ref=e468]:
+      - generic [ref=e469]:
+        - img "Lentago Labs" [ref=e471]
+        - generic [ref=e508]: Lentago Labs
+        - generic [ref=e509]: v2026.10.02
+      - generic [ref=e510]:
+        - text: Christopher Pitzi ·
+        - link "chris@lentago.dev" [ref=e511] [cursor=pointer]:
+          - /url: mailto:chris@lentago.dev
+        - text: · © 2026
+      - generic [ref=e512]: all systems operational
