@@ -96,9 +96,9 @@ topic spine, and a `main` branch ruleset (PR required, no force-push, no deletio
 - **`Build` is a required check.** `.github/workflows/build.yml` runs
   `npm ci && npm run build` on every PR; the `main` ruleset requires the `Build`
   context, so **a PR can't merge unless the Astro build is green.**
-- `claude-code-review` / `claude` workflows are **advisory** (AI review + the
-  `@claude` bot), not merge gates. (`claude-code-review` is `workflow_dispatch`
-  only, matching the fleet 2026-06-25 default.)
+- The `claude` workflow (the `@claude` bot) and CodeRabbit (the org-wide AI
+  reviewer) are **advisory**, not merge gates. The old `claude-code-review`
+  stub was retired 2026-10-06.
 - Arm merges with `gh pr merge <N> --auto --squash --delete-branch`; let the
   `Build` check gate it. Don't hand-merge past a red build.
 
