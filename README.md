@@ -51,7 +51,7 @@ An Astro static site on a production deploy pipeline — simple enough to read e
 | **Fleet-shared reusable workflows** | [`docs-check.yml`](.github/workflows/docs-check.yml) and [`claude.yml`](.github/workflows/claude.yml) call `uses: lentago/shared-workflows/...@main`; one repo owns the CI logic, every consumer inherits updates |
 | **Docs-link checker as a required check** | `docs-check.yml` runs on every PR and is deliberately unfiltered ([lentago/.github#57](https://github.com/lentago/.github/issues/57)) — a required check that only triggers on matching paths deadlocks every non-matching PR |
 | **Generated brand assets, not hand-drifted** | The README header is a generated HTML block; re-syncing happens in `lentago/.github → brand/generate.py`, not by editing this file |
-| **Automation deliberately dialed back** | [`claude-code-review.yml`](.github/workflows/claude-code-review.yml) is `workflow_dispatch` only (disabled fleet-wide 2026-06-25) — not everything defaults to "on" |
+| **Automation deliberately dialed back** | Automated AI PR review was disabled fleet-wide on 2026-06-25 and its dispatch-only stub retired on 2026-10-06 ([last version](https://github.com/lentago/site-lentago-dev/blob/a040bd760c5e83273363f57409f8ecd5845cebef/.github/workflows/claude-code-review.yml)); CodeRabbit reviews as an advisory signal, never a gate. Not everything defaults to "on" |
 
 ## 🛠️ Make a change yourself
 
