@@ -46,7 +46,8 @@ palmate leaf holding a drop, **mitchella** the twin flowers on one ovary,
 the tip, **uvularia** a bell on an arching stem. The sharp-chip variants (cream
 + gold on a `#0e2b1a` ground, so the chip sits flush on the dark Suite surface)
 live in `public/marks/<genus>-mark-square.svg`; the first five anchor the rows
-of the `#work` Suite section. Canon lives in
+of the `#work` Suite section ([`src/components/Suite.jsx`](src/components/Suite.jsx)
+defines the row codenames). Canon lives in
 [`lentago/.github` → `brand/marks/`](https://github.com/lentago/.github/tree/main/brand/marks)
 (the first six were pulled in from the "Lentago Labs Design System" project;
 the rest are drawn there, under the rules in its `GRAMMAR.md`) — the copies
