@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" fill="none" role="img" aria-label="Asclepias">
+  <rect width="64" height="64" fill="#0e2b1a"></rect>
+  <ellipse cx="45" cy="47" rx="6.5" ry="4.2" stroke="#f3f0e8" stroke-width="2.2" transform="rotate(45 45 47)"></ellipse>
+  <path d="M40.4 42.4C40.51 40.35 41.4 34.2 41.04 30.12C40.69 26.03 38.72 19.93 38.26 17.89" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C40.06 40.24 39.48 33.68 38.35 29.46C37.22 25.24 34.41 19.15 33.62 17.09" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C39.57 40.24 37.38 33.62 35.42 29.42C33.46 25.22 29.78 19.24 28.65 17.2" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C39.07 40.35 35.2 34.09 32.39 30.07C29.58 26.06 25.01 20.28 23.54 18.32" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C38.57 40.57 33.09 35.09 29.44 31.44C25.79 27.79 20.31 22.31 18.48 20.48" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C38.35 41.07 32.09 37.2 28.07 34.39C24.06 31.58 18.28 27.01 16.32 25.54" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C38.24 41.57 31.62 39.38 27.42 37.42C23.22 35.46 17.24 31.78 15.2 30.65" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C38.24 42.06 31.68 41.48 27.46 40.35C23.24 39.22 17.15 36.41 15.09 35.62" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <path d="M40.4 42.4C38.35 42.51 32.2 43.4 28.12 43.04C24.03 42.69 17.93 40.72 15.89 40.26" stroke="#cdd6d0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="45" cy="47" r="2.4" fill="#E0A81C"></circle>
+</svg>
