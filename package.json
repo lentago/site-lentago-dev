@@ -13,9 +13,9 @@
     "test:a11y": "pa11y-ci --config pa11yci.config.json"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.5",
+    "@astrojs/react": "^7.0.0",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.1",
+    "astro": "^7.3.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
