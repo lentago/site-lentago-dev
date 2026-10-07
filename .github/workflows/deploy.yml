@@ -4,7 +4,7 @@
 #
 # Thin caller for the shared site-deploy reusable workflow. The full pipeline
 # (Astro build, Trivy scan, build-provenance attestation, ECS roll) lives in:
-#   lentago/shared-workflows/.github/workflows/site-deploy.yml @ v1.1.0
+#   lentago/shared-workflows/.github/workflows/site-deploy.yml @ v1.2.3
 #
 # This repo deploys the Astro static site as an nginx container to the
 # solidago platform (ECR repo: solidago-dev-lentago, ECS service:
@@ -29,7 +29,7 @@ jobs:
       contents: read
       attestations: write  # store build provenance in GitHub's attestation store
       packages: read       # required by actions/attest-build-provenance
-    uses: lentago/shared-workflows/.github/workflows/site-deploy.yml@v1.2.2
+    uses: lentago/shared-workflows/.github/workflows/site-deploy.yml@v1.2.3
     with:
       ecr_repo: solidago-dev-lentago
       ecs_cluster: solidago-dev-cluster
