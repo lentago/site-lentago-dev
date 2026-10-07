@@ -2,7 +2,7 @@
      Regenerate there; do not hand-edit the banner or badge URLs. -->
 <a href="https://lentago.dev"><img src="./assets/banner.svg" alt="site-lentago-dev — lentago.dev · the practice landing site" width="100%"></a>
 
-[![main](https://img.shields.io/github/check-runs/lentago/site-lentago-dev/main?style=flat-square&labelColor=0e2b1a&color=1b4b2e&label=main)](https://github.com/lentago/site-lentago-dev/actions) [![License](https://img.shields.io/github/license/lentago/site-lentago-dev?style=flat-square&labelColor=0e2b1a&color=1b4b2e)](https://github.com/lentago/site-lentago-dev/blob/main/LICENSE) [![Ask DeepWiki](https://img.shields.io/badge/Ask-DeepWiki-1b4b2e?style=flat-square&labelColor=0e2b1a&logo=readthedocs&logoColor=E0A81C)](https://deepwiki.com/lentago/site-lentago-dev)
+[![main](https://img.shields.io/github/check-runs/lentago/site-lentago-dev/main?style=flat-square&labelColor=0e2b1a&color=1b4b2e&label=main)](https://github.com/lentago/site-lentago-dev/actions) [![License](https://img.shields.io/github/license/lentago/site-lentago-dev?style=flat-square&labelColor=0e2b1a&color=1b4b2e)](https://github.com/lentago/site-lentago-dev/blob/main/LICENSE)
 
 ![Astro](https://img.shields.io/badge/Astro-1b4b2e?style=flat-square&labelColor=0e2b1a&logo=astro&logoColor=E0A81C) ![AWS](https://img.shields.io/badge/AWS-1b4b2e?style=flat-square&labelColor=0e2b1a&logo=amazonwebservices&logoColor=E0A81C) ![Terraform](https://img.shields.io/badge/Terraform-1b4b2e?style=flat-square&labelColor=0e2b1a&logo=terraform&logoColor=E0A81C) ![Design system](https://img.shields.io/badge/Design%20system-1b4b2e?style=flat-square&labelColor=0e2b1a)
 # site-lentago-dev — Lentago Labs landing site
@@ -22,21 +22,6 @@ the copy, and review the output; Claude writes the code, and the design system
 was authored in [Claude Design](https://claude.ai/design). I'm an infrastructure
 operator, not a software engineer or a designer — please don't read this repo as
 a portfolio of either.
-
-## 📚 Ask this codebase (DeepWiki)
-
-<a href="https://deepwiki.com/lentago/site-lentago-dev"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki" height="32"></a>
-
-> [DeepWiki](https://deepwiki.com/lentago/site-lentago-dev) maintains an AI-generated wiki over this
-> repository — architecture pages, diagrams, and a Q&A box grounded in the actual code. Every
-> public Lentago Labs repo is indexed ([deepwiki.com/lentago](https://deepwiki.com/lentago));
-> it is the fastest way to orient before reading source. It is AI-generated: trust it to orient
-> you, verify against the code before you act on it.
-
-**Good first questions:**
-- What happens in the GitHub Actions pipeline between a PR merging to main and the live site at lentago.dev updating?
-- Why does this repo not contain any Terraform, and where is the Route 53 / ACM infrastructure for lentago.dev actually defined?
-- How does the deploy workflow authenticate to AWS, and what changed when solidago's foundry-dev-* resources were renamed to solidago-dev-*?
 
 ## 🧭 What this repo demonstrates
 
@@ -130,5 +115,4 @@ repo contains no Terraform.
 🌱 **Lentago Labs** is a pro-bono operations practice for organizations that
 run on volunteers, donations, and one overworked tech person. Everything here
 is free to take, and we practice what we publish: our own estate runs this
-way, in the open. Start at the [org profile](https://github.com/lentago), and
-read this repo on [DeepWiki](https://deepwiki.com/lentago/site-lentago-dev).
+way, in the open. Start at the [org profile](https://github.com/lentago).
