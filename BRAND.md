@@ -34,15 +34,24 @@ for the geometry; the static `public/*.svg` files mirror it.
 
 ### Fleet genus marks
 
-Each fleet system carries its own **genus mark** — a sibling of the lentago
+Each codenamed product carries its own **genus mark** — a sibling of the lentago
 blossom on the same 64-grid (cream/limestone contour 2.2, filament 1.4, gold
 `#E0A81C` anthers, one gold accent per mark): **solidago** the upright panicle,
 **drosera** the dew-tipped rosette, **betula** the bark lenticels, **claytonia**
-the notched petals with gold veins, **kalmia** the pentagonal corolla. The
-sharp-chip variants (cream + gold on a `#0e2b1a` ground, so the chip sits flush
-on the dark Suite surface) live in `public/marks/<genus>-mark-square.svg` and
-anchor each row of the `#work` Suite section. They are canon from the "Lentago
-Labs Design System" project (`assets/marks/`) — pulled in, not redrawn.
+the notched petals with gold veins, **kalmia** the pentagonal corolla,
+**asclepias** a seed adrift on its floss, **brasenia** a colony of floating
+leaves, **epigaea** a flower cluster over leathery leaves, **lupinus** the
+palmate leaf holding a drop, **mitchella** the twin flowers on one ovary,
+**monarda** the shaggy head on a bract ruff, **osmunda** a frond unrolling at
+the tip, **uvularia** a bell on an arching stem. The sharp-chip variants (cream
++ gold on a `#0e2b1a` ground, so the chip sits flush on the dark Suite surface)
+live in `public/marks/<genus>-mark-square.svg`; the first five anchor the rows
+of the `#work` Suite section ([`src/components/Suite.jsx`](src/components/Suite.jsx)
+defines the row codenames). Canon lives in
+[`lentago/.github` → `brand/marks/`](https://github.com/lentago/.github/tree/main/brand/marks)
+(the first six were pulled in from the "Lentago Labs Design System" project;
+the rest are drawn there, under the rules in its `GRAMMAR.md`) — the copies
+here are pulled in, not redrawn, with the chip's rounded corners squared off.
 
 ## Palette — "Tidewater"
 
