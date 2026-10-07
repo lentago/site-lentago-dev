@@ -12,7 +12,7 @@ export function ServicesGrid() {
   const gh = "https://github.com/lentago";
   const offerings = [
     { num: "01", tag: "PUBLIC RECORD", title: "A public record your community can trust", status: "ok",
-      desc: "Your minutes, bylaws, notices, and policies kept as plain files in a repository your organization owns, with the rules about what must be posted and when kept right next to them. Merge a change and the records publish, a public \"Is it posted?\" board updates, and every publish leaves a stamped receipt. Stood up from two templates in about half an hour, on a free GitHub account; the grounded Ask box that answers only from those records is the next phase.",
+      desc: "Your minutes, bylaws, notices, and policies kept as plain files in a repository your organization owns, with the rules about what must be posted and when kept right next to them. Merge a change and the records publish, a public \"Is it posted?\" board updates, and every publish leaves a stamped receipt. One repository from one template, on a free GitHub account; a branded site, a grounded Ask box that answers only from those records, and an operator pane are optional further rungs.",
       meta: ["Markdown vault", "obligations-as-code", "live board", "receipts"],
       receipt: { label: "lentago/uvularia", href: `${gh}/uvularia` } },
     { num: "02", tag: "PLATFORM", title: "Cloud you own, not rent", status: "ok",
