@@ -37,8 +37,8 @@
   .ll-stack     { grid-template-columns: 1fr !important; }
   .ll-stack-gap { gap: 36px !important; }   /* companion for grids whose 64–72px desktop gap is too tall stacked */
 
-  /* Suite rows: codename → description → runs-on, stacked */
-  .ll-suite-row { gap: 16px !important; padding: 28px 0 !important; }
+  /* Suite map: promise cards stack one per row; tighter gap stacked */
+  .ll-promise-grid { gap: 12px !important; }
 
   /* Principles: kill the column-position padding/border logic when stacked */
   .ll-principle { padding: 28px 0 !important; border-right: none !important; }

@@ -10,7 +10,7 @@ export const AVAILABILITY_STATE = 'available'; // 'available' | 'limited' | 'boo
 export const showStatusStrip = false; // false → hide the ops band under the hero. Off since 2026-09-30:
                                       // its values were illustrative, not live, and a site built on
                                       // receipts shouldn't label a mock-up LIVE. Wire real data before re-enabling.
-export const showRoadmap = true;      // false → hide each system's "first → next" line
+export const showRoadmap = true;      // false → hide each promise's "next:" line (projected work in the #systems map)
 
 // Compute current quarter at build time — no hand-bumped date literals.
 const _d = new Date();
