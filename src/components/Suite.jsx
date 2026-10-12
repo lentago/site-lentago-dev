@@ -133,7 +133,7 @@ const FREE = [
   "a free GitHub organization",
   "Grafana Cloud free",
   "a payment processor's hosted page",
-  "Google Workspace for Nonprofits or Microsoft 365 nonprofit pricing",
+  "Google Workspace for Nonprofits or Microsoft 365's free nonprofit plan",
   "Apple Business",
   "Slack for Nonprofits",
   "your own hardware",
