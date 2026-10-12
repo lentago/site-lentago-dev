@@ -21,12 +21,12 @@ const issue = (repo, n) => `${gh}/${repo}/issues/${n}`;
 // Tiers copied from lentago/lupinus guide/tiers.md on 2026-10-12. That file is
 // the ONLY source of truth for a part's tier; re-copy from it, never decide a
 // tier here. Where it lists two rows for one repo, both are shown with the
-// row's scope. uvularia has no row there yet (lentago/lupinus#24), so it shows no tier.
+// row's scope. uvularia's row landed in lentago/lupinus#25 (re-copied the same day).
 const KIT = "Kit", PLATFORM = "Platform", PATTERN = "Pattern";
 
 const PARTS = {
   monarda:   { role: "campaign page",         tiers: [[KIT]] },
-  uvularia:  { role: "records and deadlines", tiers: [] },
+  uvularia:  { role: "records and deadlines", tiers: [[KIT]] },
   kalmia:    { role: "machine setup",         tiers: [[KIT, "workstations"], [PATTERN, "Proxmox guests"]] },
   drosera:   { role: "alerts and status",     tiers: [[KIT, "status page"], [PATTERN, "full stack"]] },
   betula:    { role: "capture and keep",      tiers: [[PATTERN]] },
