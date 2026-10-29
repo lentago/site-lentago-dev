@@ -1,0 +1,118 @@
+# ============================================================================
+# Claude Code — Automated PR Review (advisory)
+# ============================================================================
+# Thin wrapper around lentago/shared-workflows/claude-review.yml, per
+# lentago/.github ADR-0013. This file is copied from repo-template's: only the
+# review_prompt differs per repo.
+#
+# - Runs when a PR is opened or marked ready for review, and again when it is
+#   labelled `re-review` (Haiku) or `review:sonnet` (Sonnet). It does NOT run on
+#   every push: it shares the fleet's Claude subscription with the bullpen.
+# - Advisory, never a required status check (shared-workflows ADR-0003). The
+#   gate is the arming rule: don't arm until a review has posted and every
+#   finding is triaged on the PR (shared-workflows CLAUDE.md, Auto-merge
+#   arming). A "could not complete" soft-fail comment is not a review —
+#   label `re-review`.
+# - After a labelled run, `clear-label` removes the label so adding it again
+#   triggers again.
+# - A PR that adds or changes THIS file is not reviewed by it: the Claude Code
+#   action skips unless the workflow is identical to the default branch's copy,
+#   and the reusable workflow (v1.5.0+) posts a "not a review" notice instead.
+#   Review such PRs locally and post the result as "Review (Haiku, local)"
+#   (ADR-0013 Decision 2).
+# - Dependabot PRs are skipped: Dependabot runs don't receive Actions secrets,
+#   so the required token would fail the call. Review a bump locally if it
+#   warrants one.
+# - Drafts are skipped (by the reusable workflow) and keep their trigger label
+#   until they are ready.
+# ============================================================================
+
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, labeled]
+
+jobs:
+  review:
+    if: >-
+      github.actor != 'dependabot[bot]' &&
+      github.event.pull_request.draft == false &&
+      (github.event.action != 'labeled' ||
+       github.event.label.name == 're-review' ||
+       github.event.label.name == 'review:sonnet')
+    # One review at a time per PR: a re-label during a running review queues
+    # behind it instead of posting a duplicate.
+    concurrency:
+      group: claude-review-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    uses: lentago/shared-workflows/.github/workflows/claude-review.yml@v1.5.0
+    secrets: inherit
+    with:
+      model: ${{ github.event.label.name == 'review:sonnet' && 'sonnet' || 'haiku' }}
+      review_prompt: |
+        This repository is the Lentago Labs landing site (lentago.dev): a
+        single-page Astro static site whose React components render at build
+        time only, served by nginx on ECS Fargate through the solidago platform
+        and deployed by GitHub OIDC on every push to main. Focus your review on:
+
+        - **Static output**: no `client:*` directive and no React shipped to the
+          browser; the built `dist/index.html` must contain no `<script>` tag.
+          Hover and pulse effects must be CSS, not JS. The contact form is a
+          native HTML `POST` to Formspree (endpoint and copy in `src/config.js`,
+          redirect at `src/pages/thanks.astro`), so flag anything that adds
+          client-side form handling.
+        - **Brand fidelity**: follow `/BRAND.md` and the tokens in
+          `public/design-system/`. Palette is forest-teal, anther gold
+          (`#E0A81C`) and limestone; gold is an accent, one element per region,
+          and text on a gold fill is dark (`--color-on-accent`), never white.
+          Type is self-hosted Space Grotesk and JetBrains Mono. Terminal mocks
+          use the gold ▲ and `lentago`, not `$` or `>`. Copy is load-bearing,
+          so flag paraphrased headlines or principles.
+        - **Deploy and container wiring**: `deploy.yml`, `Dockerfile` and
+          `nginx.conf` must target the `solidago-dev-*` ECR repo, ECS cluster
+          and service (the old `foundry-dev-*` names no longer exist), use the
+          OIDC role with no long-lived AWS credentials, and keep nginx on :8080
+          with `/health` returning 200 for the ALB. Pinned action SHAs and the
+          `nginx` digest must stay pinned. Node must stay at >=22.12 (the
+          `package.json` engines floor) for Astro 7.
+        - **nginx security headers**: `nginx-security-headers.conf` is included
+          at server scope and re-included in every `location` that sets its own
+          `add_header`, because nginx does not inherit `add_header` into such a
+          scope. Flag a new `location` that drops the headers.
+        - **Accessibility and semantics**: real landmarks, alt text, labelled
+          form controls, heading order and visible focus styles. The `A11y` job
+          (pa11y-ci with axe) is not yet required and ignores `color-contrast`,
+          so check contrast by reasoning about the tokens.
+        - **Links and hygiene**: GitHub links point to the real `github.com/lentago`
+          org and existing repos (there is no `LentagoLabs` org), the founder
+          credit is intentional, no secrets or prototype scaffolding reach the
+          served site, and `public/design-system/` paths resolve.
+
+  clear-label:
+    needs: review
+    if: >-
+      always() && github.event.action == 'labeled' &&
+      github.event.pull_request.draft == false &&
+      (github.event.label.name == 're-review' || github.event.label.name == 'review:sonnet')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Remove the trigger label so it can be added again
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          LABEL: ${{ github.event.label.name }}
+        # REST, not `gh pr edit`: the GraphQL path can trip on PR project
+        # fields with GITHUB_TOKEN, and a label left behind would make the
+        # next re-add a no-op (no `labeled` event).
+        run: |
+          enc=$(jq -rn --arg l "$LABEL" '$l|@uri')
+          gh api --method DELETE "repos/$REPO/issues/$PR/labels/$enc" >/dev/null
