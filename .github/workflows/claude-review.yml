@@ -79,8 +79,8 @@ jobs:
           and service (the old `foundry-dev-*` names no longer exist), use the
           OIDC role with no long-lived AWS credentials, and keep nginx on :8080
           with `/health` returning 200 for the ALB. Pinned action SHAs and the
-          `nginx` digest must stay pinned. Node must stay at 22 or newer for
-          Astro 7.
+          `nginx` digest must stay pinned. Node must stay at >=22.12 (the
+          `package.json` engines floor) for Astro 7.
         - **nginx security headers**: `nginx-security-headers.conf` is included
           at server scope and re-included in every `location` that sets its own
           `add_header`, because nginx does not inherit `add_header` into such a
