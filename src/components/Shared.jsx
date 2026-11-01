@@ -283,37 +283,45 @@ function fieldStyle(terminal, extra) {
   };
 }
 
-function FieldLabel({ label, htmlFor, terminal }) {
+// `label` is the task text a screen reader announces ("Your email"). `flag` is
+// optional terminal decoration ("--email=") drawn after it and hidden from
+// assistive tech, so the field-station look survives without being the name.
+function FieldLabel({ label, flag, htmlFor, terminal }) {
   if (!label) return null;
   return (
     <label htmlFor={htmlFor} style={{
-      display: "block", marginBottom: 6,
+      display: "flex", flexWrap: "wrap", alignItems: "baseline", columnGap: 10, marginBottom: 6,
       fontFamily: "var(--font-mono)", fontSize: 11,
       textTransform: "uppercase", letterSpacing: "0.06em",
-      color: terminal ? "var(--color-on-dark-faint)" : "var(--fg2)",
-    }}>{label}</label>
+      color: terminal ? "var(--color-on-dark-soft)" : "var(--fg2)",
+    }}>
+      <span>{label}</span>
+      {flag && (
+        <span aria-hidden="true" style={{ color: terminal ? "var(--color-on-dark-faint)" : "var(--fg3)" }}>{flag}</span>
+      )}
+    </label>
   );
 }
 
-export function Input({ label, id, terminal = false, style, ...rest }) {
+export function Input({ label, flag, id, terminal = false, style, ...rest }) {
   return (
     <div>
-      <FieldLabel label={label} htmlFor={id} terminal={terminal} />
+      <FieldLabel label={label} flag={flag} htmlFor={id} terminal={terminal} />
       <input id={id} style={fieldStyle(terminal, style)} {...rest} />
     </div>
   );
 }
 
-export function Textarea({ label, id, terminal = false, rows = 4, style, ...rest }) {
+export function Textarea({ label, flag, id, terminal = false, rows = 4, style, ...rest }) {
   return (
     <div>
-      <FieldLabel label={label} htmlFor={id} terminal={terminal} />
+      <FieldLabel label={label} flag={flag} htmlFor={id} terminal={terminal} />
       <textarea id={id} rows={rows} style={fieldStyle(terminal, { resize: "vertical", minHeight: 80, ...style })} {...rest} />
     </div>
   );
 }
 
-export function Select({ label, id, terminal = false, options = [], children, style, ...rest }) {
+export function Select({ label, flag, id, terminal = false, options = [], children, style, ...rest }) {
   const base = terminal
     ? {
         background: "var(--color-term-bg-sunk)",
@@ -332,7 +340,7 @@ export function Select({ label, id, terminal = false, options = [], children, st
   const chevron = terminal ? "%23f3f0e8" : "%235c6b66";
   return (
     <div>
-      <FieldLabel label={label} htmlFor={id} terminal={terminal} />
+      <FieldLabel label={label} flag={flag} htmlFor={id} terminal={terminal} />
       <select id={id} style={{
         width: "100%", borderRadius: "var(--r-sm)", outline: "none",
         appearance: "none", WebkitAppearance: "none",

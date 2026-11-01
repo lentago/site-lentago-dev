@@ -27,15 +27,15 @@ export function Contact() {
           <p style={{ fontSize: 18, color: "var(--color-on-dark-soft)", lineHeight: 1.55, margin: "0 0 40px", maxWidth: 480 }}>
             No invoice if you're a nonprofit, a volunteer-run org, or the one
             person keeping the lights on somewhere. If you know what you need,
-            send the repo. If you don't, send the symptoms. Either way you'll
-            hear back inside a day.
+            send the repo. If you don't, send the symptoms. We usually reply
+            within a business day.
           </p>
           <div style={{ display: "grid", gap: 20, maxWidth: 480 }}>
             {[
               { k: "Email", v: "chris@lentago.dev", href: "mailto:chris@lentago.dev" },
               { k: "GitHub", v: "github.com/lentago", href: "https://github.com/lentago" },
               { k: "Signal", v: "available on request" },
-              { k: "Response", v: "< 24h on weekdays" },
+              { k: "Response", v: "usually within a business day" },
             ].map(row => (
               <div key={row.k} className="ll-contact-row" style={{ display: "grid", gridTemplateColumns: "120px 1fr", paddingBottom: 16, borderBottom: "1px solid rgba(243,240,232,0.1)", alignItems: "baseline" }}>
                 <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--color-on-dark-faint)", letterSpacing: "0.08em", textTransform: "uppercase" }}>{row.k}</span>
@@ -67,15 +67,17 @@ export function Contact() {
             <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true"
                    style={{ display: "none" }} />
 
-            <Input terminal id="consult-name" name="name" required
-              label="▲ lentago ./new-consult --your=" placeholder="name" />
-            <Input terminal id="consult-email" name="email" type="email" required
-              label="--email=" placeholder="you@yourorg.org" />
-            <Select terminal id="consult-scope" name="scope" label="--scope="
+            {/* label = the task a screen reader announces; flag = terminal
+                decoration, aria-hidden (site-lentago-dev#111). */}
+            <Input terminal id="consult-name" name="name" required autoComplete="name"
+              label="Your name" flag="▲ lentago ./new-consult --your=" placeholder="name" />
+            <Input terminal id="consult-email" name="email" type="email" required autoComplete="email"
+              label="Your email" flag="--email=" placeholder="you@yourorg.org" />
+            <Select terminal id="consult-scope" name="scope" label="What kind of help?" flag="--scope="
               options={["not-sure-yet", "cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
             <Textarea terminal id="consult-symptoms" name="message" required rows={3}
-              label="--symptoms <<EOF" placeholder="Our donor site lives on a volunteer's personal account. Nobody knows the DNS login." />
-            <button type="submit" style={{
+              label="What is happening?" flag="--symptoms <<EOF" placeholder="Our donor site lives on a volunteer's personal account. Nobody knows the DNS login." />
+            <button type="submit" aria-label="Send your message" style={{
               marginTop: 8, width: "100%", background: "var(--color-accent)", color: "var(--color-on-accent)",
               border: 0, padding: "12px 18px", borderRadius: "var(--r-md)",
               fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 500,
@@ -85,6 +87,13 @@ export function Contact() {
               <span>./send --priority=normal</span>
               <span>↵</span>
             </button>
+            {/* Processor + credentials note (site-lentago-dev#111). */}
+            <p style={{ margin: "4px 0 0", fontSize: 11.5, lineHeight: 1.6, color: "var(--color-on-dark-faint)" }}>
+              <span aria-hidden="true"># </span>
+              <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer"
+                 style={{ color: "var(--color-on-dark-soft)" }}>Formspree</a> processes
+              this form and emails it to us. Please don't send passwords or keys.
+            </p>
           </form>
         </div>
       </div>
