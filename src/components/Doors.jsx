@@ -5,10 +5,12 @@ import { AVAILABILITY_STATE, showRoadmap } from "../config.js";
 // Need-based doors (site-lentago-dev#112, from the 2026-11-01 external review,
 // lentago/.github#304). A director arrives with one need, not a product name, so
 // three doors sit between the hero and the catalog (offerings + suite map) and
-// say, in the visitor's words, where to start. Source of truth for each door is
-// the lentago/lupinus picker (guide/picker.md): the product, cost per month and
-// tier come from its rows. Tiers are read from PARTS in Suite.jsx, which copies
-// lupinus guide/tiers.md, so the doors and the map can never disagree.
+// say, in the visitor's words, where to start. The parts behind the doors
+// (monarda, uvularia, the lock-in ledger) and their monthly cost come from the
+// lentago/lupinus picker (guide/picker.md). The operations review itself is the
+// hands-on audit from the Bespoke shelf, not a picker row. Tiers are read from
+// PARTS in Suite.jsx, which copies lupinus guide/tiers.md, so the doors and the
+// map can never disagree; a tier is never decided here.
 //
 // Each door keeps what works today apart from what is planned. The "planned"
 // line is projected work and follows the same showRoadmap gate as the map's
@@ -64,6 +66,7 @@ const DOORS = [
     part: "ledger",
     readiness: tierOf("ledger").map(t => `${t} · lock-in ledger`),
     cost: "$0 for nonprofits and volunteer-run orgs",
+    receipt: { label: "pending", href: `${gh}/lupinus/blob/main/guide/tiers.md#where-each-product-stands` },
     links: [
       { label: "Send the symptoms", href: "#contact", internal: true },
     ],
@@ -173,9 +176,9 @@ export function Doors() {
         </div>
 
         <p style={{ fontSize: 13.5, color: "var(--fg2)", margin: "24px 0 0", lineHeight: 1.6, maxWidth: 760 }}>
-          Every door comes from the{" "}
-          <a href={`${gh}/lupinus/blob/main/guide/picker.md`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-ink)", textUnderlineOffset: 3 }}>picker in the guide ↗</a>,
-          which lists the rest. Everything you adopt runs in accounts you own; we host nothing.
+          The parts behind these doors, and the rest, are in the{" "}
+          <a href={`${gh}/lupinus/blob/main/guide/picker.md`} target="_blank" rel="noopener noreferrer" style={{ color: "var(--color-ink)", textUnderlineOffset: 3 }}>picker in the guide ↗</a>.
+          Everything you adopt runs in accounts you own; we host nothing.
         </p>
       </div>
     </section>
