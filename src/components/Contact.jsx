@@ -77,7 +77,7 @@ export function Contact() {
               options={["not-sure-yet", "cost-and-posture-audit", "platform-engineering", "incident-oncall-setup", "ci-cd-supply-chain", "other"]} />
             <Textarea terminal id="consult-symptoms" name="message" required rows={3}
               label="What is happening?" flag="--symptoms <<EOF" placeholder="Our donor site lives on a volunteer's personal account. Nobody knows the DNS login." />
-            <button type="submit" style={{
+            <button type="submit" aria-label="Send your message" style={{
               marginTop: 8, width: "100%", background: "var(--color-accent)", color: "var(--color-on-accent)",
               border: 0, padding: "12px 18px", borderRadius: "var(--r-md)",
               fontFamily: "var(--font-mono)", fontSize: 13, fontWeight: 500,
