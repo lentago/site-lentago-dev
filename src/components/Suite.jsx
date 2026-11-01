@@ -24,7 +24,7 @@ const issue = (repo, n) => `${gh}/${repo}/issues/${n}`;
 // row's scope. uvularia's row landed in lentago/lupinus#25 (re-copied the same day).
 const KIT = "Kit", PLATFORM = "Platform", PATTERN = "Pattern";
 
-const PARTS = {
+export const PARTS = {
   monarda:   { role: "campaign page",         tiers: [[KIT]] },
   uvularia:  { role: "records and deadlines", tiers: [[KIT]] },
   kalmia:    { role: "machine setup",         tiers: [[KIT, "workstations"], [PATTERN, "Proxmox guests"]] },
