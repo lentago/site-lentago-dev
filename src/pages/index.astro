@@ -9,6 +9,7 @@ import Layout from '../layouts/Layout.astro';
 import { NavBar } from '../components/Nav.jsx';
 import { HeroDark } from '../components/Hero.jsx';
 import { StatusStrip } from '../components/StatusStrip.jsx';
+import { Doors } from '../components/Doors.jsx';
 import { ServicesGrid } from '../components/Services.jsx';
 import { Pledge } from '../components/Pledge.jsx';
 import { Suite } from '../components/Suite.jsx';
@@ -26,6 +27,7 @@ const buildVersion = new Date().toISOString().slice(0, 10).replace(/-/g, '.');
   <NavBar active="Practice" />
   <HeroDark />
   <StatusStrip />
+  <Doors />
   <ServicesGrid />
   <Pledge />
   <Suite />
