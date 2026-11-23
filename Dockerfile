@@ -8,7 +8,7 @@
 # Docker's only job: package the output into a serving container.
 
 # nginx:latest
-FROM nginx@sha256:165ddde8751e75a1c907d24ef10d9f6deb08b57e0fe56caf67512486aff76d82
+FROM nginx@sha256:84f7876d21d154885f99554d7ae325d8c2213f9169726ea7ab60642f2573a787
 
 # Copy the nginx config (port 8080, /health endpoint, clean URLs)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
